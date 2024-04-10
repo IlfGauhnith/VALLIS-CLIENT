@@ -2,9 +2,20 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Projeto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Login</title>
+    <link rel="stylesheet" type="text/css" href="Public/StyleLogin.css">
 </head>
-<body style="background-color: #7f5539;"> 
-    <h1>Echo!!</h1>
+<body> 
+    <div class="container__login">
+        <h1>Login</h1>
+        <form action="#" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
