@@ -1,94 +1,109 @@
-
 body {
-    margin: 0;
-    padding: 0;
-    background-color:#7f5539;
-    
- }
+  margin: 0;
+  padding: 0;
+  background-color: #7f5539;
+  font-size: 16px; /* Tamanho da fonte base */
+}
 
- .fredoka__fonts {
-   font-family: "Fredoka", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: 400;
-   font-style: normal;
- }
+.fredoka__fonts {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 
- .logo__vallis {
-  display: flex;
-  justify-content: center;
-  margin: 2vh;
- }
 
- .conteiner__login {
+@media screen and (min-width: 400px) and (min-height: 180px) and  (max-width: 12288px) and (max-height: 6480px) {
+  
+  .logo__vallis {
+    display: flex;
+    justify-content: center;
+    margin: 1vh;
+  }
+  
+  .conteiner__login {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90vh;
     flex-direction: column;
- }
-
- .login__fonte{
-   font-size: 100px;
-   color: #ddb892;
-   margin: 20px;
-
- }
-
- .user__name, .pass__word {
-    width: 500px;
-    height: 60px;
-    border-radius: 20px;
+    animation: animation__login 1s ease-out;
+  }
+  
+  @keyframes animation__login {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  .login__fonte {
+    font-size: 6rem;
+    color: #ddb892;
+    margin: 1.25rem;
+  }
+  
+  .user__name,
+  .pass__word {
+    width: 31.25rem;
+    height: 3.75rem;
+    border-radius: 1.25rem;
     border: none;
     outline: none;
-    margin: 6px;
+    margin: 0.375rem;
     background-color: #ddb892;
-    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  
+  .user__name::placeholder,
+  .pass__word::placeholder {
+    background-color: #ddb892;
+    color: #ede0d4;
+  }
+  
+  .alinhamento__botoes {
+    display: flex;
+    justify-content: space-between;
+    width: 31.25rem;
+    height: 1.875rem;
+    margin: 0.375rem;
+  }
+  
+  .esqueceu__senha {
+    width: 12.5rem;
+    height: 1.5625rem;
+    border: none;
+    outline: none;
+    background-color: #7f5539;
+    color: #ede0d4;
+    font-size: 1.25rem;
+  }
+  
+  .submit__button {
+    width: 9.375rem;
+    height: 3.75rem;
+    border-radius: 1.25rem;
+    border: none;
+    margin: 0.375rem;
+    outline: none;
+    background-color: #9c6644;
+    color: #ede0d4;
+    font-size: 1.25rem;
+  }
+  
+  .novo__registro {
+    width: 11.875rem;
+    height: 1.5625rem; 
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: #7f5539;
+    color: #ede0d4;
+    font-size: 1.25rem;
+  }
 
- }
-
- .user__name::placeholder, .pass__word::placeholder {
-   background-color: #ddb892;
-   color: #ede0d4;
- }
-
- .alinhamento__botoes {
-  display: flex;
-  justify-content: space-between;
-  width: 500px;
-  height: 30px;
-  margin: 6px;
- }
-
- .esqueceu__senha{
-  width: 200px;
-  height: 25px;
-  border: none;
-  outline: none;
-  background-color: #7f5539;
-  color: #ede0d4;
-  font-size: 20px;
- }
-
- .submit__button {
-   width: 150px;
-   height: 60px;
-   border-radius: 20px;
-   border: none;
-   margin: 6px;
-   outline: none;
-   background-color: #9c6644;
-   color: #ede0d4;
-   font-size: 20px;
-   
- }
-
- .novo__registro {
-  width: 190px;
-  height: 25px;
-  padding: 0%;
-  border: none;
-  outline: none;
-  background-color: #7f5539;
-  color: #ede0d4;
-  font-size: 20px;
- }
+}
