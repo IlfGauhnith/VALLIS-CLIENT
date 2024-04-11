@@ -6,16 +6,24 @@
     <title>Pagina Login</title>
     <link rel="stylesheet" type="text/css" href="Public/StyleLogin.css">
 </head>
-<body> 
-    <div class="container__login">
-        <h1>Login</h1>
-        <form action="#" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+<body class="fredoka__fonts"> 
+    <div class="logo__vallis">
+        <img src="../Vallis/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
+    </div>
+    <div class="conteiner__login">
+        <div class="login__fonte">Login</div>
+        <form style="display: flex; flex-direction: column;" action="#" method="post">
+            <label for="username"></label>
+            <input class="user__name" type="text" id="username" name="username" required placeholder="                                       Usuário                                  ">
+            <label for="password"></label>
+            <input class="pass__word" type="password" id="password" name="password" required placeholder="                                       Senha                                  ">
+            <div class="alinhamento__botoes">
+                <button class="esqueceu__senha"formnovalidate >Esqueceu a senha?</button>
+                <button class="submit__button" type="submit">Entrar</button>
+            </div>
+            <button class="novo__registro" formnovalidate >Não é registrado?</button>
         </form>
+        
     </div>
 </body>
 </html>

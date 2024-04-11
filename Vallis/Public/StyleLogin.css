@@ -3,14 +3,92 @@ body {
     margin: 0;
     padding: 0;
     background-color:#7f5539;
-
     
  }
 
- .container__login {
+ .fredoka__fonts {
+   font-family: "Fredoka", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+ }
+
+ .logo__vallis {
+  display: flex;
+  justify-content: center;
+  margin: 2vh;
+ }
+
+ .conteiner__login {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     flex-direction: column;
+ }
+
+ .login__fonte{
+   font-size: 100px;
+   color: #ddb892;
+   margin: 20px;
+
+ }
+
+ .user__name, .pass__word {
+    width: 500px;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin: 6px;
+    background-color: #ddb892;
+    font-size: 20px;
+
+ }
+
+ .user__name::placeholder, .pass__word::placeholder {
+   background-color: #ddb892;
+   color: #ede0d4;
+ }
+
+ .alinhamento__botoes {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 30px;
+  margin: 6px;
+ }
+
+ .esqueceu__senha{
+  width: 200px;
+  height: 25px;
+  border: none;
+  outline: none;
+  background-color: #7f5539;
+  color: #ede0d4;
+  font-size: 20px;
+ }
+
+ .submit__button {
+   width: 150px;
+   height: 60px;
+   border-radius: 20px;
+   border: none;
+   margin: 6px;
+   outline: none;
+   background-color: #9c6644;
+   color: #ede0d4;
+   font-size: 20px;
+   
+ }
+
+ .novo__registro {
+  width: 190px;
+  height: 25px;
+  padding: 0%;
+  border: none;
+  outline: none;
+  background-color: #7f5539;
+  color: #ede0d4;
+  font-size: 20px;
  }
