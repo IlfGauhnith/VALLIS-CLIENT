@@ -1,20 +1,28 @@
-import ('../sha512.js')
-  .then(() => {
-    // O arquivo foi importado com sucesso.
-  })
-  .catch((error) => {
-    console.error('Ocorreu um erro ao importar o script:', error);
-  });
+function submit__button() {
+    let nome_usuario = document.getElementById('username').value;
+    let senha_usuario = document.getElementById('password').value;
+    async function sha512() { 
+    }
+    async function validateLogin() {
+      try {
+        const hash_senha_usuario = await sha512(senha_usuario);
+        alert("Hash SHA-512:", hash_senha_usuario + " " + nome_usuario);
+       
+      } catch (error) {
+        console.error('Error generating hash:', error);
+        
+      }
+    }
+    validateLogin();
+    
+  }
+  
+        
+ 
+// var sha512_senha_usuario =SHA512(senha_usuario).toString(enc.Hex);
 
-//function submit__button() {
 
-//    let nome_usuario = "junk-lab";
-//  let senha_usuario = "3451";
-//  var sha512_senha_usuario =SHA512(senha_usuario).toString(enc.Hex);
-//    var base64_sha512_senha_usuario = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Hex.parse(sha512_senha_usuario));
-//    var hash_senha = CryptoJS.enc.Utf8.parse(base64_sha512_senha_usuario);
-
-//   console.log(nome_usuario + " " + sha512_senha_usuario)
+//  alert(nome_usuario + " " + senha_usuario)
     
  /*   const url = 'https://hzw2e5rbie.execute-api.sa-east-1.amazonaws.com/dev/logar';
     const data = {
@@ -47,6 +55,7 @@ import ('../sha512.js')
         alert('Ocorreu um erro na requisição.');
     });
 */
-//}
 
 
+//    var base64_sha512_senha_usuario = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Hex.parse(sha512_senha_usuario));
+//    var hash_senha = CryptoJS.enc.Utf8.parse(base64_sha512_senha_usuario);
