@@ -1,13 +1,16 @@
+
 async function submitbutton() {
     const nome_usuario = document.getElementById('username').value;
-    const sha512_senha_usuario = await SHA512(document.getElementById('password').value);
-    if (nome_usuario && sha512_senha_usuario ) {
-        const base64_sha512_senha_usuario = btoa(hexToBytes(sha512_senha_usuario));
-        const utf8_base64_sha512_senha_usuario = Base64UTF8(base64_sha512_senha_usuario);
-        alert("Usuário: " + nome_usuario + " | Hase (SHA512):  " + sha512_senha_usuario + " | Hash (Base64): " + base64_sha512_senha_usuario + " | Senha (UTF-8): " + utf8_base64_sha512_senha_usuario);
+   const senha_usuario = document.getElementById('password').value;
+    if (nome_usuario && senha_usuario) {
+        const sha512_senha_usuario = await SHA512(senha_usuario);
+   
+        alert("Usuário: " + nome_usuario + " | salt " + " | Hase (SHA512):  " + sha512_senha_usuario );
     } else {
         alert("Por favor, preencha todos os campos!");
     }
+
+
 }
 
 async function SHA512(str) {
@@ -18,6 +21,81 @@ async function SHA512(str) {
     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     return hashHex;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+ //    const base64_sha512_senha_usuario = btoa(hexToBytes(sha512_senha_usuario));
+ //    const utf8_base64_sha512_senha_usuario = Base64UTF8(base64_sha512_senha_usuario);
+
 
 function hexToBytes(hex) {
     const bytes = new Uint8Array(hex.length / 2);
@@ -37,38 +115,9 @@ function Base64UTF8(base64) {
     }
     return new TextDecoder().decode(bytes);
 }
+*/
 
-//************************************* API REST SECTOR ************************************
 
-   const url = 'https://hzw2e5rbie.execute-api.sa-east-1.amazonaws.com/dev/logar';
-    const data = {
-        nome_usuario: nome_usuario,
-        base64_hash_senha: base64_sha512_senha_usuario
-    };
 
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro na requisição');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data && data.token) {
-            alert('Token JWT: ' + data.token);
-        } else {
-            throw new Error('Token JWT não encontrado.');
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Ocorreu um erro na requisição.');
-    });
 
 
