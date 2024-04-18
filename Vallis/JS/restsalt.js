@@ -1,8 +1,6 @@
 
 //************************************* API REST SECTOR SALT ************************************
 
-import axios from 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js';
-
 async function handleLogin(username) {
     try {
       const response = await axios.post('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/usuario/salt', {
