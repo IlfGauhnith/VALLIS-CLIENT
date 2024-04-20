@@ -82,6 +82,17 @@ body {
     color: #ede0d4;
     font-size: 1.25rem;
   }
+
+  .esqueceu__senha:hover {
+    width: 12.5rem;
+    height: 1.5625rem;
+    border: none;
+    outline: none;
+    background-color: #7f5539;
+    color: #ede0d4;
+    font-size: 1.329rem;
+    cursor: pointer;
+  }
   
   .submit__button {
     width: 9.375rem;
@@ -95,6 +106,20 @@ body {
     font-size: 1.25rem;
   }
   
+  .submit__button:hover {
+    width: 9.875rem;
+    height: 3.950rem;
+    border-radius: 1.25rem;
+    border: none;
+    margin: 0.275rem;
+    outline: none;
+    background-color: #9c6644;
+    color: #ede0d4;
+    font-size: 1.25rem;
+    cursor: pointer;
+     
+  }
+
   .novo__registro {
     width: 11.875rem;
     height: 1.5625rem; 
@@ -104,6 +129,23 @@ body {
     background-color: #7f5539;
     color: #ede0d4;
     font-size: 1.25rem;
+
+    
   }
 
+  .novo__registro:hover {
+    width: 11.875rem;
+    height: 1.5625rem; 
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: #7f5539;
+    color: #ede0d4;
+    font-size: 1.33rem;
+    cursor: pointer;
+
+  }
+
+
 }
+

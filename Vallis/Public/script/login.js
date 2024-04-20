@@ -6,6 +6,12 @@ async function submitbutton() {
     const hash_senha = await SHA512 (senha_usuario);
     const hash_senha_array = CryptoJS.enc.Utf8.parse(hash_senha);
 
+        document.body.style.cursor = 'wait';
+    const salt = await getSalt(nome_usuario);
+    if (!salt) {
+        document.body.style.cursor = 'default';
+            return;
+
     const salt = await getSalt(nome_usuario);
         if (!salt) {
         alert('Erro ao obter salt.');
@@ -25,6 +31,7 @@ async function submitbutton() {
     else 
         alert("Por favor, preencha todos os campos!");
 
+    }
 }
 
 function login(nome_usuario, senha_usuario ) {
@@ -65,4 +72,3 @@ async function SHA512(str) {
   
     return hashHex;
   }
-  
