@@ -6,14 +6,18 @@ async function submitbutton() {
     const hash_senha = await SHA512 (senha_usuario);
     const hash_senha_array = CryptoJS.enc.Utf8.parse(hash_senha);
 
-    document.body.style.cursor = 'wait';
+    if (nome_usuario && senha_usuario)
+        token = login(nome_usuario, senha_usuario);  
+    else
+        alert("Por favor, preencha todos os campos!");
+    
+        document.body.style.cursor = 'wait';
     const salt = await getSalt(nome_usuario);
         if (!salt) {
-        document.body.style.cursor = 'default';
-        alert('Erro ao obter salt.');
+        alert('Erro.');
         return;
-        }
-
+        }else{document.body.style.cursor = 'default';}
+        
     const hash = CryptoJS.PBKDF2(hash_senha_array, salt, {
         keySize: 64,
         iterations: 1000,
@@ -22,18 +26,24 @@ async function submitbutton() {
 
         console.log(" Nome do usuário de drogas: ", nome_usuario , " |  Hash da senha com salt: " , hash );
 
-    if (nome_usuario && senha_usuario) 
-        token = login(nome_usuario, senha_usuario);
-    else 
-        alert("Por favor, preencha todos os campos!");
-
-    
 }
+
+async function SHA512(str) {
+    const encoder = new TextEncoder();
+  
+    const data = encoder.encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-512', data);
+  
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  
+    return hashHex;
+  }
 
 function login(nome_usuario, senha_usuario ) {
     getSalt(nome_usuario)
         .then(salt => {
-            alert(salt);
+//         alert(salt);
         })
         .catch(error => {
             console.error('Error fetching salt:', error);
@@ -57,14 +67,4 @@ async function getSalt(nome_usuario) {
     });
 }
 
-async function SHA512(str) {
-    const encoder = new TextEncoder();
-  
-    const data = encoder.encode(str);
-    const hashBuffer = await crypto.subtle.digest('SHA-512', data);
-  
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  
-    return hashHex;
-  }
+
