@@ -17,7 +17,7 @@
         <div class="login__fonte">Login</div>
         <div style="display: flex; flex-direction: column;">
             <label for="username"></label>
-            <input class="user__name" type="text" id="username" name="username" required placeholder="                                       Usuário                                  ">
+            <input class="user__name" type="text" id="username" name="username" required placeholder="                                      Usuário                                  ">
             <label for="password"></label>
             <input class="pass__word" type="password" id="password" name="password" required placeholder="                                       Senha                                  ">
             <div class="alinhamento__botoes">
@@ -25,6 +25,8 @@
                 <button class="submit__button"  onclick="submitbutton()">Entrar</button>
             </div>
             <button class="novo__registro" formnovalidate >Não é registrado?</button>
+            <div class="campo__vazio__alerta">Por favor, preencha todos os campos!</div>
+            <div class="credenciais__invalida">Nome de Usuário ou senha invalido!</div>
         </div>
     </div>
 </body>

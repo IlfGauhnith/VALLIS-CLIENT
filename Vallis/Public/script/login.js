@@ -5,12 +5,15 @@ async function submitbutton() {
     const senha_usuario = document.getElementById('password').value;
     const hash_senha = await SHA512 (senha_usuario);
     const hash_senha_array = CryptoJS.enc.Utf8.parse(hash_senha);
+    const campo_vazio_alerta = document.querySelector('.campo__vazio__alerta');
+    const credenciais_invalida = document.querySelector('.credenciais__invalida')
 
-    if (nome_usuario && senha_usuario)
+    if  (nome_usuario && senha_usuario)
         token = login(nome_usuario, senha_usuario);  
-    else
-        alert("Por favor, preencha todos os campos!");
-    
+    else {
+        campo_vazio_alerta.style.display = 'block';
+    }
+        
         document.body.style.cursor = 'wait';
     const salt = await getSalt(nome_usuario);
         if (!salt) {
@@ -23,10 +26,9 @@ async function submitbutton() {
         iterations: 1000,
         hasher: CryptoJS.algo.SHA512
     }).toString(CryptoJS.enc.Hex);
-
-        console.log(" Nome do usuário de drogas: ", nome_usuario , " |  Hash da senha com salt: " , hash );
-
 }
+
+
 
 async function SHA512(str) {
     const encoder = new TextEncoder();
@@ -43,6 +45,7 @@ async function SHA512(str) {
 function login(nome_usuario, senha_usuario ) {
     getSalt(nome_usuario)
         .then(salt => {
+            document.body.style.cursor = 'default';
 //         alert(salt);
         })
         .catch(error => {
