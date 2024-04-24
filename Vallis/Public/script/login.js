@@ -49,16 +49,20 @@ async function submitbutton() {
  * @returns 
  */
 async function login(nome_usuario, senha_usuario, salt) {
+
+    // Concatena a senha com o salt e calcula o sha512.
     hash_senha = CryptoJS.PBKDF2(senha_usuario, 
             salt, 
             {keySize: 64, iterations: 1000, hasher: CryptoJS.algo.SHA512}
         ).toString(CryptoJS.enc.Hex);
 
+    // Corpo da requisição de login
     postData = {
         nome_usuario: nome_usuario,
         hash_senha: hash_senha
     }
 
+    // Requisição de login
     const response = await axios.post('https://hzw2e5rbie.execute-api.sa-east-1.amazonaws.com/dev/logar', postData);
     const token = response.data.token; 
 
