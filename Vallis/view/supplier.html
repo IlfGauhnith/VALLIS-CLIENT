@@ -11,11 +11,30 @@
     <div class="logo__vallis">
         <img src="../Public/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
     </div>
-    <ul class="output-list">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-    </ul>
-    
+    <div class="conteiner__list">
+        <div class="list__supplier"></div>
+        <button class="add__supplier" >Adicionar</button>
+    </div>
+    <div class="modal">
+        <div class="conteudo__modal">
+            <table>
+                <thead>
+                    <tr class="th__tr">
+                        <th class="fredoka__fonts">CNPJ</th>
+                        <th class="fredoka__fonts">Razão Social</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="cnpj" type="text" name="cnpj" placeholder="Insira o CNPJ"></td>
+                        <td><input class="rezao" type="text" name="razao_social" placeholder="Insira a razão social"></td>
+                        <td><button class="add">adicionar fornecedor</button></td>
+                        <td><button class="botao__fechar">X</button></td>                      
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
 </html>
