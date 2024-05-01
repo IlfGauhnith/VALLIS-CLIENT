@@ -18,11 +18,11 @@ async function submitbutton() {
             // Buscar o salt na api-crud
             const salt = await getSalt(nome_usuario);
             if (!salt)
-                alert("Erro.");
+              alert("Erro.");
 
             // Logar
-            const token = await login(nome_usuario, senha_usuario, salt); 
-            alert(token);
+            const token = await login(nome_usuario, senha_usuario, salt);
+//          alert(token);
 
         } else {
             campo_vazio_alerta.style.display = 'block';
@@ -67,7 +67,8 @@ async function login(nome_usuario, senha_usuario, salt) {
     const token = response.data.token; 
 
     //TO-DO ARMAZENAR TOKEN NA SESSÃO DO BROWSER.
-    
+       sessionStorage.setItem('token', token);
+
     return token;
 }
 
@@ -91,3 +92,23 @@ async function getSalt(nome_usuario) {
             });
     });
 }
+
+/*
+ * Interceptor de requisição que adiciona o cabeçalho de autorização em todas as requisições 
+ * feita pela bíblioteca Axios. Se token estiver armazenado em sessionStorage adiciona o token
+ * ao cabeçalho Authorization da requisição com o prefixo "Bearer".
+ */
+axios.interceptors.request.use(config => {
+    const token = sessionStorage.getItem('token');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+}, error => {
+    return Promise.reject(error);
+});
+/**
+ *------------------------------------------------------------------------------------------------------------
+ ***************************** Conclusão da regra de negócio do login usúario. *******************************
+ *------------------------------------------------------------------------------------------------------------ 
+ */
