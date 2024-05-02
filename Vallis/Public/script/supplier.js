@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
   limitarCaracteres(); 
 });
 
-//************************************** POST API  ****************************************/
+//************************************** POST API ADD FORNECEDOR ****************************************
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -73,10 +73,21 @@ document.addEventListener("DOMContentLoaded", function() {
       
       const data = {
           cnpj: cnpj,
-          razaoSocial: razao__social
+          razao_social: razao__social
       };
 
-      axios.post('', data)
+      console.log(data);
+
+      const token = sessionStorage.getItem('token');
+
+      const headers = {
+        authorizationToken: token,
+        'Content-Type': 'application/json'
+      };
+      
+      console.log(headers);
+
+      axios.post('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', data,{headers:headers})
       .then(function(response) {
         
           document.getElementById("mascara__CNPJ").value = "";
