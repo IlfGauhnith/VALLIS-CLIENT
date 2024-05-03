@@ -68,9 +68,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("add").addEventListener("click", function() {
-      const cnpj = document.getElementById("mascara__CNPJ").value;
+      const cnpj__add = document.getElementById("mascara__CNPJ").value;
       const razao__social = document.getElementById("razao__social").value;
       
+      cnpj = cnpj__add.replace(/[^0-9]/g, '');
+
       const data = {
           cnpj: cnpj,
           razao_social: razao__social

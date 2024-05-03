@@ -1,4 +1,7 @@
 /**
+ *------------------------------------------------------------------------------------------------------------
+ ******************************* Inicio da regra de negócio do login usúario. ********************************
+ *------------------------------------------------------------------------------------------------------------ 
  * Função responsável por manipular o evento do click do 
  * botão submit e delegar as atividades para as outras funções
  * responsáveis pela rotina de login.
@@ -18,18 +21,33 @@ async function submitbutton() {
             // Buscar o salt na api-crud
             const salt = await getSalt(nome_usuario);
             if (!salt)
-              alert("Erro.");
+            alert("Erro.");
 
             // Logar
             const token = await login(nome_usuario, senha_usuario, salt);
-//          alert(token);
+            //alert(token);
 
-        } else {
+        }
+        /**
+         * Caso o usuário não preencha todos os campos essa mensagem aparecerá 
+         * iformando ao usuário para preencher todos os campos.
+         * Obs: Exisite a necessidade de deixar a display de outras mensagens de
+         * erro com o valor 'none' para que não tenha conflito de mensagens de erro.  
+         */ else {
+            credenciais_invalida.style.display = 'none';
             campo_vazio_alerta.style.display = 'block';
         }
-
-    } catch (error) {
-        console.log(error);
+    }
+    /**
+     * Caso o usuário, senha ou ambos estiverem incorretos essa mensagem aparecerá
+     * informando ao usuário a tentativa de malsucedida de login.
+     * Obs: Exisite a necessidade de deixar a display de outras mensagens de
+     * erro com o valor 'none' para que não tenha conflito de mensagens de erro.
+     */
+    catch (error){    
+            credenciais_invalida.style.display = 'block';
+            campo_vazio_alerta.style.display = 'none';            
+        return null;   
     } finally {
         // Retira o cursor de espera após a execução do bloco try-catch
         // Obs: Sempre vai cair nesse caso independente do que ocorrer dentro do try-catch.
@@ -69,7 +87,13 @@ async function login(nome_usuario, senha_usuario, salt) {
     //TO-DO ARMAZENAR TOKEN NA SESSÃO DO BROWSER.
        sessionStorage.setItem('token', token);
 
+    /** 
+    * Faz o direcionamento pra a Pagina de fornecedores.
+    * Obs: Essa função é provisória. 
+    */  window.location.href = "supplier.HTML"
+
     return token;
+        
 }
 
 /**
@@ -98,6 +122,7 @@ async function getSalt(nome_usuario) {
  * feita pela bíblioteca Axios. Se token estiver armazenado em sessionStorage adiciona o token
  * ao cabeçalho Authorization da requisição com o prefixo "Bearer".
  */
+
 axios.interceptors.request.use(config => {
     const token = sessionStorage.getItem('token');
     if (token) {
@@ -107,6 +132,7 @@ axios.interceptors.request.use(config => {
 }, error => {
     return Promise.reject(error);
 });
+
 /**
  *------------------------------------------------------------------------------------------------------------
  ***************************** Conclusão da regra de negócio do login usúario. *******************************
