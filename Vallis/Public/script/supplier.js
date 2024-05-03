@@ -96,7 +96,11 @@ document.addEventListener("DOMContentLoaded", function() {
           console.log(response.data);
       })
       .catch(function(error) {
-          console.error('Erro:', error);
+          if (error.response)
+            console.error(error.response.data.message);
+          else
+            console.error('Erro:', error);
+
           alert('Erro ao adicionar fornecedor');
       });
   });
