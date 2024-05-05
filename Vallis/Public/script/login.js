@@ -90,7 +90,7 @@ async function login(nome_usuario, senha_usuario, salt) {
     /** 
     * Faz o direcionamento pra a Pagina de fornecedores.
     * Obs: Essa função é provisória. 
-    */  window.location.href = "supplier.HTML"
+    */  window.location.href = "supplier.html"
 
     return token;
         
