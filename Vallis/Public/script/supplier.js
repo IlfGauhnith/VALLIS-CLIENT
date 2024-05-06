@@ -26,43 +26,53 @@ function limitarCaracteres() {
 }
 
 function addSupplier() {
-  const cnpj__add = document.getElementById("mascara__CNPJ").value;
-  const razao__social = document.getElementById("razao__social").value;
-
-  cnpj = cnpj__add.replace(/[^0-9]/g, '');
-
+  const cnpj_add = document.getElementById("CNPJ").value;
+  const razao_social = document.getElementById("razao__social").value;
+  const add_sucesso = document.querySelector('.add__sucesso');
+  const add_erro = document.querySelector(".add__erro"); 
+  
+  cnpj = cnpj_add.replace(/[^0-9]/g, '');
+  
   const data = {
     cnpj: cnpj,
-    razao_social: razao__social
+    razao_social: razao_social
   };
-
+  
   console.log(data);
-
+  
   const token = sessionStorage.getItem('token');
-
+  
   const headers = {
     authorizationToken: token,
     'Content-Type': 'application/json'
   };
-
+  
   console.log(headers);
-
+  
   axios.post('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', data, { headers: headers })
-    .then(function (response) {
-
-      document.getElementById("mascara__CNPJ").value = "";
-      document.getElementById("razao__social").value = "";
+  .then(function (response) {
+    
+    document.getElementById("CNPJ").value = "";
+    document.getElementById("razao__social").value = "";
       addFornecedorElement(response.data);
-      closeModal();
-      alert('Fornecedor adicionado com sucesso!');
+      add_sucesso.style.display = 'block';
+      setTimeout(function() {
+        add_sucesso.style.display = 'none';
+        closeModal();
+      }, 2000);
+      //alert('Fornecedor adicionado com sucesso!');
     })
     .catch(function (error) {
-      if (error.response)
-        console.error(error.response.data.message);
-      else
+      if (error.response) {
+        //console.error(error.response.data.message);
+        add_erro.style.display = 'block';
+        setTimeout(function(){
+          add_erro.style.display = 'none';
+        }, 5000); 
+      } else {
         console.error('Erro:', error);
-
-      alert('Erro ao adicionar fornecedor');
+        //alert('Erro ao adicionar fornecedor');
+      }
     });
 }
 
@@ -113,23 +123,20 @@ async function getFornecedores() {
       console.error('Erro:', error);
 
     alert('Erro ao adicionar fornecedor');
-    throw error; // Re-throwing the error to be handled by the caller
+    throw error;
   }
 }
 
-
 document.addEventListener("DOMContentLoaded", async function () {
 
-  //Buscando fornecedores na API e adicionando ao DOM
   Array.from(await getFornecedores())
     .forEach(fornecedor => {
       addFornecedorElement(fornecedor);
   });
 
-  // Adicionando event listeners
   document.getElementById("add").addEventListener("click", addSupplier);
   document.querySelector('.add__supplier').addEventListener('click', showModal);
   document.querySelector('.botao__fechar').addEventListener('click', closeModal);
-  document.getElementById('mascara__CNPJ').addEventListener('input', mascara_CNPJOnInput);
+  document.getElementById('CNPJ').addEventListener('input', mascara_CNPJOnInput);
   limitarCaracteres();
 });

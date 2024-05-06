@@ -144,7 +144,22 @@ body {
     font-size: 1.5rem;
 
     }
-}
 
+  .add__sucesso{
+    display: none;
+    margin-left: 28rem;
+    align-self: center;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #ede0d4;
+  }
 
-  
+  .add__erro{
+    display: none;
+    margin-left: 26rem;
+    align-self: center;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #ede0d4;
+  }
+}  
