@@ -1,0 +1,126 @@
+.fredoka__fonts {
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #7f5539;
+    font-size: 16px;
+}
+
+@media screen and (min-width: 16px) and (min-height: 9px) and (max-width: 12288px) and (max-height: 6480px) {
+
+    .logo__vallis {
+        display: flex;
+        justify-content: center;
+        margin: 0.675em;
+    }
+
+    .add__autorizacao {
+        width: 50px;
+        height: 50px;
+        background-color: #9c6644;
+        border: none;
+        border-radius: 50%;
+        color: black;
+        font-size: 25px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .add__autorizacao:hover {
+        background-color: #CC8559;
+    }
+
+    .add__autorizacao::before {
+        content: "+";
+        font-weight: bold;
+    }
+
+    .add__autorizacao__div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        align-items: center;
+        position: relative;
+    }
+
+    .autorizacao__block__div {
+        display: flex;
+        background-color: #9c6644;
+        justify-content: center;
+        margin: 0 10vw 3vh 10vw;
+        padding: 1vw;
+        border-radius: 1.2rem;
+        column-gap: 2vw;
+        row-gap: 1vh;
+        flex-wrap: wrap;
+    }
+
+    .autorizacao__options {
+        display: none;
+        margin-left: 10px;
+        background-color: #9c6644;
+        padding: 10px;
+        border-radius: 1.2rem;
+        transition: opacity 5s ease;
+        opacity: 0;
+    }
+
+    .autorizacao__options.show {
+        display: block;
+        transition: opacity 5s ease;
+        opacity: 1;
+        /* Change opacity to 1 when showing */
+    }
+
+    .autorizacao__option {
+        border-radius: 1.2rem;
+        background-color: #9c6644;
+        color: black;
+        font-size: 1.15rem;
+        cursor: pointer;
+    }
+
+    .autorizacao__option:disabled {
+        background-color: #76482c;
+    }
+
+    .input_div {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        width: 15%;
+        margin: 0.375rem;
+        font-size: 1.15rem;
+        padding: 1vw;
+        color: white;
+    }
+
+    input[type=text], select, input[type=date]{
+        border-radius: 1.2rem;
+        border: none;
+        outline: none;
+        background-color: #ddb892;
+        font-size: 1.15rem;
+    }
+
+    .autorizacao_title_div {
+        display: flex;
+        font-size: large;
+        font-weight: bold;
+        width: 100%;
+        justify-content: center;
+        color: white;
+        justify-content: space-between;
+    }
+}

@@ -122,7 +122,7 @@ async function getFornecedores() {
     else
       console.error('Erro:', error);
 
-    alert('Erro ao adicionar fornecedor');
+    alert('Erro ao retornar fornecedor');
     throw error;
   }
 }
