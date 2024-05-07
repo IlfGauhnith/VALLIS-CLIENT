@@ -117,8 +117,8 @@ function addFornecedorElement(fornecedor) {
   row.appendChild(cnpjTd);
 
   table.appendChild(row);
-}
 
+}
 
 async function getFornecedores() {
   try {

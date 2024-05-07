@@ -1,65 +1,102 @@
-body {
+  body {
     margin: 0;
     padding: 0;
     background-color: #7f5539;
     font-size: 16px; 
   }
-
-  .fredoka__fonts {
+  
+ .fredoka__fonts {
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
   }
-
-  @media screen and (min-width: 400px) and (min-height: 180px) and  (max-width: 12288px) and (max-height: 6480px) {
   
+  @media screen and (min-width: 400px) and (min-height: 180px) and  (max-width: 12288px) and (max-height: 6480px) {
+    
   .logo__vallis {
       display: flex;
       justify-content: center;
       margin: 1vh;
-    }
+  }
 
   .conteiner__list {
       display: flex;
       justify-content: center;
       align-items: start;
-
       flex-direction: column;
-    }
+  }
+
+  .head__table {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: fixed;
+    width: 100rem;
+    height: 5rem;
+    border-radius:  1.2rem 1.2rem 0rem 0rem;
+    background-color: #ddb892;
+    color: #7f5539;
+  }
+
+  .ID__head {
+    margin-left: 2rem;
+    font-size: 2rem;
+  }
+  .razao__head {
+    margin-left: 22rem;
+    font-size: 2rem;
+  }
+  .cnpj__head {
+    margin-left: 27rem;
+    font-size: 2rem;
+  }
+  .acao__head {
+    margin-left: 22rem;
+    font-size: 2rem;
+  }
   
   .list__supplier {
     display: block;
     justify-content: center;
     align-items: center;
-    overflow-y: auto;
-    height: 40rem;
-    width: 100rem;
-    margin-left: 29.5rem;
-    border-radius: 1.2rem;
     flex-direction: column;
+    overflow-y: auto;
+    width: 100rem;
+    height: 40rem;
+    margin-left: 10rem;
+    border: none;
+    border-radius:  1.2rem 1.2rem 1.2rem 1.2rem;
     background-color: #9c6644;
-    }
+  }
 
-
+  .list__supplier::-webkit-scrollbar {
+    width: 0;
+  }
+  .list__supplier {
+    scrollbar-width: none;
+  }
+  
   .t__body {
     display: flex;
     flex-direction: column;
-    width: 80rem;
-    height: 43.5rem;
+    width: 100rem;
+    height: 100%;
+    margin-top: 5.1rem;
     border: none;
     outline: none;
+    animation: overflowAnimation 2.0s ease;
   }
-
-.t__body tr:nth-child(even) {
-  background-color: #ddb892; 
-}
-
-.t__body tr:nth-child(odd) {
-  background-color: #ede0d4; 
-}
-
-
+  
+  .t__body tr:nth-child(even) {
+    background-color: #ddb892; 
+  }
+  
+  .t__body tr:nth-child(odd) {
+    background-color: #ede0d4; 
+  }
+  
+  
   .modal__ID {
     display: flex;
     justify-content: center;
@@ -68,38 +105,50 @@ body {
     height: 2.95rem;
     margin: 0.1rem;
   }
-  
+    
   .td__ID {
     color: #7f5539;
     font-size: 1.5rem;
   }
-
+  
   .modal__razao {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35rem;
+    width: 50rem;
     height: 2.95rem;
     margin: 0.1rem;
   }
-
+  
   .td__razao {
     color: #7f5539;
     font-size: 1.5rem;
   }
-
+  
   .modal__cnpj {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15rem;
+    width: 20rem;
     height: 2.95rem;
     margin-left: 0.1rem;
   }
-
+  
   .td__cnpj {
     color: #7f5539;
     font-size: 1.5rem;
+  }
+  
+  @keyframes overflowAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-1rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 
   .add__supplier {
@@ -108,19 +157,19 @@ body {
     border-radius: 1.2rem;
     border: none;
     margin-top: 2rem;
-    margin-left: 31.5rem;
+    margin-left: 12rem;
     outline: none;
     background-color: #9c6644;
     color: #ede0d4;
     font-size: 1.15rem;
     cursor: pointer;
-    }
-
+  }
+  
   .add__supplier:hover {
     font-size: 1.2rem;
     cursor: pointer;
-    }
-
+  }
+  
   .modal {
     display: none;
     position: fixed; 
@@ -130,7 +179,7 @@ body {
     height: 100%; 
     background-color: rgba(0, 0, 0, 0.5);
     }
-
+  
   .conteudo__modal {
     background-color: #9c6644;
     height: 8rem;
@@ -141,27 +190,27 @@ body {
     border-radius: 1.2rem;
     animation: animation__modal__add__supplier 1s ease-out;
   }
+    
+    @keyframes animation__modal__add__supplier {
+      0% {
+          opacity: 0;
+          transform: translateY(-150px);
+      }
+      50% {
+          opacity: 1;
+          transform: translateY(40px);
+      }
+      100% {
+        opacity: 2;
+        transform: translateY(0);
+    }
+  }
   
-  @keyframes animation__modal__add__supplier {
-    0% {
-        opacity: 0;
-        transform: translateY(-150px);
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(40px);
-    }
-    100% {
-      opacity: 2;
-      transform: translateY(0);
-  }
-  }
-
   .th__tr {
     color: #ddb892;
     font-size: 1.15rem;
-    }
-
+  }
+  
   .supplier , .cnpj , .rezao {
     width: 25.25rem;
     height: 2.75rem;
@@ -171,8 +220,8 @@ body {
     margin: 0.375rem;
     background-color: #ddb892;
     font-size: 1.15rem;
-    }
-
+  }
+  
   .add {
     width: 9rem;
     height: 2.95rem;
@@ -183,12 +232,12 @@ body {
     color: #ddb892;
     font-size: 1.15rem;
     cursor: pointer;
-    }
-
+  }
+  
   .add:hover {
     font-size: 1.3rem;
   }
-
+  
   .botao__fechar { 
     width: 2.95rem;
     height: 2.95rem;
@@ -200,13 +249,12 @@ body {
     color: #ddb892;
     font-size: 1.15rem;
     cursor: pointer;
-    }
-
+  }
+  
   .botao__fechar:hover {
     font-size: 1.5rem;
-
-    }
-
+  }
+  
   .add__sucesso{
     display: none;
     margin-left: 28rem;
@@ -215,7 +263,7 @@ body {
     font-size: 1.2rem;
     color: #ede0d4;
   }
-
+  
   .add__erro{
     display: none;
     margin-left: 26rem;
@@ -224,6 +272,7 @@ body {
     font-size: 1.2rem;
     color: #ede0d4;
   }
+  
   .cnpj__existe {
     display: none;
     margin-left: 26rem;
