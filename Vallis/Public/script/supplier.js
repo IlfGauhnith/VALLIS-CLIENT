@@ -30,7 +30,8 @@ function addSupplier() {
   const razao_social = document.getElementById("razao__social").value;
   const add_sucesso = document.querySelector('.add__sucesso');
   const add_erro = document.querySelector(".add__erro"); 
-  
+  const cnpjExiste = document.querySelector('.cnpj__existe');
+
   cnpj = cnpj_add.replace(/[^0-9]/g, '');
   
   const data = {
@@ -88,23 +89,36 @@ function closeModal() {
 }
 
 function addFornecedorElement(fornecedor) {
-  const table = document.getElementById("fornecedores_table");
+  const table = document.getElementById("t__body");
   const row = document.createElement("tr");
 
-  const idCell = document.createElement("td");
-  idCell.textContent = fornecedor.id_fornecedor;
-  row.appendChild(idCell);
+  const id = document.createElement("div");
+  const idTd = document.createElement("td");
+  id.textContent = fornecedor.id_fornecedor;
+  id.classList.add("modal__ID");
+  idTd.classList.add("td__ID");
+  idTd.appendChild(id);
+  row.appendChild(idTd);
 
-  const razaoSocialCell = document.createElement("td");
-  razaoSocialCell.textContent = fornecedor.razao_social;
-  row.appendChild(razaoSocialCell);
+  const razao = document.createElement("td");
+  const razaoTd = document.createElement("td");
+  razao.textContent = fornecedor.razao_social;
+  razao.classList.add("modal__razao");
+  razaoTd.classList.add("td__razao");
+  razaoTd.appendChild(razao);
+  row.appendChild(razaoTd);
 
-  const cnpjCell = document.createElement("td");
-  cnpjCell.textContent = aplicarMascaraCNPJ(fornecedor.cnpj);
-  row.appendChild(cnpjCell);
+  const cnpj = document.createElement("td");
+  const cnpjTd = document.createElement("td");
+  cnpj.textContent = aplicarMascaraCNPJ(fornecedor.cnpj);
+  cnpj.classList.add("modal__cnpj");
+  cnpjTd.classList.add("td__cnpj");
+  cnpjTd.appendChild(cnpj);
+  row.appendChild(cnpjTd);
 
   table.appendChild(row);
 }
+
 
 async function getFornecedores() {
   try {
