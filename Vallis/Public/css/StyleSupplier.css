@@ -24,22 +24,84 @@ body {
       display: flex;
       justify-content: center;
       align-items: start;
-      height: 50vh;
-      width: auto;
+
       flex-direction: column;
     }
   
   .list__supplier {
+    display: block;
     justify-content: center;
     align-items: center;
-    height: 45vh;
-    width: 120vh;
+    overflow-y: auto;
+    height: 40rem;
+    width: 100rem;
     margin-left: 29.5rem;
     border-radius: 1.2rem;
     flex-direction: column;
     background-color: #9c6644;
     }
+
+
+  .t__body {
+    display: flex;
+    flex-direction: column;
+    width: 80rem;
+    height: 43.5rem;
+    border: none;
+    outline: none;
+  }
+
+.t__body tr:nth-child(even) {
+  background-color: #ddb892; 
+}
+
+.t__body tr:nth-child(odd) {
+  background-color: #ede0d4; 
+}
+
+
+  .modal__ID {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 2.95rem;
+    margin: 0.1rem;
+  }
   
+  .td__ID {
+    color: #7f5539;
+    font-size: 1.5rem;
+  }
+
+  .modal__razao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35rem;
+    height: 2.95rem;
+    margin: 0.1rem;
+  }
+
+  .td__razao {
+    color: #7f5539;
+    font-size: 1.5rem;
+  }
+
+  .modal__cnpj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 2.95rem;
+    margin-left: 0.1rem;
+  }
+
+  .td__cnpj {
+    color: #7f5539;
+    font-size: 1.5rem;
+  }
+
   .add__supplier {
     width: 8.575rem;
     height: 2.95rem;
@@ -155,6 +217,14 @@ body {
   }
 
   .add__erro{
+    display: none;
+    margin-left: 26rem;
+    align-self: center;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #ede0d4;
+  }
+  .cnpj__existe {
     display: none;
     margin-left: 26rem;
     align-self: center;
