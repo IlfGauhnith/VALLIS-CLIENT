@@ -61,18 +61,15 @@ function addSupplier() {
         add_sucesso.style.display = 'none';
         closeModal();
       }, 2000);
-      //alert('Fornecedor adicionado com sucesso!');
     })
     .catch(function (error) {
       if (error.response) {
-        //console.error(error.response.data.message);
         add_erro.style.display = 'block';
         setTimeout(function(){
           add_erro.style.display = 'none';
         }, 5000); 
       } else {
         console.error('Erro:', error);
-        //alert('Erro ao adicionar fornecedor');
       }
     });
 }
@@ -91,6 +88,8 @@ function closeModal() {
 function addFornecedorElement(fornecedor) {
   const table = document.getElementById("t__body");
   const row = document.createElement("tr");
+
+  row.setAttribute("id" , fornecedor.id_fornecedor );
 
   const id = document.createElement("div");
   const idTd = document.createElement("td");
@@ -116,8 +115,72 @@ function addFornecedorElement(fornecedor) {
   cnpjTd.appendChild(cnpj);
   row.appendChild(cnpjTd);
 
+  const spacevoid = document.createElement("td");
+  const spacevoidTd = document.createElement("td");
+  spacevoid.classList.add("modal__space");
+  spacevoidTd.classList.add("td__space");
+  spacevoidTd.appendChild(spacevoid);
+  row.appendChild(spacevoidTd);
+
+  const edit = document.createElement("button");
+  const btEdit = document.createElement("td");
+  const editTxt = document.createElement("span");
+  editTxt.textContent = "Editar";
+  edit.classList.add("modal__edit");
+  btEdit.classList.add("td__edit");
+  editTxt.classList.add("tx__edit");
+  edit.appendChild(editTxt);
+  btEdit.appendChild(edit);
+  row.appendChild(btEdit);
+
+  const delet = document.createElement("button");
+  delet.addEventListener("click" , deletOnClick);
+  const deletTd = document.createElement("td");
+  const deletTxt = document.createElement("span");
+  deletTxt.textContent = "Excluir"
+  delet.classList.add("modal__delet");
+  deletTd.classList.add("td__delet");
+  deletTxt.classList.add("tx__delet")
+  delet.appendChild(deletTxt);
+  deletTd.appendChild(delet);
+  row.appendChild(deletTd);
+
   table.appendChild(row);
 
+}
+
+
+
+
+
+async function deletOnClick (event){
+  const id_fornecedor = event.target.parentElement.parentElement.parentElement.id;
+  await deletFornecedor (id_fornecedor);
+  
+ window.location.href = "supplier.html";
+}
+
+async function deletFornecedor (id_fornecedor){
+  try {
+    const token = sessionStorage.getItem('token');
+    const headers = {
+      authorizationToken: token
+    };
+    const params = {
+      id : id_fornecedor
+    };
+
+    const response = await axios.delete('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', { headers: headers, params: params });
+     alert(response.data.message);
+  } catch (error) {
+    if (error.response)
+      console.error(error.response.data.message);
+    else
+      console.error('Erro:', error);
+
+    alert('Erro ao retornar fornecedor');
+    throw error;
+  }
 }
 
 async function getFornecedores() {
