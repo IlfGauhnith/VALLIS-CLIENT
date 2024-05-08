@@ -62,7 +62,7 @@ class SideBarNav extends HTMLElement {
                     .sidenav {padding-top: 15px;}
                     .sidenav a {font-size: 18px;}
                 }
-                .add__autorizacao {
+                .button__div {
                     width: 50px;
                     height: 50px;
                     margin: 1.5vh 0 0 1.5vh;
@@ -86,7 +86,7 @@ class SideBarNav extends HTMLElement {
                 </div>
             
             <!-- Use any element to open the sidenav -->
-                <div class="add__autorizacao">
+                <div class="button__div">
                     <span onclick="openNav()">
                         <i class="fa-solid fa-bars"></i>
                     </span>
