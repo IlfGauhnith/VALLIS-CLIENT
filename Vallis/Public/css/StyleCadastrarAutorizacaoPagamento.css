@@ -63,6 +63,20 @@ body {
         border-spacing: 0px;
     }
 
+    .upload_button_div {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .upload_button {
+        color: white;
+        cursor: pointer;
+    }
+
     td {
         text-align: center;
     }
