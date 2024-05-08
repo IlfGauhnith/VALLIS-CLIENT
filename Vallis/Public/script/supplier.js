@@ -25,39 +25,57 @@ function limitarCaracteres() {
   }
 }
 
+async function putFornecedor(fornecedor) {
+  try {
+    fornecedor.cnpj = fornecedor.cnpj.replace(/[^0-9]/g, '');
+
+    const headers = {
+      authorizationToken: sessionStorage.getItem('token'),
+      'Content-Type': 'application/json'
+    };
+
+    await axios.put('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', fornecedor, { headers: headers })
+    alert('Fornecedor editado com sucesso!');
+  } catch (error) {
+    if (error.response) {
+      console.error(error.response.data.message);
+      alert(error.response.data.message);
+    } else {
+      console.error('Erro:', error);
+      alert(error);
+    }
+    throw error;
+  }
+}
+
 function addSupplier() {
   const cnpj_add = document.getElementById("CNPJ").value;
   const razao_social = document.getElementById("razao__social").value;
   const add_sucesso = document.querySelector('.add__sucesso');
-  const add_erro = document.querySelector(".add__erro"); 
+  const add_erro = document.querySelector(".add__erro");
   const cnpjExiste = document.querySelector('.cnpj__existe');
 
   cnpj = cnpj_add.replace(/[^0-9]/g, '');
-  
+
   const data = {
     cnpj: cnpj,
     razao_social: razao_social
   };
-  
-  console.log(data);
-  
   const token = sessionStorage.getItem('token');
-  
+
   const headers = {
     authorizationToken: token,
     'Content-Type': 'application/json'
   };
-  
-  console.log(headers);
-  
+
   axios.post('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', data, { headers: headers })
-  .then(function (response) {
-    
-    document.getElementById("CNPJ").value = "";
-    document.getElementById("razao__social").value = "";
+    .then(function (response) {
+
+      document.getElementById("CNPJ").value = "";
+      document.getElementById("razao__social").value = "";
       addFornecedorElement(response.data);
       add_sucesso.style.display = 'block';
-      setTimeout(function() {
+      setTimeout(function () {
         add_sucesso.style.display = 'none';
         closeModal();
       }, 2000);
@@ -65,31 +83,76 @@ function addSupplier() {
     .catch(function (error) {
       if (error.response) {
         add_erro.style.display = 'block';
-        setTimeout(function(){
+        setTimeout(function () {
           add_erro.style.display = 'none';
-        }, 5000); 
+        }, 5000);
       } else {
         console.error('Erro:', error);
       }
     });
 }
 
+function editOnClick(event) {
+  const fornecedorTr = event.target.closest('tr');
+
+  const id_fornecedor = fornecedorTr.getAttribute('id');
+  const razao_social = fornecedorTr.querySelector('.td__razao').textContent;
+  const cnpj = fornecedorTr.querySelector('.td__cnpj').textContent;
+
+  const fornecedor = {
+    id_fornecedor: id_fornecedor,
+    razao_social: razao_social,
+    cnpj: cnpj
+  }
+
+  showEditModal(fornecedor);
+}
+
+function showEditModal(fornecedor) {
+  const modal = document.querySelector('#modal_editar');
+
+  document.querySelector('#editar_razao_social').value = fornecedor.razao_social;
+  document.querySelector('#editar_CNPJ').value = fornecedor.cnpj;
+  document.querySelector('#editar_id_fornecedor').value = fornecedor.id_fornecedor;
+
+  modal.style.display = 'block';
+}
+
+function closeEditModal() {
+  const modal = document.querySelector('#modal_editar');
+  modal.style.display = 'none';
+}
+
 function showModal() {
-  console.log('showing modal')
-  const modal = document.querySelector('.modal');
+  const modal = document.querySelector('#modal_adicionar');
   modal.style.display = 'block';
 }
 
 function closeModal() {
-  const modal = document.querySelector('.modal');
+  const modal = document.querySelector('#modal_adicionar');
   modal.style.display = 'none';
+}
+
+async function confirmEditOnClick(event) {
+  const razao_social = document.querySelector('#editar_razao_social').value;
+  const cnpj = document.querySelector('#editar_CNPJ').value;
+  const id_fornecedor = document.querySelector('#editar_id_fornecedor').value;
+
+  const fornecedor = {
+    id_fornecedor: id_fornecedor,
+    razao_social: razao_social,
+    cnpj: cnpj
+  };
+
+  await putFornecedor(fornecedor);
+  window.location.href = "supplier.html";
 }
 
 function addFornecedorElement(fornecedor) {
   const table = document.getElementById("t__body");
   const row = document.createElement("tr");
 
-  row.setAttribute("id" , fornecedor.id_fornecedor );
+  row.setAttribute("id", fornecedor.id_fornecedor);
 
   const id = document.createElement("div");
   const idTd = document.createElement("td");
@@ -127,6 +190,7 @@ function addFornecedorElement(fornecedor) {
   const editTxt = document.createElement("span");
   editTxt.textContent = "Editar";
   edit.classList.add("modal__edit");
+  edit.addEventListener('click', editOnClick);
   btEdit.classList.add("td__edit");
   editTxt.classList.add("tx__edit");
   edit.appendChild(editTxt);
@@ -134,7 +198,7 @@ function addFornecedorElement(fornecedor) {
   row.appendChild(btEdit);
 
   const delet = document.createElement("button");
-  delet.addEventListener("click" , deletOnClick);
+  delet.addEventListener("click", deletOnClick);
   const deletTd = document.createElement("td");
   const deletTxt = document.createElement("span");
   deletTxt.textContent = "Excluir"
@@ -153,25 +217,25 @@ function addFornecedorElement(fornecedor) {
 
 
 
-async function deletOnClick (event){
+async function deletOnClick(event) {
   const id_fornecedor = event.target.parentElement.parentElement.parentElement.id;
-  await deletFornecedor (id_fornecedor);
-  
- window.location.href = "supplier.html";
+  await deletFornecedor(id_fornecedor);
+
+  window.location.href = "supplier.html";
 }
 
-async function deletFornecedor (id_fornecedor){
+async function deletFornecedor(id_fornecedor) {
   try {
     const token = sessionStorage.getItem('token');
     const headers = {
       authorizationToken: token
     };
     const params = {
-      id : id_fornecedor
+      id: id_fornecedor
     };
 
     const response = await axios.delete('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', { headers: headers, params: params });
-     alert(response.data.message);
+    alert(response.data.message);
   } catch (error) {
     if (error.response)
       console.error(error.response.data.message);
@@ -209,11 +273,14 @@ document.addEventListener("DOMContentLoaded", async function () {
   Array.from(await getFornecedores())
     .forEach(fornecedor => {
       addFornecedorElement(fornecedor);
-  });
+    });
 
   document.getElementById("add").addEventListener("click", addSupplier);
   document.querySelector('.add__supplier').addEventListener('click', showModal);
   document.querySelector('.botao__fechar').addEventListener('click', closeModal);
   document.getElementById('CNPJ').addEventListener('input', mascara_CNPJOnInput);
+  document.getElementById('editar_CNPJ').addEventListener('input', mascara_CNPJOnInput);
+  document.getElementById('botao_fechar_edit_modal').addEventListener('click', closeEditModal);
+  document.getElementById('confirm_edit').addEventListener('click', confirmEditOnClick);
   limitarCaracteres();
 });

@@ -34,7 +34,7 @@
             </div>
             <button class="add__supplier"> + Adicionar</button>
         </div>
-        <div class="modal">
+        <div id="modal_adicionar" class="modal">
             <div class="conteudo__modal">
                 <table>
                     <thead>
@@ -56,6 +56,32 @@
                 </table>
                 <div class="add__sucesso"> Fornecedor adicioando a lista.</div>
                 <div class="add__erro"> Erro ao adicionar fornecedor.</div>
+                <div class="cnpj__existe"> O CNPJ já existe.</div>
+            </div>
+        </div>
+        <div id="modal_editar" class="modal">
+            <div class="conteudo__modal">
+                <input type="hidden" id="editar_id_fornecedor">
+                <table>
+                    <thead>
+                        <tr class="th__tr">
+                            <th class="fredoka__fonts">CNPJ</th>
+                            <th class="fredoka__fonts">Razão Social</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="cnpj" id="editar_CNPJ" type="text" name="cnpj"
+                                    placeholder="                            Insira o CNPJ"></td>
+                            <td><input class="rezao" id="editar_razao_social" type="text" name="razao_social"
+                                    placeholder="                         Insira a razão social"></td>
+                            <td><button class="add" id="confirm_edit">Confirmar</button></td>
+                            <td><button class="botao__fechar" id="botao_fechar_edit_modal">X</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="add__sucesso"> Fornecedor editado com sucesso</div>
+                <div class="add__erro"> Erro ao editar fornecedor</div>
                 <div class="cnpj__existe"> O CNPJ já existe.</div>
             </div>
         </div>
