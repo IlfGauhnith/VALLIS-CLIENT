@@ -1,75 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fornecedores</title>
     <link rel="stylesheet" type="text/css" href="../Public/css/StyleSupplier.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../Public/script/supplier.js"></script>
+    <script src="../components/sidebar-nav.js"></script>
 </head>
-<body class="fredoka__fonts">
-    <div class="logo__vallis">
-        <img src="../Public/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
-    </div>
-    <div class="conteiner__list">
-        <div class="list__supplier">
-            <table>
-                <thead>
-                    <div class="head__table">
-                        <div class="ID__head">ID</div>
-                        <div class="razao__head">Razão Social</div>
-                        <div class="cnpj__head">CNPJ</div>
-                    </div>
-                </thead>
-                <tbody class="t__body" id="t__body">
-                </tbody>
-            </table>
-        </div>
-        <button class="add__supplier" > + Adicionar</button>
-    </div>
-    <div class="modal">
-        <div class="conteudo__modal">
-            <table>
-                <thead>
-                    <tr class="th__tr">
-                        <th class="fredoka__fonts">CNPJ</th>
-                        <th class="fredoka__fonts">Razão Social</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input class="cnpj" id="CNPJ" type="text" name="cnpj" placeholder="                            Insira o CNPJ"></td>
-                        <td><input class="rezao" id="razao__social" type="text" name="razao_social" placeholder="                         Insira a razão social"></td>
-                        <td><button class="add" id="add">adicionar fornecedor</button></td>
-                        <td><button class="botao__fechar">X</button></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="add__sucesso"> Fornecedor adicioando a lista.</div>                     
-            <div class="add__erro"> Erro ao adicionar fornecedor.</div>
-            <div class="cnpj__existe"> O CNPJ já existe.</div>                     
-        </div>
-    </div>
-    <div class="modal__supplier__edit">
-        <div class="conteudo__edit">
-            <table>
-                <thead>
-                    <tr class="th__edit">
-                        <th class="fredoka__fonts">CNPJ</th>
-                        <th class="fredoka__fonts">Razão social</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input class="cnpj__edit" type="text" name="cnpj" placeholder="                            Insira o CNPJ"></td>
-                        <td><input class="rezao__edit" type="text" name="razao_social" placeholder="                         Insira a razão social"></td>
-                        <td><button class="edit__supplier" >Confirmar mudança</button></td>
-                        <td><button class="fechar__edit">X</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 
+<body class="fredoka__fonts">
+    <side-bar-nav></side-bar-nav>
+    <div id="main">
+        <div class="logo__vallis">
+            <img src="../Public/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
+        </div>
+        <div class="conteiner__list">
+            <div class="list__supplier">
+                <table>
+                    <thead>
+                        <div class="head__table">
+                            <div class="ID__head">ID</div>
+                            <div class="razao__head">Razão Social</div>
+                            <div class="cnpj__head">CNPJ</div>
+                        </div>
+                    </thead>
+                    <tbody class="t__body" id="t__body">
+                    </tbody>
+                </table>
+            </div>
+            <button class="add__supplier"> + Adicionar</button>
+        </div>
+        <div class="modal">
+            <div class="conteudo__modal">
+                <table>
+                    <thead>
+                        <tr class="th__tr">
+                            <th class="fredoka__fonts">CNPJ</th>
+                            <th class="fredoka__fonts">Razão Social</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="cnpj" id="CNPJ" type="text" name="cnpj"
+                                    placeholder="                            Insira o CNPJ"></td>
+                            <td><input class="rezao" id="razao__social" type="text" name="razao_social"
+                                    placeholder="                         Insira a razão social"></td>
+                            <td><button class="add" id="add">adicionar fornecedor</button></td>
+                            <td><button class="botao__fechar">X</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="add__sucesso"> Fornecedor adicioando a lista.</div>
+                <div class="add__erro"> Erro ao adicionar fornecedor.</div>
+                <div class="cnpj__existe"> O CNPJ já existe.</div>
+            </div>
+        </div>
+        <div class="modal__supplier__edit">
+            <div class="conteudo__edit">
+                <table>
+                    <thead>
+                        <tr class="th__edit">
+                            <th class="fredoka__fonts">CNPJ</th>
+                            <th class="fredoka__fonts">Razão social</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="cnpj__edit" type="text" name="cnpj"
+                                    placeholder="                            Insira o CNPJ"></td>
+                            <td><input class="rezao__edit" type="text" name="razao_social"
+                                    placeholder="                         Insira a razão social"></td>
+                            <td><button class="edit__supplier">Confirmar mudança</button></td>
+                            <td><button class="fechar__edit">X</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
