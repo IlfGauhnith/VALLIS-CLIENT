@@ -6,22 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autorização de Pagamento</title>
     <link rel="stylesheet" type="text/css" href="../Public/css/StyleCadastrarAutorizacaoPagamento.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../Public/script/cadastrar_autorizacao_pagamento.js"></script>
-
+    <script src="../components/sidebar-nav.js"></script>
 </head>
 
 <body class="fredoka__fonts">
-    <div class="logo__vallis">
-        <img src="../Public/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
-    </div>
-    <div class="add__autorizacao__div">
-        <button class="add__autorizacao" id="add_autorizacao"></button>
-        <div id="autorizacao_options" class="autorizacao__options">
-            <button id="add_autorizacao_chave" class="autorizacao__option" disabled>Chave de Acesso NF-e</button>
-            <button id="add_autorizacao_xml" class="autorizacao__option" disabled>XML</button>
-            <button id="add_autorizacao_manual" class="autorizacao__option">Manual</button>
+    <side-bar-nav></side-bar-nav>
+    <div id="main">
+        <div class="logo__vallis">
+            <img src="../Public/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
+        </div>
+        <div class="add__autorizacao__div">
+            <button class="add__autorizacao" id="add_autorizacao"></button>
+            <div id="autorizacao_options" class="autorizacao__options">
+                <button id="add_autorizacao_chave" class="autorizacao__option" disabled>Chave de Acesso NF-e</button>
+                <button id="add_autorizacao_xml" class="autorizacao__option" disabled>XML</button>
+                <button id="add_autorizacao_manual" class="autorizacao__option">Manual</button>
+            </div>
         </div>
     </div>
 </body>
