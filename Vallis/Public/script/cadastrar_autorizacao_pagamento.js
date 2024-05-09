@@ -168,7 +168,7 @@ function createAutorizacaoTitleElement(autorizacaoBlock) {
     return autorizacaoTitleDiv
 }
 
-function createInputDiv(label_text, input_type, style, accept, onInputFunction) {
+function createInputDiv(label_text, input_type, style, accept, onInputFunction, name) {
     const inputDiv = document.createElement('div');
     inputDiv.classList.add(style);
 
@@ -178,17 +178,20 @@ function createInputDiv(label_text, input_type, style, accept, onInputFunction) 
     const input = document.createElement('input');
     input.setAttribute('type', input_type);
 
-    if (accept)
-        input.setAttribute('accept', accept);
-
     if (label_text)
         inputDiv.append(inputLabel, input);
     else
         inputDiv.append(input);
 
+    if (accept)
+        input.setAttribute('accept', accept);
+
     if (onInputFunction)
         input.addEventListener('input', onInputFunction);
 
+    if (name)
+        input.setAttribute('name', name);
+    
     return inputDiv;
 }
 
@@ -199,7 +202,7 @@ function createBreakFlexRow() {
     return div;
 }
 
-async function createSelectDiv(label_text, populate_function) {
+async function createSelectDiv(label_text, populate_function, name) {
     const selectDiv = document.createElement('div');
     selectDiv.classList.add('input_div');
 
@@ -209,29 +212,63 @@ async function createSelectDiv(label_text, populate_function) {
     var select = document.createElement('select');
     select = await populate_function(select);
 
+    select.setAttribute('name', name);
+
     selectDiv.append(selectLabel, select);
     return selectDiv;
 }
 
+function createUploadButtonDiv() {
+    const div = document.createElement('div');
+    div.classList.add('upload_button_div');
+
+    const icon = document.createElement('i');
+    icon.classList.add('fa-solid');
+    icon.classList.add('fa-upload');
+    icon.classList.add('fa-xl');
+    icon.classList.add('upload_button')
+
+    icon.addEventListener('click', uploadButtonOnClick);
+
+    div.append(icon);
+    return div;
+}
+
+async function uploadButtonOnClick(event) {
+    const autorizacaoBlock = event.target.closest('.autorizacao__block__div')
+
+    data = {
+        id_fornecedor: autorizacaoBlock.querySelector('select[name="fornecedorSelect"]').value,
+        id_loja: autorizacaoBlock.querySelector('select[name="lojaSelect"]').value,
+        numero_nota: autorizacaoBlock.querySelector('input[name="numeroNota"]').value,
+        valor_nota: autorizacaoBlock.querySelector('input[name="valorNota"]').value,
+        data_emissao_nota: autorizacaoBlock.querySelector('input[name="dataEmissao"]').value,
+        base64_arquivo_nf: autorizacaoBlock.querySelector('input[name="nfFile"]').files[0]
+    }
+
+    console.log(data);
+}
 async function addAutorizacaoManualOnClick(event) {
     const autorizacaoBlock = document.createElement('div');
     autorizacaoBlock.classList.add('autorizacao__block__div');
 
     const autorizacaoTitleDiv = createAutorizacaoTitleElement(autorizacaoBlock);
 
-    const fornecedorDiv = await createSelectDiv('Fornecedor', populateFornecedoresSelect);
-    const lojaDiv = await createSelectDiv('Loja', populateLojaSelect);
-    const numeroNotaDiv = createInputDiv('Número da Nota Fiscal', 'text', 'input_div');
-    const nfFileDiv = createInputDiv('Arquivo NF', 'file', 'input_div', '.pdf');
-    const valorNotaDiv = createInputDiv('Valor', 'text', 'input_div', null, mascaraMoeda);
-    const dataEmissaoDiv = createInputDiv('Data de Emissão', 'date', 'input_div');
+    const fornecedorDiv = await createSelectDiv('Fornecedor', populateFornecedoresSelect, 'fornecedorSelect');
+    const lojaDiv = await createSelectDiv('Loja', populateLojaSelect, 'lojaSelect');
+    const numeroNotaDiv = createInputDiv('Número da Nota Fiscal', 'text', 'input_div', null, null, 'numeroNota');
+    const nfFileDiv = createInputDiv('Arquivo NF', 'file', 'input_div', '.pdf', null, 'nfFile');
+    const valorNotaDiv = createInputDiv('Valor', 'text', 'input_div', null, mascaraMoeda, 'valorNota');
+    const dataEmissaoDiv = createInputDiv('Data de Emissão', 'date', 'input_div', null, null, 'dataEmissao');
     const duplicataTable = createDuplicataTableDiv();
 
     autorizacaoBlock.append(autorizacaoTitleDiv, fornecedorDiv, lojaDiv,
         createBreakFlexRow(),
         numeroNotaDiv, nfFileDiv, dataEmissaoDiv, valorNotaDiv,
         createBreakFlexRow(),
-        duplicataTable);
+        duplicataTable,
+        createBreakFlexRow(),
+        createUploadButtonDiv());
 
     document.getElementById("main").appendChild(autorizacaoBlock);
 }
