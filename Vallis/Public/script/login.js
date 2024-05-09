@@ -11,9 +11,11 @@ async function submitbutton() {
   const senha_usuario = document.getElementById('password').value;
   const empty_field = document.querySelector('.empty__field');
   const invalid_credentials = document.querySelector('.invalid__credentials');
-
+  const loader_login = document.querySelector('.loader__login');
+  
   try{
-    document.body.style.cursor = 'wait'; 
+    document.body.style.cursor = 'wait';
+    loader_login.style.display = 'block'; 
     
     if  (nome_usuario && senha_usuario) {
 
@@ -34,8 +36,12 @@ async function submitbutton() {
  * erro com o valor 'none' para que não tenha conflito de mensagens de erro.  
  */ 
     else {
+      loader_login.style.display = 'none';
       invalid_credentials.style.display = 'none';
       empty_field.style.display = 'block';
+      setTimeout(function() {
+        empty_field.style.display = 'none';
+      }, 4000);
     }
   }
   
@@ -46,13 +52,20 @@ async function submitbutton() {
  * erro com o valor 'none' para que não tenha conflito de mensagens de erro.
  */
     catch (error){    
-      invalid_credentials.style.display = 'block';
+      loader_login.style.display = 'none';
       empty_field.style.display = 'none';            
-        return null;   
+      invalid_credentials.style.display = 'block';
+      setTimeout(function() {
+        invalid_credentials.style.display = 'none';
+      }, 4000);
+
+      return null;   
     } finally {
 // Retira o cursor de espera após a execução do bloco try-catch
 // Obs: Sempre vai cair nesse caso independente do que ocorrer dentro do try-catch.
-      document.body.style.cursor = 'default'; 
+      document.body.style.cursor = 'default';
+      loader_login.style.display = 'none';
+
     }
 }
 
