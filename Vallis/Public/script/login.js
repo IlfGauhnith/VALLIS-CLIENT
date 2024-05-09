@@ -7,51 +7,52 @@
  * responsáveis pela rotina de login.
  */
 async function submitbutton() {
+  const nome_usuario = document.getElementById('username').value;
+  const senha_usuario = document.getElementById('password').value;
+  const empty_field = document.querySelector('.empty__field');
+  const invalid_credentials = document.querySelector('.invalid__credentials');
 
-    const nome_usuario = document.getElementById('username').value;
-    const senha_usuario = document.getElementById('password').value;
-    const campo_vazio_alerta = document.querySelector('.campo__vazio__alerta');
-    const credenciais_invalida = document.querySelector('.credenciais__invalida');
+  try{
+    document.body.style.cursor = 'wait'; 
+    
+    if  (nome_usuario && senha_usuario) {
 
-    try{
-        document.body.style.cursor = 'wait'; 
+// Buscar o salt na api-crud
+      const salt = await getSalt(nome_usuario);
+        if (!salt)
+           alert("Erro.");
 
-        if  (nome_usuario && senha_usuario) {
+// Logar
+        const token = await login(nome_usuario, senha_usuario, salt);
+//alert(token);
 
-            // Buscar o salt na api-crud
-            const salt = await getSalt(nome_usuario);
-            if (!salt)
-            alert("Erro.");
-
-            // Logar
-            const token = await login(nome_usuario, senha_usuario, salt);
-            //alert(token);
-
-        }
-        /**
-         * Caso o usuário não preencha todos os campos essa mensagem aparecerá 
-         * iformando ao usuário para preencher todos os campos.
-         * Obs: Exisite a necessidade de deixar a display de outras mensagens de
-         * erro com o valor 'none' para que não tenha conflito de mensagens de erro.  
-         */ else {
-            credenciais_invalida.style.display = 'none';
-            campo_vazio_alerta.style.display = 'block';
-        }
     }
-    /**
-     * Caso o usuário, senha ou ambos estiverem incorretos essa mensagem aparecerá
-     * informando ao usuário a tentativa de malsucedida de login.
-     * Obs: Exisite a necessidade de deixar a display de outras mensagens de
-     * erro com o valor 'none' para que não tenha conflito de mensagens de erro.
-     */
+/**
+ * Caso o usuário não preencha todos os campos essa mensagem aparecerá 
+ * iformando ao usuário para preencher todos os campos.
+ * Obs: Exisite a necessidade de deixar a display de outras mensagens de
+ * erro com o valor 'none' para que não tenha conflito de mensagens de erro.  
+ */ 
+    else {
+      invalid_credentials.style.display = 'none';
+      empty_field.style.display = 'block';
+    }
+  }
+  
+/**
+ * Caso o usuário, senha ou ambos estiverem incorretos essa mensagem aparecerá
+ * informando ao usuário a tentativa de malsucedida de login.
+ * Obs: Exisite a necessidade de deixar a display de outras mensagens de
+ * erro com o valor 'none' para que não tenha conflito de mensagens de erro.
+ */
     catch (error){    
-            credenciais_invalida.style.display = 'block';
-            campo_vazio_alerta.style.display = 'none';            
+      invalid_credentials.style.display = 'block';
+      empty_field.style.display = 'none';            
         return null;   
     } finally {
-        // Retira o cursor de espera após a execução do bloco try-catch
-        // Obs: Sempre vai cair nesse caso independente do que ocorrer dentro do try-catch.
-        document.body.style.cursor = 'default'; 
+// Retira o cursor de espera após a execução do bloco try-catch
+// Obs: Sempre vai cair nesse caso independente do que ocorrer dentro do try-catch.
+      document.body.style.cursor = 'default'; 
     }
 }
 
@@ -68,31 +69,31 @@ async function submitbutton() {
  */
 async function login(nome_usuario, senha_usuario, salt) {
 
-    // Concatena a senha com o salt e calcula o sha512.
-    hash_senha = CryptoJS.PBKDF2(senha_usuario, 
-            salt, 
-            {keySize: 64, iterations: 1000, hasher: CryptoJS.algo.SHA512}
-        ).toString(CryptoJS.enc.Hex);
+// Concatena a senha com o salt e calcula o sha512.
+  hash_senha = CryptoJS.PBKDF2(senha_usuario, 
+          salt, 
+          {keySize: 64, iterations: 1000, hasher: CryptoJS.algo.SHA512}
+      ).toString(CryptoJS.enc.Hex);
 
-    // Corpo da requisição de login
+// Corpo da requisição de login
     postData = {
         nome_usuario: nome_usuario,
         hash_senha: hash_senha
     }
 
-    // Requisição de login
+// Requisição de login
     const response = await axios.post('https://hzw2e5rbie.execute-api.sa-east-1.amazonaws.com/dev/logar', postData);
     const token = response.data.token; 
 
-    //TO-DO ARMAZENAR TOKEN NA SESSÃO DO BROWSER.
+//TO-DO ARMAZENAR TOKEN NA SESSÃO DO BROWSER.
        sessionStorage.setItem('token', token);
 
-    /** 
-    * Faz o direcionamento pra a Pagina de fornecedores.
-    * Obs: Essa função é provisória. 
-    */  window.location.href = "supplier.html"
+/** 
+* Faz o direcionamento pra a Pagina de fornecedores.
+* Obs: Essa função é provisória. 
+*/     window.location.href = "supplier.html"
 
-    return token;
+  return token;
         
 }
 

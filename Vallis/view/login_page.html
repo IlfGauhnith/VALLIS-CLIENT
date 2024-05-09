@@ -10,24 +10,37 @@
     <script src="../Public/script/login.js"> </script> 
 </head>
 <body class="fredoka__fonts">
-    <div class="logo__vallis">
-        <img src="../Public/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
-    </div>
-    <div class="conteiner__login">
-        <div class="login__fonte">Login</div>
-        <div style="display: flex; flex-direction: column;">
-            <label for="username"></label>
-            <input class="user__name" type="text" id="username" name="username" required placeholder="                                      Usuário                                  ">
-            <label for="password"></label>
-            <input class="pass__word" type="password" id="password" name="password" required placeholder="                                       Senha                                  ">
-            <div class="alinhamento__botoes">
-                <button class="esqueceu__senha" formnovalidate >Esqueceu a senha?</button>
-                <button class="submit__button"  onclick="submitbutton()">Entrar</button>
-            </div>
-            <button class="novo__registro" formnovalidate >Não é registrado?</button>
-            <div class="campo__vazio__alerta">Por favor, preencha todos os campos!</div>
-            <div class="credenciais__invalida">Nome de Usuário ou senha invalido!</div>
+  <header>
+      <div class="header__element">
+        <div class="logo__element">
+          <img class="logo__vallis" src="../Public/Img/VALLIS_Logo.png" alt="Logo Vallis">
         </div>
+      </div>  
+  </header>
+  <section>
+    <div class="container__login">
+      <div class="login__font" alt="Login" aria-label="Login.">Login  
+      </div>
+        <div class="login__element">
+          <label for="username" >
+          </label>
+            <input class="user__name" type="text" id="username" name="username" aria-label="Digite o nome do usuário." required placeholder="                                      Usuário                                  ">
+            <label for="password"> 
+            </label>
+            <input class="pass__word" type="password" id="password" name="password" aria-label="Digite a senha do usuário" required placeholder="                                       Senha                                  ">
+            <div class="button__element">
+              <button class="forgot__password" formnovalidate alt="botão esquecu a senha?" >Esqueceu a senha?</button>
+              <button class="button__submit"  onclick="submitbutton()" alt="botão entrar.">Entrar</button>
+            </div>
+            <button class="new__register" formnovalidate >Não é registrado?</button>
+              <div class="empty__field">Por favor, preencha todos os campos!</div>
+              <div class="invalid__credentials">Nome de Usuário ou senha invalido!</div>
+      </div>
     </div>
+  </section>
+  <footer>
+    <div class="footer__element">
+    </div>
+  </footer>
 </body>
 </html>
