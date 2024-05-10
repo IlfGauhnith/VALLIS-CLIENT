@@ -1,5 +1,5 @@
 
-
+//
 
 //Este componete define a classe em JavaScript `SideBarNav`, que herda a funcionalidade de `HTMLElement`.
 class SideBarNav extends HTMLElement {
