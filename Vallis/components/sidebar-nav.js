@@ -3,43 +3,43 @@ class SideBarNav extends HTMLElement {
         super();
     }
 
-    /*
-        There are four special lifecycle callbacks for custom elements that we can use to append header markdown to the page:  
-            connectedCallback, attributeChangeCallback, disconnectedCallback, and adoptedCallback.
-
-        Of these callbacks, connectedCallback is one of the most commonly used. 
-        connectedCallback runs each time your custom element is inserted into the DOM.
-    */
+  /*
+    Existem quatro retornos de chamada de ciclo de vida especiais para elementos personalizados que podemos usar para anexar marcação de cabeçalho à página:
+    conectadoCallback, atributoChangeCallback, desconectadoCallback e adotadoCallback.
+    Desses retornos de chamada, conectadoCallback é um dos mais comumente usados.
+    conectadoCallback é executado sempre que seu elemento personalizado é inserido no DOM.
+  */
     connectedCallback() {
         this.innerHTML = `
             <style>
                 /* The side navigation menu */
                 .sidenav {
-                    height: 100%; /* 100% Full-height */
-                    width: 0; /* 0 width - change this with JavaScript */
-                    position: fixed; /* Stay in place */
-                    z-index: 1; /* Stay on top */
-                    top: 0; /* Stay at the top */
+                    height: 95.5%; 
+                    width: 0;
+                    position: fixed; 
+                    border-radius: 0rem 1.2rem 1.2rem 0rem ;
+                    z-index: 1; 
+                    top: 0; 
                     left: 0;
-                    background-color: #111; /* Black*/
-                    overflow-x: hidden; /* Disable horizontal scroll */
-                    padding-top: 60px; /* Place content 60px from the top */
-                    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+                    background: linear-gradient(to left top, #ddb892, #ede0d4);
+                    overflow-x: auto; 
+                    padding-top: 60px; 
+                    transition: 0.5s; 
+
                 }
                 
                 /* The navigation menu links */
                 .sidenav a {
-                    padding: 8px 8px 8px 32px;
+                    padding: 0.5rem 0.5rem 0.5rem 2rem;
                     text-decoration: none;
-                    font-size: 25px;
-                    color: #818181;
+                    font-size: 1.5rem;
+                    color: #7f5539;
                     display: block;
-                    transition: 0.3s;
                 }
                 
                 /* When you mouse over the navigation links, change their color */
                 .sidenav a:hover {
-                    color: #f1f1f1;
+                    color: #c96644;
                 }
                 
                 /* Position and style the close button (top right corner) */
@@ -47,35 +47,34 @@ class SideBarNav extends HTMLElement {
                     position: absolute;
                     top: 0;
                     right: 25px;
-                    font-size: 36px;
-                    margin-left: 50px;
+                    font-size: 3rem;
                 }
                 
                 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
                 #main {
-                    transition: margin-left .5s;
-                    padding: 20px;
+                    transition: margin-left 0.8s;
+                    padding: 1rem;
                 }
-                
+
+             
                 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
                 @media screen and (max-height: 450px) {
                     .sidenav {padding-top: 15px;}
                     .sidenav a {font-size: 18px;}
                 }
                 .button__div {
-                    width: 50px;
-                    height: 50px;
-                    margin: 1.5vh 0 0 1.5vh;
-                    background-color: #9c6644;
-                    border: none;
-                    border-radius: 50%;
-                    color: black;
-                    font-size: 25px;
-                    cursor: pointer;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                  align-items: center;
+                  background-color: #9c6644;
+                  color: #ede0d4;
+                  cursor: pointer;
+                  border: none;
+                  border-radius: 50%;
+                  display: flex;
+                  font-size: 25px;
+                  justify-content: center;
+                  height: 50px;
+                  margin: 1.5vh 0 0 1.5vh;
+                  width: 50px;
                 }
             </style>
             <html>
@@ -98,13 +97,13 @@ class SideBarNav extends HTMLElement {
 
 customElements.define('side-bar-nav', SideBarNav);
 
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+/* Defina a largura da navegação lateral para 22rem e a margem esquerda do conteúdo da página para 22rem */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidenav").style.width = "22.5rem";
+    document.getElementById("main").style.marginLeft = "1rem";
 }
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+/* Define a largura da navegação lateral como 0 e a margem esquerda do conteúdo da página como 0 */
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
