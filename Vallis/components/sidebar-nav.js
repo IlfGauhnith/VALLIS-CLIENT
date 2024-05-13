@@ -39,9 +39,9 @@ button {
   border-radius: 50%;
   border: 2px  solid #ede0d4;
   display: flex;
-  height: 3.5rem;
+  height: 3rem;
   justify-content: center;
-  width: 3.5rem;
+  width: 3rem;
 }
 
 /* defini o estilo dos linhas do menu. */
@@ -49,9 +49,9 @@ button {
   align-items: end;
   display: flex;
   flex-direction: column;
-  height: 2.2rem;
+  height: 2rem;
   justify-content: space-between;
-  padding: 0.250rem;
+  padding: 0.26rem;
   transition: transform .4s;
   width: 2.2rem;
 }

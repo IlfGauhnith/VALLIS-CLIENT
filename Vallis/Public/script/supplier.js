@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   document.getElementById("add").addEventListener("click", addSupplier);
   document.querySelector('.add__supplier').addEventListener('click', showModal);
-  document.querySelector('.botao__fechar').addEventListener('click', closeModal);
+  document.querySelector('.button__close').addEventListener('click', closeModal);
   document.getElementById('CNPJ').addEventListener('input', mascara_CNPJOnInput);
   document.getElementById('editar_CNPJ').addEventListener('input', mascara_CNPJOnInput);
   document.getElementById('botao_fechar_edit_modal').addEventListener('click', closeEditModal);

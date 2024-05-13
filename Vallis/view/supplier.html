@@ -54,17 +54,26 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input class="cnpj" id="CNPJ" type="text" name="cnpj"
-                                    placeholder="                            Insira o CNPJ"></td>
-                            <td><input class="rezao" id="razao__social" type="text" name="razao_social"
-                                    placeholder="                         Insira a razão social"></td>
-                            <td><button class="add" id="add">adicionar fornecedor</button></td>
-                            <td><button class="botao__fechar">X</button></td>
+                          <td>
+                            <div class="cnpj__element">
+                              <input class="cnpj" id="CNPJ" type="text" name="cnpj" placeholder="                        Insira o CNPJ">
+                            </div>
+                          </td>
+                          <td>
+                            <div class="razao__element">
+                              <input class="razao" id="razao__social" type="text" name="razao_social" placeholder="                   Insira a razão social">
+                            </div>
+                          </td>
+                            <td><button class="add" id="add">Confirmar</button></td>
+                            <td><button class="button__close">
+                              <span class="X"></span>
+                              <span class="Y"></span>
+                            </button></td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="add__sucesso"> Fornecedor adicioando a lista.</div>
-                <div class="add__erro"> Erro ao adicionar fornecedor.</div>
+                <div class="add__erro">Por favor, preencha todos os campos!</div>
                 <div class="cnpj__existe"> O CNPJ já existe.</div>
             </div>
         </div>
