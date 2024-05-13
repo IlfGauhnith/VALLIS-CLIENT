@@ -23,30 +23,66 @@ class SideBarNav extends HTMLElement {
 
 /* ******************************************************************* Inicio da tag style. ******************************************************************* */
 ` <style>
-/* Defini a aparência do botão que abre o sibebar. */
-  .button__div {
-    align-items: center;
-    background-color: #9c6644;
-    border: none;
-    border-radius: 50%;
-    color: #ede0d4;
-    cursor: pointer;
-    display: flex;
-    font-size: 25px;
-    height: 3.2rem;
-    justify-content: center;
-    margin: 1.5vh 0 0 1.5vh;
-    width: 3.2rem;
-  }
+/* Reseta o estilo. */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
 
-/* Defini a tamanho da área clicavel do botão. */
-  .fa-bars {
-    align-items: center;
-    display: flex;
-    width: 3.5rem;
-    height: 3.5rem;
-    justify-content: center;
-  }
+/* estilo do botão. */
+.button__sidebar {
+  align-items: center;
+  background:  #e6ccb2;
+  border-radius: 50%;
+  border: 2px  solid #ede0d4;
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  width: 3.5rem;
+}
+
+/* defini o estilo dos linhas do menu. */
+.menu__icon {
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  height: 2.2rem;
+  justify-content: space-between;
+  padding: 0.250rem;
+  transition: transform .4s;
+  width: 2.2rem;
+}
+
+/* Defini animação das linhas do menu. */
+.menu__icon span {
+  background-color: #7f5539;
+  border-radius: 0.125rem;
+  box-shadow: 0 .5px 2px 0 hsla(0, 0%, 0%, .2);
+  height: 0.250rem;
+  transition: width .4s, transform .4s, background-color .4s;
+  width: 100%;
+}
+
+.menu__icon :nth-child(2) {
+  width: 100%;
+}
+
+.menu__icon :nth-child(3) {
+  width: 100%;
+}
+
+.menu__icon:hover {
+  transform: rotate(-90deg);
+}
+
+.menu__icon:hover span {
+  background-color: ede0d4;
+  transform: translateX(-10px);
+  width: 0.5rem;
+}
 
 /* Defini a aparência do menu lateral (sidbar). */
   .sidenav {
@@ -82,9 +118,10 @@ class SideBarNav extends HTMLElement {
   .sidenav .closebtn {
     font-size: 3rem;
     position: absolute;
-    right: 25px;
+    right: 1rem;
     top: 0;
-    trasition
+    width:1rem ;
+    margin: 0rem 1rem 0rem 0rem;
   }
   
 /* defini a aparência de movimento do conteudo que está fora do menu lateral (sibar). Usado para dar uma aparência mais suave ao conteudo da página
@@ -113,9 +150,13 @@ class SideBarNav extends HTMLElement {
   </div>
 
 <!-- Elemento que abre o menu lateral (sidbar). -->
-  <div class="button__div">
+  <div class="button__sidebar">
     <span onclick="openNav()">
-      <i class="fa-solid fa-bars"></i>
+      <button class="menu__icon">
+      <span></span>
+      <span></span>
+      <span></span>
+      </button>
     </span>
   </div>
 </html>`
@@ -134,7 +175,7 @@ class SideBarNav extends HTMLElement {
 /* Defina a largura da navegação lateral para 22rem e a margem esquerda do conteúdo da página para 1rem */
     function openNav() {
       document.getElementById("mySidenav").style.width = "22.5rem";
-      document.getElementById("main").style.marginLeft = "1rem";
+      document.getElementById("main").style.marginLeft = "8rem";
     }
 
 /* Define a largura da navegação lateral como 0 e a margem esquerda do conteúdo da página como 0 */

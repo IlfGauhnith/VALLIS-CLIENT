@@ -45,9 +45,8 @@
     justify-content: center;
     width: 100%;
   }
-
   .logo__element {
-
+    
   }
 
 /* Define o estilo da logo Vallis */
@@ -228,8 +227,9 @@
     transition: all 0.2s ease-in;
     width: 8.575rem;
     z-index: 1;
+  
+  
   /* Fonte button__submit */
-
    font-family: "Fredoka", sans-serif;
    font-optical-sizing: auto;
    font-weight: 400;
