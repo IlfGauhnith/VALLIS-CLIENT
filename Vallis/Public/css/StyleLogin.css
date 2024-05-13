@@ -9,19 +9,23 @@
     height: 100vh;
     margin: 0;
     padding: 0;
+
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
   
 /*
  * A classe .fredoka__fonts define a fonte padrão da aplicação.
  * Obs: Mesmo que a classe .fredoka__fonts esteja no body do HTML, ela não será aplicada
  * a todos os elementos, sendo necessário adicioná-la explicitamente ao elemento desejado no HTML.
- */
- .fredoka__fonts {
+ 
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }
+*/
 
 /*
  * O media screen resolve parcialmente o problema de redimensionamento da tela para múltiplas resoluções.
@@ -185,6 +189,11 @@
     height: 1.5625rem;
     outline: none;
     width: 12.5rem;
+
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
 
   /* Compotamento do botão esqueceu a senha */
@@ -220,6 +229,7 @@
     width: 8.575rem;
     z-index: 1;
   /* Fonte button__submit */
+
    font-family: "Fredoka", sans-serif;
    font-optical-sizing: auto;
    font-weight: 400;
@@ -291,6 +301,11 @@
     outline: none;
     padding: 0;
     width: 10.875rem;
+
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
 
   /* comportamento do botão registar */
