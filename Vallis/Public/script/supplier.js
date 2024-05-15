@@ -1,3 +1,5 @@
+
+// Função que aplica mascara no input do CNPJ ============================================================================
 function aplicarMascaraCNPJ(value) {
   value = value.replace(/[^0-9]/g, '');
   if (value.length > 14) {
@@ -14,7 +16,7 @@ function mascara_CNPJOnInput(event) {
 
 function limitarCaracteres() {
   var maxLength = 200;
-  var inputElement = document.getElementById("razao__social");
+  var inputElement = document.getElementById("razao__add");
 
   if (inputElement) {
     inputElement.addEventListener("input", function () {
@@ -24,7 +26,9 @@ function limitarCaracteres() {
     });
   }
 }
+// Final da Função que aplica a mascara no input do CNPJ =================================================================
 
+// Função que faz a requisição PUT da API para editar fornecedor. ======================================================== 
 async function putFornecedor(fornecedor) {
   try {
     fornecedor.cnpj = fornecedor.cnpj.replace(/[^0-9]/g, '');
@@ -35,7 +39,7 @@ async function putFornecedor(fornecedor) {
     };
 
     await axios.put('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', fornecedor, { headers: headers })
-    alert('Fornecedor editado com sucesso!');
+//  alert('Fornecedor editado com sucesso!');
   } catch (error) {
     if (error.response) {
       console.error(error.response.data.message);
@@ -45,15 +49,18 @@ async function putFornecedor(fornecedor) {
       alert(error);
     }
     throw error;
+
   }
 }
+// Final da requisição PUT da API ========================================================================================
 
+//
 function addSupplier() {
-  const cnpj_add = document.getElementById("CNPJ").value;
-  const razao_social = document.getElementById("razao__social").value;
+  const cnpj_add = document.getElementById("CNPJ__add").value;
+  const razao_social = document.getElementById("razao__add").value;
   const add_sucesso = document.querySelector('.add__sucesso');
   const add_erro = document.querySelector(".add__erro");
-  const cnpjExiste = document.querySelector('.cnpj__existe');
+  const cnpjExiste = document.querySelector('.cnpj__exists');
 
   cnpj = cnpj_add.replace(/[^0-9]/g, '');
 
@@ -71,9 +78,9 @@ function addSupplier() {
   axios.post('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', data, { headers: headers })
     .then(function (response) {
 
-      document.getElementById("CNPJ").value = "";
-      document.getElementById("razao__social").value = "";
-      addFornecedorElement(response.data);
+      document.getElementById("CNPJ__add").value = "";
+      document.getElementById("razao__add").value = "";
+        FornecedorElement(response.data);
       add_sucesso.style.display = 'block';
       setTimeout(function () {
         add_sucesso.style.display = 'none';
@@ -109,46 +116,55 @@ function editOnClick(event) {
 }
 
 function showEditModal(fornecedor) {
-  const modal = document.querySelector('#modal_editar');
+  const modal = document.querySelector('.modal__edit');
 
-  document.querySelector('#editar_razao_social').value = fornecedor.razao_social;
-  document.querySelector('#editar_CNPJ').value = fornecedor.cnpj;
-  document.querySelector('#editar_id_fornecedor').value = fornecedor.id_fornecedor;
+  document.querySelector('#CNPJ__edit').value = fornecedor.cnpj;
+  document.querySelector('#razao__edit').value = fornecedor.razao_social;
+  document.querySelector('#edit_idSupplier').value = fornecedor.id_fornecedor;
 
   modal.style.display = 'block';
 }
 
 function closeEditModal() {
-  const modal = document.querySelector('#modal_editar');
+  const modal = document.querySelector('.modal__edit');
   modal.style.display = 'none';
+  window.location.href = "supplier.html";
 }
 
 function showModal() {
-  const modal = document.querySelector('#modal_adicionar');
+  const modal = document.querySelector('.modal__supplier');
   modal.style.display = 'block';
 }
 
 function closeModal() {
-  const modal = document.querySelector('#modal_adicionar');
+  const modal = document.querySelector('.modal__supplier');
   modal.style.display = 'none';
 }
 
 async function confirmEditOnClick(event) {
-  const razao_social = document.querySelector('#editar_razao_social').value;
-  const cnpj = document.querySelector('#editar_CNPJ').value;
-  const id_fornecedor = document.querySelector('#editar_id_fornecedor').value;
 
-  const fornecedor = {
-    id_fornecedor: id_fornecedor,
-    razao_social: razao_social,
-    cnpj: cnpj
-  };
+  const cnpj = document.querySelector('#CNPJ__edit').value;
+  const razao_social = document.querySelector('#razao__edit').value;
 
-  await putFornecedor(fornecedor);
-  window.location.href = "supplier.html";
+  if (cnpj && razao_social) {
+    const id_fornecedor = document.querySelector('#edit_idSupplier').value;
+
+    const fornecedor = {
+      id_fornecedor: id_fornecedor,
+      razao_social: razao_social,
+      cnpj: cnpj
+    };
+
+    await putFornecedor(fornecedor);
+    window.location.href = "supplier.html";
+  } else {
+
+    alert('Os campos de CNPJ e/ou Razão Social não estão presentes');
+  }
 }
 
-function addFornecedorElement(fornecedor) {
+
+function FornecedorElement(fornecedor) {
   const table = document.getElementById("t__body");
   const row = document.createElement("tr");
 
@@ -157,7 +173,7 @@ function addFornecedorElement(fornecedor) {
   const id = document.createElement("div");
   const idTd = document.createElement("td");
   id.textContent = fornecedor.id_fornecedor;
-  id.classList.add("modal__ID");
+  id.classList.add("show__ID");
   idTd.classList.add("td__ID");
   idTd.appendChild(id);
   row.appendChild(idTd);
@@ -165,7 +181,7 @@ function addFornecedorElement(fornecedor) {
   const razao = document.createElement("td");
   const razaoTd = document.createElement("td");
   razao.textContent = fornecedor.razao_social;
-  razao.classList.add("modal__razao");
+  razao.classList.add("show__razao");
   razaoTd.classList.add("td__razao");
   razaoTd.appendChild(razao);
   row.appendChild(razaoTd);
@@ -173,14 +189,14 @@ function addFornecedorElement(fornecedor) {
   const cnpj = document.createElement("td");
   const cnpjTd = document.createElement("td");
   cnpj.textContent = aplicarMascaraCNPJ(fornecedor.cnpj);
-  cnpj.classList.add("modal__cnpj");
+  cnpj.classList.add("show__cnpj");
   cnpjTd.classList.add("td__cnpj");
   cnpjTd.appendChild(cnpj);
   row.appendChild(cnpjTd);
 
   const spacevoid = document.createElement("td");
   const spacevoidTd = document.createElement("td");
-  spacevoid.classList.add("modal__space");
+  spacevoid.classList.add("show__space");
   spacevoidTd.classList.add("td__space");
   spacevoidTd.appendChild(spacevoid);
   row.appendChild(spacevoidTd);
@@ -189,7 +205,7 @@ function addFornecedorElement(fornecedor) {
   const btEdit = document.createElement("td");
   const editTxt = document.createElement("span");
   editTxt.textContent = "Editar";
-  edit.classList.add("modal__edit");
+  edit.classList.add("show__edit");
   edit.addEventListener('click', editOnClick);
   btEdit.classList.add("td__edit");
   editTxt.classList.add("tx__edit");
@@ -202,7 +218,7 @@ function addFornecedorElement(fornecedor) {
   const deletTd = document.createElement("td");
   const deletTxt = document.createElement("span");
   deletTxt.textContent = "Excluir"
-  delet.classList.add("modal__delet");
+  delet.classList.add("show__delet");
   deletTd.classList.add("td__delet");
   deletTxt.classList.add("tx__delet")
   delet.appendChild(deletTxt);
@@ -212,10 +228,6 @@ function addFornecedorElement(fornecedor) {
   table.appendChild(row);
 
 }
-
-
-
-
 
 async function deletOnClick(event) {
   const id_fornecedor = event.target.parentElement.parentElement.parentElement.id;
@@ -272,15 +284,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   Array.from(await getFornecedores())
     .forEach(fornecedor => {
-      addFornecedorElement(fornecedor);
+      FornecedorElement(fornecedor);
     });
 
-  document.getElementById("add").addEventListener("click", addSupplier);
+  document.querySelector(".confirm__addSupplier").addEventListener("click", addSupplier);
   document.querySelector('.add__supplier').addEventListener('click', showModal);
-  document.querySelector('.button__close').addEventListener('click', closeModal);
-  document.getElementById('CNPJ').addEventListener('input', mascara_CNPJOnInput);
-  document.getElementById('editar_CNPJ').addEventListener('input', mascara_CNPJOnInput);
-  document.getElementById('botao_fechar_edit_modal').addEventListener('click', closeEditModal);
-  document.getElementById('confirm_edit').addEventListener('click', confirmEditOnClick);
+  document.querySelector('.close__add').addEventListener('click', closeModal);
+  document.getElementById('CNPJ__add').addEventListener('input', mascara_CNPJOnInput);
+  document.getElementById('CNPJ__edit').addEventListener('input', mascara_CNPJOnInput);
+  document.querySelector('.close__edit').addEventListener('click', closeEditModal);
+  document.getElementById('confirm__edit').addEventListener('click', confirmEditOnClick);
   limitarCaracteres();
 });
