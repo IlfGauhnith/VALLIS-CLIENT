@@ -1,142 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../Public/Img/VALLIS_Icon_Aba_Navegador_.png" type="image/x-icon">
-    <title>Fornecedores</title>
-    <link rel="stylesheet" type="text/css" href="../Public/css/StyleSupplier.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../Public/script/supplier.js"></script>
-    <script src="../components/sidebar-nav.js"></script>
-</head>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="../Public/Img/VALLIS_Icon_Aba_Navegador_.png" type="image/x-icon">
+      <title>Vallis - Fornecedores</title>
+      <link rel="stylesheet" type="text/css" href="../Public/css/StyleSupplier.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="../Public/script/supplier.js"></script>
+      <script src="../components/sidebar-nav.js"></script>
+  </head>
 
-<body>
+  <body>
 <!-- INICIO DO HEADER. -->
-  <header>
-    <div class="header__element">
-      <div class="sidebar__element">
-        <side-bar-nav></side-bar-nav>
-      </div>
-      <div class="logo__element">
-        <img class="logo__vallis" src="../Public/Img/VALLIS_Logo.png" alt="Logo Vallis">
-      </div>
-    </div>  
-  </header>
+    <header>
+      <div class="header__element">
+        <div class="sidebar__element">
+          <side-bar-nav></side-bar-nav>
+        </div>
+        <div class="logo__element">
+          <img class="logo__vallis" src="../Public/Img/VALLIS_Logo.png" alt="Logo Vallis">
+        </div>
+      </div>  
+    </header>
 <!-- FINAL DO HEADER. -->
 
 <!-- INICIO DA MAIN. -->
-  <div id="main">
-    <div class="conteiner__list">
-      <div class="list__supplier">
-        <table>
-          <thead>
-            <div class="head__table">
-              <div class="ID__head">ID</div>
-              <div class="razao__head">Razão Social</div>
-              <div class="cnpj__head">CNPJ</div>
-            </div>
-          </thead>
-          <tbody class="t__body" id="t__body">
-            </tbody>
-        </table>
-      </div>
-        <button class="add__supplier"> + Adicionar</button>
-    </div>
-<!-- MODAL ADICIONAR FORNECEDOR. -->
-    <div class="modal__supplier">
-      <div class="modal__element">
-        <table>
-          <thead>
-            <tr class="th__tr">
-              <th>CNPJ</th>
-              <th>Razão Social</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="cnpj__element">
-                  <input class="cnpj__add" id="CNPJ__add" type="text" name="cnpj" placeholder="                        Insira o CNPJ">
-                </div>
-              </td>
-              <td>
-                <div class="razao__element">
-                  <input class="razao__add" id="razao__add" type="text" name="razao_social" placeholder="                   Insira a razão social">
-                </div>
-              </td>
-              <td>
-                <button class="confirm__addSupplier">Confirmar</button>
-              </td>
-              <td>
-                <button class="close__add">
-                  <span class="X"></span>
-                  <span class="Y"></span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="add__sucesso"> Fornecedor adicioando a lista.</div>
-        <div class="add__erro">Por favor, preencha todos os campos!</div>
-        <div class="cnpj__exists"> O CNPJ já existe.</div>
-      </div>
-    </div>
-<!-- FINAL DO MODAL ADICIONAR FORNECEDOR. -->
-
-<!-- MODAL EDITAR FORNECEDOR. -->
-    <div id="modal__edit" class="modal__edit">
-      <div class="modal__elementEdit">
-        <input type="hidden" id="edit_idSupplier">
+    <div id="main">
+      <div class="conteiner__list">
+        <div class="list__supplier">
           <table>
             <thead>
-              <tr class="th__edit">
+              <div class="head__table">
+                <div class="ID__head">ID</div>
+                <div class="razao__head">Razão Social</div>
+                <div class="cnpj__head">CNPJ</div>
+              </div>
+            </thead>
+            <tbody class="t__body" id="t__body">
+              </tbody>
+          </table>
+        </div>
+          <button class="add__supplier"> + Adicionar</button>
+      </div>
+<!-- MODAL ADICIONAR FORNECEDOR. -->
+      <div class="modal__supplier">
+        <div class="modal__element">
+          <table>
+            <thead>
+              <tr class="th__tr">
                 <th>CNPJ</th>
                 <th>Razão Social</th>
               </tr>
             </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="cnpj__elementEdit">
-                      <input class="cnpj__edit" id="CNPJ__edit" type="text" name="cnpj">
-                    </div>
-                  </td>
-                  <td>
-                    <div class="razao__elementEdit">
-                      <input class="razao__edit" id="razao__edit" type="text" name="razao_social">
-                    </div>
-                  </td>
-                  <td>
-                    <button class="confirm__edit" id="confirm__edit">Confirmar</button>
-                  </td>
-                  <td>
-                    <button class="close__edit">
-                      <span class="X"></span>
-                      <span class="Y"></span>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cnpj__element">
+                    <input class="cnpj__add" id="CNPJ__add" type="text" name="cnpj" placeholder="                        Insira o CNPJ">
+                  </div>
+                </td>
+                <td>
+                  <div class="razao__element">
+                    <input class="razao__add" id="razao__add" type="text" name="razao_social" placeholder="                   Insira a razão social">
+                  </div>
+                </td>
+                <td>
+                  <button class="confirm__addSupplier">Confirmar</button>
+                </td>
+                <td>
+                  <button class="close__add">
+                    <span class="X"></span>
+                    <span class="Y"></span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
           </table>
-        <div class="edit__sucesso"> Fornecedor editado com sucesso</div>
-        <div class="edit__erro"> Erro ao editar fornecedor</div>
-        <div class="edit__exists"> O CNPJ já existe.</div>
+          <div class="add__sucesso"> Fornecedor adicioando a lista.</div>
+          <div class="add__erro">Por favor, preencha todos os campos!</div>
+          <div class="cnpj__exists"> O CNPJ já existe.</div>
+        </div>
       </div>
-    </div>
+<!-- FINAL DO MODAL ADICIONAR FORNECEDOR. -->
+
+<!-- MODAL EDITAR FORNECEDOR. -->
+      <div id="modal__edit" class="modal__edit">
+        <div class="modal__elementEdit">
+          <input type="hidden" id="edit_idSupplier">
+            <table>
+              <thead>
+                <tr class="th__edit">
+                  <th>CNPJ</th>
+                  <th>Razão Social</th>
+                </tr>
+              </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="cnpj__elementEdit">
+                        <input class="cnpj__edit" id="CNPJ__edit" type="text" name="cnpj">
+                      </div>
+                    </td>
+                    <td>
+                      <div class="razao__elementEdit">
+                        <input class="razao__edit" id="razao__edit" type="text" name="razao_social">
+                      </div>
+                    </td>
+                    <td>
+                      <button class="confirm__edit" id="confirm__edit">Confirmar</button>
+                    </td>
+                    <td>
+                      <button class="close__edit">
+                        <span class="X"></span>
+                        <span class="Y"></span>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+          <div class="edit__sucesso"> Fornecedor editado com sucesso</div>
+          <div class="edit__erro"> Erro ao editar fornecedor</div>
+          <div class="edit__exists"> O CNPJ já existe.</div>
+        </div>
+      </div>
 <!-- FINAL DO MODAL EDITAR FORNECEDOR. -->
-  </div>
+    </div>
 <!-- FINAL DA MAIN. -->
 
 <!-- iNICIO DO FOOTER. -->
-  <footer>
-    <div class="footer__element">
-    </div>
-  </footer>
+    <footer>
+      <div class="footer__element"></div>
+    </footer>
 <!-- FINAL DO FOOTER. -->
-</body>
+  </body>
+</html>

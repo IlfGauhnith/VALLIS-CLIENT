@@ -140,16 +140,16 @@
   
 /* Esse elemento ele defini o espaço onde a lista de fornecedores é gerada. */
   .list__supplier {
-    display: block;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    overflow-y: auto;
-    width: 100rem;
-    height: 42.5rem;
+    background: linear-gradient(to top,  #7f5539, #9c6644, #b08968);
     border: none;
     border-radius:  1.2rem 1.2rem 1.2rem 1.2rem;
-    background: linear-gradient(to top,  #7f5539, #9c6644, #b08968);
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    height: 41rem;
+    overflow-y: auto;
+    width: 100rem;
   }
 
 /* Isso retira a barra de rolagem quando vários fornecedores --webkit é suportado muitos navegadores, mas não todos. */  
@@ -887,3 +887,4 @@
 
 /*============================================= Final do footer =============================================*/
 /* ========================================================================================================= */
+sss
