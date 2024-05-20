@@ -1,103 +1,190 @@
+/*
+ * O processo de criação dos Style CSS nessa documento passa pelo processo
+ * de lógica simples, todas as classes são estruturadas da direito para a 
+ * esquerda e, de cima para baixo, seguindo as ordem dos elementos pensados no HTML. 
+ */
+/******** A partir daqui está todo o estilo do corpo do documento login_page.html ********/
   body {
+    background: linear-gradient(to bottom, #7f5539, #9c6644, #b08968);
+    height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #7f5539;
-    font-size: 16px; 
-  }
-  
- .fredoka__fonts {
+
+/* Fonte. */
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
   }
-  
-  @media screen and (min-width: 400px) and (min-height: 180px) and  (max-width: 12288px) and (max-height: 6480px) {
-    
-  .logo__vallis {
-      display: flex;
-      justify-content: center;
-      margin: 1vh;
-  }
 
-  .conteiner__list {
-      display: flex;
-      justify-content: center;
-      align-items: start;
-      flex-direction: column;
-      margin-top: 8rem;
-      
-  }
+/*
+* A classe .fredoka__fonts define a fonte padrão da aplicação.
+* Obs: Mesmo que a classe .fredoka__fonts esteja no body do HTML, ela não será aplicada
+* a todos os elementos, sendo necessário adicioná-la explicitamente ao elemento desejado no HTML.
 
-  .head__table {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+*/
+
+/*
+* O media screen resolve parcialmente o problema de redimensionamento da tela para múltiplas resoluções.
+* Essa regra de mídia especifica que o estilo será aplicado em dispositivos de tela (como monitores) 
+* que tenham uma largura mínima de 16 pixels, uma altura mínima de 9 pixels, 
+* uma largura máxima de 12288 pixels e uma altura máxima de 6480 pixels.
+*/
+@media screen and (min-width: 16px) and (min-height: 9px) and (max-width: 12288px) and (max-height: 6480px) {
+
+/*===========================================================================================================*/
+/*====================================== Espaço reservado ao header. ========================================*/
+
+/* Elementos do header. */
+  .header__element {
+    justify-items: center;
     display: flex;
-    align-items: center;
-    flex-direction: row;
-    position: fixed;
-    width: 100rem;
-    height: 5rem;
-    border-radius:  1.2rem 1.2rem 0rem 0rem;
-    background-color: #ddb892;
-    color: #7f5539;
+    height: 6rem;
+    justify-content: start;
+    width: 100%;
   }
 
-  .ID__head {
-    margin-left: 2rem;
-    font-size: 2rem;
+/* Defini o elemento onde fica o botão que abri o sidebar. */
+  .sidebar__element {
+    align-self: center;
+    display: flex;
+    height: 6rem;
+    justify-content: center;
+    margin: 3rem 0rem 0rem 1.5rem;
+    width: 6rem;
   }
+
+/* Move a logo para ficar mais proximo do centro da tela. */
+  .logo__element { 
+    margin-left: 40%;
+    margin-top: 0.5rem;
+  }
+
+/* Define o estilo da logo Vallis. */
+  .logo__vallis {
+    animation-name: animation__logo;
+    animation-delay: 0.1s;
+    animation-duration: 1.4s;
+    animation-fill-mode: forwards;
+    height: 5rem;
+    opacity: 0;
+    transform: scale(0.5);
+    width: auto;
+  }
+
+/* Aplicação da animação do logo__vallis. */
+  @keyframes animation__logo {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+/*============================================= Final do Header =============================================*/
+/* ========================================================================================================= */
+/*============================================== Inicio do main =============================================*/
+
+/* Tudo que está dentro do pagina listado abaixo. */ 
+  #main {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+/* Elemento princial onde fica a tabela de fornecedores. */
+  .conteiner__list {
+    align-items:start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+/*************************************************************************************************************/
+/* ******************************* espaço reservado a lista de fornecedores. ******************************* */
+
+/* Elemento onde fica o Header da tabela de fornecedores. */
+  .head__table {
+    align-items: center;
+    background-color: #ddb892;
+    border-radius:  1.2rem 1.2rem 0rem 0rem;
+    color: #7f5539;
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    width: 100rem;
+  }
+
+/* Titulo de ID da tabela fornecedor. */
+  .ID__head {
+    font-size: 2rem;
+    margin-left: 2rem;
+  }
+/* Titulo de razão social da tabela fornecedor. */
   .razao__head {
     margin-left: 22rem;
     font-size: 2rem;
   }
+/* Titulo de CNPJ da tabela fornecedor. */
   .cnpj__head {
     margin-left: 27rem;
     font-size: 2rem;
   }
   
+/* Esse elemento ele defini o espaço onde a lista de fornecedores é gerada. */
   .list__supplier {
-    display: block;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    overflow-y: auto;
-    width: 100rem;
-    height: 42.5rem;
-    margin-left: 10rem;
+    background: linear-gradient(to top,  #7f5539, #9c6644, #b08968);
     border: none;
     border-radius:  1.2rem 1.2rem 1.2rem 1.2rem;
-    background-color: #9c6644;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    height: 41rem;
+    overflow-y: auto;
+    width: 100rem;
   }
 
+/* Isso retira a barra de rolagem quando vários fornecedores --webkit é suportado muitos navegadores, mas não todos. */  
   .list__supplier::-webkit-scrollbar {
     width: 0;
   }
+/* Para retirar a barra de rolagem do Mozila FireFox. */
   .list__supplier {
     scrollbar-width: none;
   }
   
+/* Body da tabela. */
   .t__body {
+    animation: overflowAnimation 2.0s ease;
+    border: none;
     display: flex;
     flex-direction: column;
-    width: 100rem;
     height: 100%;
-    margin-top: 5.1rem;
-    border: none;
     outline: none;
-    animation: overflowAnimation 2.0s ease;
+    width: 100rem;
   }
 
+/* Responsavel pela animação da tabela ao carregar a página. */
   @keyframes overflowAnimation {
     0% {
-      transform: translateY(0);
+      transform: translateY(-2rem);
     }
     50% {
-      transform: translateY(-1rem);
+      transform: translateY(2rem);
     }
     100% {
       transform: translateY(0);
     }
   }
-  
+/* Responsavel por destacar as linhas da tabela com cores par e impar. */
   .t__body tr:nth-child(even) {
     background-color: #ddb892; 
   }
@@ -105,92 +192,100 @@
   .t__body tr:nth-child(odd) {
     background-color: #ede0d4; 
   }
-  
+/*************************************************************************************************************/
+/* Aqui estão reservados as classes que são manipuladas pelo JavaScript para adicionar os elementos da tabela fornecedor.  */ 
+/* Elemento ID. */
   .td__ID {
     color: #7f5539;
     font-size: 1.5rem;
   }
-
-  .modal__ID {
+/* ID do fornecedor. */
+  .show__ID {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 5rem;
     height: 2.95rem;
     margin: 0.1rem;
+    width: 5rem;
   }
-    
+/* Elemento da razão social. */
   .td__razao {
     color: #7f5539;
     font-size: 1.5rem;
   }
-  
-  .modal__razao {
-    display: flex;
-    justify-content: center;
+/* razão social do fornecedor. */ 
+  .show__razao {
     align-items: center;
-    width: 50rem;
+    display: flex;
     height: 2.95rem;
+    justify-content: center;
     margin: 0.1rem;
+    width: 50rem;
   }
-  
+/* Elemento CNPJ. */
   .td__cnpj {
     color: #7f5539;
     font-size: 1.5rem;
   }
-
-  .modal__cnpj {
-    display: flex;
-    justify-content: center;
+/* CMPJ do fornecedor. */
+  .show__cnpj {
     align-items: center;
-    width: 20rem;
+    display: flex;
     height: 2.95rem;
+    justify-content: center;
     margin-left: 0.1rem;
+    width: 20rem;
   }
-
+/* Elemento do reservado. */
   .td__space {
-    width: 18rem;
     height: 2.95rem;
-  }
-  
-  .modal__space {
-    
+    width: 18rem;
   }
 
+/*  Espaço vazio para que consigo separar os elementos da tabela. Obs: pode servir para implementações futuras. */
+.modal__space {
+  
+}
+
+/* Elemento botão editar fornecedor. */
   .td__edit {
-    width: 6rem;
-    height: 2.95rem;
     color: #ede0d4;
     font-size: 1.5rem;
+    height: 2.95rem;
+    width: 6rem;
   }
-
-  .modal__edit {
-    display: flex;
+/* Botão editar fonecedor. */
+  .show__edit {
     align-items: center;
-    justify-content: center;
-    width: 4rem;
-    height: 2.5rem;
-    border: none;
-    outline: none; 
-    border-radius: 1.2rem;
     background-color: #9c6644;
+    border-radius: 1.2rem;
+    border: none;
     cursor: pointer;
+    display: block;
+    justify-content: center;
+    height: 2.5rem;
+    outline: none; 
+    width: 4rem;
   }
-    
+/* Fonte 'Editar' do botão editar fornecedor. */
   .tx__edit {
-    font-size: 1.1rem;
     color: #ede0d4;
+    font-size: 1.1rem;
+    /* Estolo da fonte. */
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
-
-  
+/* Elemento deletar fornecedor. */
   .td__delet {
     width: 6rem;
     height: 2.95rem;
     color: #ede0d4;
     font-size: 1.5rem;
   }
-
-  .modal__delet {
+/* Botão deletar fornecedor. */
+  .show__delet {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,235 +296,595 @@
     border-radius: 1.2rem;
     background-color: #df2525;
     cursor: pointer;
-  }
-
+  }  
+/* Fonte de botão excluir fornecedor. */
   .tx__delet {
     font-size: 1.1rem;
     color: #ede0d4;
+    /* Estilo da fonte */
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
+/* ************ Final dos elementos criados pelo JavaScript para criar a tabela de fornecedores. *********** */
+/*************************************************************************************************************/
+/* ******************************* Botão que abre o modal adicionar fornecedor. **************************** */
 
+/* Botão de adicionar fornecedor. */
   .add__supplier {
-    width: 8.575rem;
-    height: 2.95rem;
+    background: #7f5539;
     border-radius: 1.2rem;
     border: none;
-    margin-top: 2rem;
-    margin-left: 12rem;
-    outline: none;
-    background-color: #9c6644;
+    display: inline-block;
     color: #ede0d4;
-    font-size: 1.15rem;
     cursor: pointer;
+    font-size: 1.2rem;
+    height: 2.95rem;
+    margin-top: 1rem;
+    margin-right: 0.4rem;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    padding: 0.7em 1.7em;
+    transition: all 0.2s ease-in;
+    width: 10.8rem;
+    z-index: 0;
+    
+/* Fonte add__supplier */
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* Comportamentos do botão Entrar*/
+  .add__supplier:active {
+    color: #9c6644;
+  }
+
+  .add__supplier:before {
+    background-color: #b08968;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 180%;
+    left: 50%;
+    position: absolute;
+    top: 100%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    width: 140%;
+    z-index: -1;
+  }
+  
+  .add__supplier:after {
+    background-color: #b08968;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 190%;
+    left: 55%;
+    position: absolute;
+    top: 180%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    transition: all 0.6s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    width: 160%;
+    z-index: -1;
   }
   
   .add__supplier:hover {
-    font-size: 1.2rem;
-    cursor: pointer;
+    border: 0.34rem solid #b08968;
+    color: #7f5539;
   }
   
-  .modal {
+  .add__supplier:hover:before {
+    background-color: #ede0d4;
+    top: -40%;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+  
+  .add__supplier:hover:after {
+    background-color: #ddb892;
+    top: -60%;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+/* ************************ Final do botão que abrei o modal de adicionar fornecedor. ********************** */
+/*************************************************************************************************************/
+/* *************************************** Modal adicionar fornecedor ************************************** */
+  
+/* Elemento modal fornecedor. */
+  .modal__supplier {
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    height: 100%; 
+    left: 0; 
     position: fixed; 
     top: 0; 
-    left: 0; 
     width: 100%; 
-    height: 100%; 
-    background-color: rgba(0, 0, 0, 0.5);
-    }
-  
-  .conteudo__modal {
-    background-color: #9c6644;
-    height: 8rem;
-    width: 68rem;
-    margin: 25% auto; 
-    padding: 20px;
-    border: 1px solid #7f5539;
-    border-radius: 1.2rem;
+  }
+/* Elemento modal fornecedor. */
+  .modal__element {
+    align-items: center;
     animation: animation__modal__add__supplier 1s ease-out;
+    background: linear-gradient(to bottom, #7f5539, #9c6644, #b08968);
+    border-radius: 1.2rem;
+    border: 1px solid #7f5539;
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    justify-content: center;
+    margin: 25% auto; 
+    padding: 1.5;
+    width: 82rem;
   }
-    
-    @keyframes animation__modal__add__supplier {
-      0% {
-          opacity: 0;
-          transform: translateY(-150px);
-      }
-      50% {
-          opacity: 1;
-          transform: translateY(40px);
-      }
-      100% {
-        opacity: 2;
-        transform: translateY(0);
+/* Animação exibida ao abrir o modal fornecedor. */
+  @keyframes animation__modal__add__supplier {
+    0% {
+      opacity: 0;
+        transform: translateY(-150px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 2;
+      transform: translateY(0);
     }
   }
-  
+/* Estilo da fonte da header do modal fornecedor. */
   .th__tr {
     color: #ddb892;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
-  
-  .supplier , .cnpj , .rezao {
-    width: 25.25rem;
-    height: 2.75rem;
-    border-radius: 1.2rem;
-    border: none;
-    outline: none;
-    margin: 0.375rem;
+/* Elmentos dos input add . */
+  .supplier , .cnpj__element , .razao__element {
+    align-items: center;
     background-color: #ddb892;
-    font-size: 1.15rem;
-  }
-  
-  .add {
-    width: 9rem;
-    height: 2.95rem;
     border-radius: 1.2rem;
     border: none;
+    display: flex;
+    font-size: 1.2rem;
+    height: 2.9rem;
+    justify-content: center;
+    margin: 0.375rem;
     outline: none;
-    background-color:#7f5539;
-    color: #ddb892;
-    font-size: 1.15rem;
-    cursor: pointer;
+    width: 30.5rem;
   }
-  
-  .add:hover {
-    font-size: 1.3rem;
-  }
-  
-  .botao__fechar { 
-    width: 2.95rem;
-    height: 2.95rem;
-    border-radius: 1.2rem;
+/* Input do modal add. */
+  .cnpj__add, .razao__add {
+    align-items: center;
+    background-color: #ddb892;
     border: none;
-    outline: none;
-    margin-left: 2rem;
-    background-color:#7f5539;
-    color: #ddb892;
-    font-size: 1.15rem;
-    cursor: pointer;
-  }
-  
-  .botao__fechar:hover {
+    display: flex;
     font-size: 1.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    outline: none;
+    width: 28.25rem;
   }
-  
-  .add__sucesso{
-    display: none;
-    margin-left: 28rem;
-    align-self: center;
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
+/* Botão Confirmar ADD fornecedor */ 
+  .confirm__addSupplier {
+    background: #7f5539;
+    border-radius: 1.2rem;
+    border: none;
+    display: inline-block;
     color: #ede0d4;
-  }
-  
-  .add__erro{
-    display: none;
-    margin-left: 26rem;
-    align-self: center;
-    margin-top: 1.5rem;
+    cursor: pointer;
     font-size: 1.2rem;
-    color: #ede0d4;
-  }
-  
-  .cnpj__existe {
-    display: none;
-    margin-left: 26rem;
-    align-self: center;
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-    color: #ede0d4;
+    height: 2.95rem;
+    margin-right: 0.4rem;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    padding: 0.7em 1.7em;
+    transition: all 0.2s ease-in;
+    width: 10.8rem;
+    z-index: 0;
+    
+/* Fonte add */
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
 
-  .modal__supplier__edit {
+/* Comportamentos do botão confirmar add fornecedor */
+  .confirm__addSupplier:active {
+    color: #9c6644;
+  }
+
+  .confirm__addSupplier:before {
+    background-color: #b08968;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 180%;
+    left: 50%;
+    position: absolute;
+    top: 100%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    width: 140%;
+    z-index: -1;
+  }
+  
+  .confirm__addSupplier:after {
+    background-color: #b08968;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 190%;
+    left: 55%;
+    position: absolute;
+    top: 180%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    transition: all 0.6s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    width: 160%;
+    z-index: -1;
+  }
+  
+  .confirm__addSupplier:hover {
+    border: 0.34rem solid #b08968;
+    color: #7f5539;
+  }
+  
+  .confirm__addSupplier:hover:before {
+    background-color: #ede0d4;
+    top: -40%;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+  
+  .confirm__addSupplier:hover:after {
+    background-color: #ddb892;
+    top: -60%;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+  
+  /* Botão que fecha o modal de adicionar fornecedor. */
+  .close__add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 2.95rem;
+    height: 2.95rem;
+    border: none;
+    background-color: #b22525;
+    border-radius: 50%;
+    margin-left: 2rem;
+  }
+  
+  .X {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    width: 2em;
+    height: 0.2rem;
+    background-color: #fff;
+    transform: rotate(45deg);
+    border-radius: 0.2rem;
+  }
+  
+  .Y {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    width: 2em;
+    height: 0.2rem;
+    background-color: #fff;
+    transform: rotate(-45deg);
+    border-radius: 0.2rem;
+  }
+  
+  .close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -40%;
+    left: 70%;
+    width: 3em;
+    height: 1.7em;
+    font-size: 16px;
+    background-color: rgb(254, 255, 225);
+    color: #000;
+    border: 1px solid #000;
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+  .close__add:hover {
+    background-color: #910c0c;
+    transition-delay: 0.2s;
+    transition: 0.4s;
+  }
+/* final do botão que fecha o modal add*/ 
+
+/* Mensagem do modal adicionar fornecedor. */
+/* Fornecedor adicionado com sucesso. */
+  .add__sucesso{
+    align-self: center;
+    color: #ede0d4;
     display: none;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+/* Campo vazio. */
+  .add__erro{
+    align-self: center;
+    color: #ede0d4;
+    display: none;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+/* CNPJ já existe mensagem erro. */
+  .cnpj__exists {
+    align-self: center;
+    color: #ede0d4;
+    display: none;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+/* *********************************** Final do modal Adicionar fornecedor ********************************* */
+/*************************************************************************************************************/
+/****************************************** Modal editar fornecedor **************************************** */
+
+/* Elemento modal editar fornecedor. */
+  .modal__edit {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    height: 100%; 
+    left: 0; 
     position: fixed; 
     top: 0; 
-    left: 0; 
     width: 100%; 
-    height: 100%; 
-    background-color: rgba(0, 0, 0, 0.5);
-    }
-  
-  .conteudo__edit {
-    background-color: #9c6644;
-    height: 8rem;
-    width: 68rem;
-    margin: 25% auto; 
-    padding: 20px;
-    border: 1px solid #7f5539;
-    border-radius: 1.2rem;
+  }
+/* Elemento modal editar fornecedor. */
+  .modal__elementEdit {
+    align-items: center;
     animation: animation__modal__edit__supplier 1s ease-out;
+    background: linear-gradient(to bottom, #7f5539, #9c6644, #b08968);
+    border-radius: 1.2rem;
+    border: 1px solid #7f5539;
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    justify-content: center;
+    margin: 25% auto; 
+    padding: 1.5;
+    width: 82rem;
   }
-    
-    @keyframes animation__modal__edit__supplier {
-      0% {
-          opacity: 0;
-          transform: translateY(-150px);
-      }
-      50% {
-          opacity: 1;
-          transform: translateY(40px);
-      }
-      100% {
-        opacity: 2;
-        transform: translateY(0);
+/* Animação  exibida ao abrir o modal editar fornecedor. */
+  @keyframes animation__modal__edit__supplier {
+    0% {
+      opacity: 0;
+      transform: translateY(-150px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 2;
+      transform: translateY(0);
     }
   }
-  
+/* Estilo da fonte da header do modal editar fornecedor. */
   .th__edit {
     color: #ddb892;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
-  
-  .cnpj__edit , .rezao__edit {
-    width: 25.25rem;
-    height: 2.75rem;
-    border-radius: 1.2rem;
-    border: none;
-    outline: none;
-    margin: 0.375rem;
+/* Elementos do input edit. */
+  .supplier , .cnpj__elementEdit , .razao__elementEdit {
+    align-items: center;
     background-color: #ddb892;
-    font-size: 1.15rem;
-  }
-  
-  .edit__supplier {
-    width: 9rem;
-    height: 2.95rem;
     border-radius: 1.2rem;
     border: none;
+    display: flex;
+    font-size: 1.2rem;
+    height: 2.9rem;
+    justify-content: center;
+    margin: 0.375rem;
     outline: none;
-    background-color:#7f5539;
-    color: #ddb892;
-    font-size: 1.15rem;
+    width: 30.5rem;
+}
+/* Input editar fornecedor. */
+  .cnpj__edit, .razao__edit {
+    align-items: center;
+    background-color: #ddb892;
+    border: none;
+    display: flex;
+    font-size: 1.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    outline: none;
+    width: 28.25rem;
+  }
+
+/* Botão confirmar editar fornecedor */ 
+  .confirm__edit {
+    background: #7f5539;
+    border-radius: 1.2rem;
+    border: none;
+    display: inline-block;
+    color: #ede0d4;
     cursor: pointer;
+    font-size: 1.2rem;
+    height: 2.95rem;
+    margin-right: 0.4rem;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    padding: 0.7em 1.7em;
+    transition: all 0.2s ease-in;
+    width: 10.8rem;
+    z-index: 0;
+
+/* Fonte edit */
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
-  
-  .edit__supplier:hover {
-    font-size: 1.3rem;
+
+/* Comportamentos do botão confirmar editar fornecedor */
+  .confirm__edit:active {
+    color: #9c6644;
   }
-  
-  .fechar__edit { 
+
+  .confirm__edit:before {
+    background-color: #b08968;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 180%;
+    left: 50%;
+    position: absolute;
+    top: 100%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    width: 140%;
+    z-index: -1;
+  }
+
+  .confirm__edit:after {
+    background-color: #b08968;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 190%;
+    left: 55%;
+    position: absolute;
+    top: 180%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    transition: all 0.6s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    width: 160%;
+    z-index: -1;
+  }
+
+  .confirm__edit:hover {
+    border: 0.34rem solid #b08968;
+    color: #7f5539;
+  }
+
+  .confirm__edit:hover:before {
+    background-color: #ede0d4;
+    top: -40%;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+
+  .confirm__edit:hover:after {
+    background-color: #ddb892;
+    top: -60%;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+/* Final do botão que confirma editar fornecedor. */
+/* Botão de fechar o modal editar fornecedor. */
+  .close__edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     width: 2.95rem;
     height: 2.95rem;
-    border-radius: 1.2rem;
     border: none;
-    outline: none;
+    background-color: #b22525;
+    border-radius: 50%;
     margin-left: 2rem;
-    background-color:#7f5539;
-    color: #ddb892;
-    font-size: 1.15rem;
-    cursor: pointer;
-  }
-  
-  .fechar__edit:hover {
-    font-size: 1.5rem;
   }
 
+  .X {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    width: 2em;
+    height: 0.2rem;
+    background-color: #fff;
+    transform: rotate(45deg);
+    border-radius: 0.2rem;
+  }
 
+  .Y {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    width: 2em;
+    height: 0.2rem;
+    background-color: #fff;
+    transform: rotate(-45deg);
+    border-radius: 0.2rem;
+  }
 
+  .close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -40%;
+    left: 70%;
+    width: 3em;
+    height: 1.7em;
+    font-size: 16px;
+    background-color: rgb(254, 255, 225);
+    color: #000;
+    border: 1px solid #000;
+    pointer-events: none;
+    opacity: 0;
+  }
 
+  .close__adit:hover {
+    background-color: #910c0c;
+    transition-delay: 0.2s;
+    transition: 0.4s;
+  }
+/* Final do botão que fecha o modal edit. */
 
+/* Mensagem do modal editar fornecedor. */ 
+/* Fornecedor editado com sucesso. */
+  .edit__sucesso{
+    align-self: center;
+    color: #ede0d4;
+    display: none;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+/* Erro ao editar. */
+  .edit__erro{
+    align-self: center;
+    color: #ede0d4;
+    display: none;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+/* CNPJ já existe mensagem erro. */
+  .edit__exists {
+    align-self: center;
+    color: #ede0d4;
+    display: none;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+/*============================================== Final do main ==============================================*/
+/* ========================================================================================================= */
+/*============================================= Inicio do footer ============================================*/
 
+/* Elementos do footer */
+.footer__element{
+  background-color:#7f5539;
+  bottom: 0;
+  display: none;
+  height: 6rem;
+  position: fixed;
+  width: 100%;
+}
+}/* Final do @media screem */
 
-
-
-}  
+/*============================================= Final do footer =============================================*/
+/* ========================================================================================================= */
+sss

@@ -1,33 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Vallis</title>
-    <link rel="stylesheet" type="text/css" href="../Public/css/StyleLogin.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
-    <script src="../Public/script/login.js"> </script> 
-</head>
-<body class="fredoka__fonts">
-    <div class="logo__vallis">
-        <img src="../Public/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
-    </div>
-    <div class="conteiner__login">
-        <div class="login__fonte">Login</div>
-        <div style="display: flex; flex-direction: column;">
-            <label for="username"></label>
-            <input class="user__name" type="text" id="username" name="username" required placeholder="                                      Usuário                                  ">
-            <label for="password"></label>
-            <input class="pass__word" type="password" id="password" name="password" required placeholder="                                       Senha                                  ">
-            <div class="alinhamento__botoes">
-                <button class="esqueceu__senha" formnovalidate >Esqueceu a senha?</button>
-                <button class="submit__button"  onclick="submitbutton()">Entrar</button>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="../Public/Img/VALLIS_Icon_Aba_Navegador_.png" type="image/x-icon">
+      <title>Bem-vindo a Vallis - Login </title>
+      <link rel="stylesheet" type="text/css" href="../Public/css/StyleLogin.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+      <script src="../Public/script/login.js"> </script> 
+  </head>
+
+  <body">
+<!-- INICIO DO HEADER. -->
+    <header>
+        <div class="header__element">
+          <div class="logo__element">
+            <img class="logo__vallis" src="../Public/Img/VALLIS_Logo.png" alt="Logo Vallis">
+          </div>
+        </div>  
+    </header>
+<!-- FINAL DO HEADER. -->
+
+<!-- INICIO DA MAIN. -->
+    <main>
+      <div class="container__login">
+        <div class="login__font" alt="Login" aria-label="Login.">Login</div>
+        <div class="login__element">
+          <label for="username"></label>
+            <div class="name__element">
+              <input class="user__name" type="text" id="username" name="username" aria-label="Digite o nome do usuário." autocomplete="off" required placeholder="                               Usuário">
             </div>
-            <button class="novo__registro" formnovalidate >Não é registrado?</button>
-            <div class="campo__vazio__alerta">Por favor, preencha todos os campos!</div>
-            <div class="credenciais__invalida">Nome de Usuário ou senha invalido!</div>
+            <label for="password"></label>
+            <div class="password__element">
+              <input class="pass__word" type="password" id="password" name="password" aria-label="Digite a senha do usuário" required placeholder="                                Senha">
+            </div>
+            <div class="button__element">
+              <button class="forgot__password" formnovalidate alt="botão esquecu a senha?" >Esqueceu a senha?</button>
+              <button class="button__submit" onclick="submitbutton()" alt="botão entrar.">Entrar</button>
+            </div>
+            <button class="new__register" formnovalidate >Não é registrado?</button>
+            <div class="empty__field">Por favor, preencha todos os campos!</div>
+            <div class="invalid__credentials">Nome de Usuário ou senha invalido!</div>
+            <div class="loader__element">
+            <div class="loader__login"></div>
+            </div>
         </div>
-    </div>
-</body>
+      </div>
+    </main>
+<!-- FINAL DA MAIN. -->
+
+<!-- iNICIO DO FOOTER. -->
+    <footer>
+      <div class="footer__element"></div>
+    </footer>
+  <!-- FINAL DO FOOTER. -->
+  </body>
 </html>
