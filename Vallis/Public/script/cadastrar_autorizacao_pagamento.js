@@ -17,6 +17,12 @@ function mascaraMoeda(event) {
     event.target.value = maskCurrency(digitsFloat)
 }
 
+function unmaskCurrency(maskedValue) {
+    const unmaskedValue = maskedValue.replace(/[^\d,.-]/g, '');
+    const normalizedValue = unmaskedValue.replace(',', '.');
+    return parseFloat(normalizedValue);
+}
+
 async function getFornecedores() {
     try {
         const token = sessionStorage.getItem('token');
@@ -57,6 +63,50 @@ async function getLojas() {
         alert('Erro ao retornar lojas');
         throw error;
     }
+}
+
+async function extractDuplicatasFromTable(tableElement) {
+    const duplicatas = [];
+
+    // Get all table rows except the header row
+    const rows = tableElement.querySelectorAll('tbody tr');
+
+    for (const row of rows) {
+        const duplicata = {};
+
+        // Get values from each row
+        const duplicataNumber = row.querySelector('td span').textContent;
+        const valor = row.querySelector('td:nth-child(2) input').value;
+        const vencimento = row.querySelector('td:nth-child(3) input').value;
+        const arquivo = await fileToBase64(row.querySelector('td:nth-child(4) input').files[0]);
+
+        // Populate duplicata object
+        duplicata.numero = parseInt(duplicataNumber);
+        duplicata.valor = unmaskCurrency(valor);
+        duplicata.data_vencimento = vencimento;
+        duplicata.base64_arquivo = arquivo;
+
+        duplicatas.push(duplicata);
+    }
+
+    return duplicatas;
+}
+
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            const base64String = reader.result.split(',')[1]; // Remove data URL prefix
+            resolve(base64String);
+        };
+
+        reader.onerror = () => {
+            reject(new Error('Unable to read file as base64'));
+        };
+
+        reader.readAsDataURL(file);
+    });
 }
 
 function addAutorizacaoOnClick(event) {
@@ -123,6 +173,8 @@ function createDuplicataTableDiv() {
     tableDiv.classList.add('duplicata__container');
     table.classList.add('duplicata__table');
     thead.classList.add('duplicata__table__head');
+
+    table.setAttribute('name', 'duplicata_table');
 
     const thNumero = document.createElement('th');
     thNumero.textContent = 'Duplicata';
@@ -191,7 +243,7 @@ function createInputDiv(label_text, input_type, style, accept, onInputFunction, 
 
     if (name)
         input.setAttribute('name', name);
-    
+
     return inputDiv;
 }
 
@@ -236,14 +288,22 @@ function createUploadButtonDiv() {
 
 async function uploadButtonOnClick(event) {
     const autorizacaoBlock = event.target.closest('.autorizacao__block__div')
+    const duplicatasTable = autorizacaoBlock.querySelector('table[name="duplicata_table"]');
+
+    const duplicatas = await extractDuplicatasFromTable(duplicatasTable);
 
     data = {
-        id_fornecedor: autorizacaoBlock.querySelector('select[name="fornecedorSelect"]').value,
-        id_loja: autorizacaoBlock.querySelector('select[name="lojaSelect"]').value,
-        numero_nota: autorizacaoBlock.querySelector('input[name="numeroNota"]').value,
-        valor_nota: autorizacaoBlock.querySelector('input[name="valorNota"]').value,
-        data_emissao_nota: autorizacaoBlock.querySelector('input[name="dataEmissao"]').value,
-        base64_arquivo_nf: autorizacaoBlock.querySelector('input[name="nfFile"]').files[0]
+        id_fornecedor: parseInt(autorizacaoBlock.querySelector('select[name="fornecedorSelect"]').value),
+        id_loja: parseInt(autorizacaoBlock.querySelector('select[name="lojaSelect"]').value),
+
+        nota_fiscal: {
+            numero: autorizacaoBlock.querySelector('input[name="numeroNota"]').value,
+            valor: unmaskCurrency(autorizacaoBlock.querySelector('input[name="valorNota"]').value),
+            data_emissao: autorizacaoBlock.querySelector('input[name="dataEmissao"]').value,
+            base64_arquivo: await fileToBase64(autorizacaoBlock.querySelector('input[name="nfFile"]').files[0])
+        },
+
+        duplicata: duplicatas
     }
 
     console.log(data);
