@@ -60,7 +60,7 @@
 
 /* Move a logo para ficar mais proximo do centro da tela. */
   .logo__element { 
-    margin-left: 40%;
+    margin-left: 42%;
     margin-top: 0.5rem;
   }
 
@@ -875,16 +875,15 @@
 /*============================================= Inicio do footer ============================================*/
 
 /* Elementos do footer */
-.footer__element{
-  background-color:#7f5539;
-  bottom: 0;
-  display: none;
-  height: 6rem;
-  position: fixed;
-  width: 100%;
-}
+  .footer__element{
+    background-color:#7f5539;
+    bottom: 0;
+    display: none;
+    height: 6rem;
+    position: fixed;
+    width: 100%;
+  }
 }/* Final do @media screem */
 
 /*============================================= Final do footer =============================================*/
 /* ========================================================================================================= */
-sss

@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autorização de Pagamento</title>
+    <title> Vallis - Autorização de Pagamento</title>
     <link rel="stylesheet" type="text/css" href="../Public/css/StyleCadastrarAutorizacaoPagamento.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../Public/script/cadastrar_autorizacao_pagamento.js"></script>
     <script src="../components/sidebar-nav.js"></script>
-</head>
+  </head>
 
-<body class="fredoka__fonts">
-    <side-bar-nav></side-bar-nav>
+  <body>
+<!-- INICIO DO HEADER. -->
+    <header>
+      <div class="header__element">
+        <div class="sidebar__element">
+          <side-bar-nav></side-bar-nav>
+        </div>
+        <div class="logo__element">
+          <img class="logo__vallis" src="../Public/Img/VALLIS_Logo.png" alt="Logo Vallis">
+        </div>
+      </div>  
+    </header>
+<!-- FINAL DO HEADER. -->
+
+<!-- INICIO DA MAIN. -->
     <div id="main">
-        <div class="logo__vallis">
-            <img src="../Public/Img/VALLIS_Logo.png" width="8%" height="auto" style="justify-content: center;">
+      <div class="conteiner__option">
+        <div class="card__NFE">
+          <button class="autorizacao__NFE">Chave de Acesso NF-e</button>
         </div>
-        <div class="add__autorizacao__div">
-            <button class="button__div" id="add_autorizacao"><i class="fa-solid fa-plus"></i></button>
-            <div id="autorizacao_options" class="autorizacao__options">
-                <button id="add_autorizacao_chave" class="autorizacao__option" disabled>Chave de Acesso NF-e</button>
-                <button id="add_autorizacao_xml" class="autorizacao__option" disabled>XML</button>
-                <button id="add_autorizacao_manual" class="autorizacao__option">Manual</button>
-            </div>
+        <div class="card__XML">
+          <button class="autorizacao__XML">XML</button>
         </div>
+        <div class="card__manual">
+          <button class="autorizacao__manual">Manual</button>
+        </div>
+      </div>
     </div>
-</body>
+<!-- FINAL DA MAIN. -->
+
+<!-- iNICIO DO FOOTER. -->
+    <footer>
+      <div class="footer__element"></div>
+    </footer>
+<!-- FINAL DO FOOTER. -->
+  </body>
+</html>
