@@ -126,7 +126,8 @@ body {
 /* Elemento que define o card NF-E. */
   .card__NFE {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     width: 18rem;
     height: 25rem;
     background-color: #ddb892;
@@ -135,12 +136,15 @@ body {
 
 /* Header card NF-e */
   .autorizacao__NFE {
-    width: 18.1rem;
+    width: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 4rem;
     background-color: #7f5539;
     border-radius: 1.2rem 1.2rem 0 0 ;
     color: #ede0d4;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     
 /* Fonte.*/    
     font-family: "Fredoka", sans-serif;
@@ -149,8 +153,30 @@ body {
     font-style: normal;
   }
 
+/* Icone da NFE. */
+  .icon__NFE {
+    margin-top: 3rem;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+  }
+
+/* Texto do card NFE */
+  .txt__NFE {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7f5539;
+    font-size: 1.2rem;
+    margin: 3rem 0.5rem 0rem;
+
+  }
+
 /* Elemento que define o card XML. */ 
   .card__XML {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 18rem;
     height: 25rem;
     background-color: #ddb892;
@@ -159,12 +185,15 @@ body {
 
 /* Header card XML. */
   .autorizacao__XML {
-    width: 18.1rem;
+    width: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 4rem;
     background-color: #7f5539;
     border-radius: 1.2rem 1.2rem 0 0 ;
     color: #ede0d4;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 
 /* Fonte.*/    
     font-family: "Fredoka", sans-serif;
@@ -173,28 +202,70 @@ body {
     font-style: normal;
   }
 
+/* Icone da XML. */
+  .icon__XML {
+    margin-top: 3rem;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+  }
+
+/* Texto do card XML */
+  .txt__XML {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7f5539;
+    font-size: 1.2rem;
+    margin: 3rem 0.5rem 0rem;
+}
+
 /* Elemento que define o card manual. */ 
   .card__manual {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 18rem;
     height: 25rem;
     background-color: #ddb892;
     border-radius: 1.2rem;
   }
 
-/* Header card NF-e */
+/* Header card manual. */
   .autorizacao__manual {
-    width: 18.1rem;
+    width: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 4rem;
     background-color: #7f5539;
     border-radius: 1.2rem 1.2rem 0 0 ;
     color: #ede0d4;
-    font-size: 1.2rem;
-    
-/* Fonte.*/    
+    font-size: 1.5rem;
+
+  /* Fonte.*/    
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+  }
+
+  /* Icone da manual. */
+  .icon__manual {
+    margin-top: 3rem;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+  }
+
+  /* Texto do card XML */
+  .txt__manual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7f5539;
+    font-size: 1.2rem;
+    margin: 3rem 0.5rem 0rem;
   }
 
   .conteiner__option [class^="card"]:hover {
