@@ -5,8 +5,10 @@
  */
 /******** A partir daqui está todo o estilo do corpo do documento login_page.html ********/
   body {
-    background: linear-gradient(to bottom, #7f5539, #9c6644, #b08968);
-    height: 100vh;
+    background-image: url('../Img/BG_Vallis.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
 
