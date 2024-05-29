@@ -30,15 +30,55 @@
 */
 
 /*
- * O media screen resolve parcialmente o problema de redimensionamento da tela para múltiplas resoluções.
- * Essa regra de mídia especifica que o estilo será aplicado em dispositivos de tela (como monitores) 
- * que tenham uma largura mínima de 16 pixels, uma altura mínima de 9 pixels, 
- * uma largura máxima de 12288 pixels e uma altura máxima de 6480 pixels.
+ * O método utilizado para garantir a adaptabilidade da tela em diversas resoluções foi a implementação de
+ * 'MEDIA QUERIES', considerando as três resoluções principais: HD 1280x720p, FHD 1920x1080p e QHD 2560x1440p.
+ * As 'MEDIA QUERIES' são responsáveis por ajustar o tamanho do pixel (px), que é a unidade de medida fundamental,
+ * de acordo com a resolução da tela. Isso permite que os elementos se redimensionem de forma proporcional, mantendo
+ * a consistência visual em diferentes dispositivos.
+ * Para cada uma das resoluções especificadas, foi definido um tamanho base ou tamanho raiz para o pixel (px):
+ * 8px para HD, 12px para FHD e 16px para QHD, este último sendo o padrão em muitos navegadores. É importante observar que 
+ * poucos elementos são definidos com tamanho fixo em px, pois para garantir uma adaptação correta, é preferível
+ * utilizar unidades relativas como 'REM' ou 'EM'. 
  */
-  @media screen and (min-width: 16px) and (min-height: 9px) and (max-width: 12288px) and (max-height: 6480px) {
-  
-/**************************************** Espaço reservado ao header ****************************************/
 
+/* Media query para resoluções HD */
+  @media (max-width: 1280px) {
+/* Definindo o tamanho da fonte raiz */
+    html {
+      font-size: 9px; /* 1 rem = 9px */
+    }
+    body {
+        background-size: 1280px auto; /* Ajusta o tamanho do background para resoluções HD */
+    }
+  }
+  
+/* Media query para resoluções FHD */
+  @media (min-width: 1281px) and (max-width: 1920px) {
+/* Definindo o tamanho da fonte raiz */
+    html {
+    font-size: 12px; /* 1 rem = 12px */
+    }
+  
+    body {
+        background-size: 1920px auto; /* Ajusta o tamanho do background para resoluções FHD */
+    }
+  }
+  
+/* Media query para resoluções QHD */
+  @media (min-width: 1921px) and (max-width: 2560px) {
+/* Definindo o tamanho da fonte raiz */
+    html {
+      font-size: 12px; /* 1 rem = 16px */
+    }
+    
+    body {
+        background-size: 2560px auto; /* Ajusta o tamanho do background para resoluções QHD */
+    }
+  }
+
+/*===========================================================================================================*/
+/*====================================== Espaço reservado ao header. ========================================*/
+  
 /* Elementos do header */
   .header__element {
     align-items: center;
@@ -50,7 +90,7 @@
   .logo__element {
     
   }
-
+  
 /* Define o estilo da logo Vallis */
   .logo__vallis {
     animation-name: animation__logo;
@@ -62,22 +102,22 @@
     transform: scale(0.5);
     width: auto;
   }
-
+  
 /* Aplicação da animação do logo__vallis */
-  @keyframes animation__logo {
-    0% {
-      opacity: 0;
-      transform: scale(0.5);
+    @keyframes animation__logo {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
   
-/******************************************** Final do Header *********************************************/
-  
-/*************************************** Espaço reservado ao Section **************************************/
+/*============================================= Final do Header =============================================*/
+/* ========================================================================================================= */
+/*============================================== Inicio do main =============================================*/
   
 /* Elementos do Login*/
   .container__login {
@@ -174,14 +214,14 @@
     font-weight: 400;
   }
   
-  /* Define o espaço dos elementos .forgot__password, .button__submit, .new__register */
+/* Define o espaço dos elementos .forgot__password, .button__submit, .new__register */
   .button__element {
     display: flex;
     height: 1.875rem;
     justify-content: space-between;
     width: 31.25rem;
   }
-  /* Botão esqueceu a senha */
+/* Botão esqueceu a senha */
   .forgot__password {
     background-color: transparent;
     border: none;
@@ -197,7 +237,7 @@
     font-style: normal;
   }
 
-  /* Compotamento do botão esqueceu a senha */
+/* Compotamento do botão esqueceu a senha */
   .forgot__password:hover {
     border: none;
     color: #ede0d4;
@@ -210,7 +250,7 @@
     width: 12.5rem;
   }
 
-  /* Todos os elementos do botão de Entrar */
+/* Todos os elementos do botão de Entrar */
   .button__submit {
     background: #7f5539;
     border-radius: 1.2rem;
@@ -231,14 +271,14 @@
     z-index: 1;
   
   
-  /* Fonte button__submit */
+/* Fonte button__submit */
    font-family: "Fredoka", sans-serif;
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
   }
 
-  /* Comportamento do botão Entrar*/
+/* Comportamento do botão Entrar*/
   .button__submit:active {
     color: #9c6644;
   }
@@ -289,10 +329,10 @@
     top: -60%;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
-  /* fim da animação do botão Entrar. */
-  /* fim dos elementos do botão Entrar.*/
+/* fim da animação do botão Entrar. */
+/* fim dos elementos do botão Entrar.*/
 
-  /* Botão para se registar */
+/* Botão para se registar */
   .new__register {
     background-color: transparent;
     border: none;
@@ -310,7 +350,7 @@
     font-style: normal;
   }
 
-  /* comportamento do botão registar */
+/* comportamento do botão registar */
   .new__register:hover {
     background-color: transparent;
     border: none;
@@ -325,7 +365,7 @@
     width: 10.875rem;
   }
 
-  /* Alerta de campo vazio */
+/* Alerta de campo vazio */
   .empty__field {
     align-self: center;
     color: #ede0d4;
@@ -336,7 +376,7 @@
     transition: 0.2s;
   }
 
-  /* Alerta de credenciais invalidas */
+/* Alerta de credenciais invalidas */
   .invalid__credentials {
     align-self: center;
     color: #ede0d4;
@@ -345,7 +385,7 @@
     margin-top: 1.5rem;
   }
 
-  /* Loader de login */
+/* Loader de login */
   .loader__element {
     display: flex;
     justify-content: center;
@@ -387,13 +427,13 @@
       width: 0;
     }
   }
-  /* Final dos elementos login */
+/* Final dos elementos login */
 
-  /******************************************* Final do Section *******************************************/
+/*============================================== Final do main ==============================================*/
+/* ========================================================================================================= */
+/*============================================= Inicio do footer ============================================*/
 
-  /************************************* Espaço reservado para o Footer ***********************************/
-
-  /* Elementos do footer */
+/* Elementos do footer */
   .footer__element{
     background-color: #ddb892;
     bottom: 0;
@@ -402,4 +442,7 @@
     position: fixed;
     width: 100%;
   }
-}/* Final do @media screem */
+
+/*============================================= Final do footer =============================================*/
+/* ========================================================================================================= */
+

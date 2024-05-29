@@ -31,18 +31,57 @@ body {
 */
 
 /*
-* O media screen resolve parcialmente o problema de redimensionamento da tela para múltiplas resoluções.
-* Essa regra de mídia especifica que o estilo será aplicado em dispositivos de tela (como monitores) 
-* que tenham uma largura mínima de 16 pixels, uma altura mínima de 9 pixels, 
-* uma largura máxima de 12288 pixels e uma altura máxima de 6480 pixels.
-*/
-@media screen and (min-width: 16px) and (min-height: 9px) and (max-width: 12288px) and (max-height: 6480px) {
+ * O método utilizado para garantir a adaptabilidade da tela em diversas resoluções foi a implementação de
+ * 'MEDIA QUERIES', considerando as três resoluções principais: HD 1280x720p, FHD 1920x1080p e QHD 2560x1440p.
+ * As 'MEDIA QUERIES' são responsáveis por ajustar o tamanho do pixel (px), que é a unidade de medida fundamental,
+ * de acordo com a resolução da tela. Isso permite que os elementos se redimensionem de forma proporcional, mantendo
+ * a consistência visual em diferentes dispositivos.
+ * Para cada uma das resoluções especificadas, foi definido um tamanho base ou tamanho raiz para o pixel (px):
+ * 8px para HD, 12px para FHD e 16px para QHD, este último sendo o padrão em muitos navegadores. É importante observar que 
+ * poucos elementos são definidos com tamanho fixo em px, pois para garantir uma adaptação correta, é preferível
+ * utilizar unidades relativas como 'REM' ou 'EM'. 
+ */
+
+/* Media query para resoluções HD */
+  @media (max-width: 1280px) {
+/* Definindo o tamanho da fonte raiz */
+    html {
+      font-size: 9px; /* 1 rem = 9px */
+    }
+    body {
+      background-size: 1280px auto; /* Ajusta o tamanho do background para resoluções HD */
+    }
+  }
+    
+/* Media query para resoluções FHD */
+  @media (min-width: 1281px) and (max-width: 1920px) {
+/* Definindo o tamanho da fonte raiz */
+    html {
+    font-size: 12px; /* 1 rem = 12px */
+    }
+    
+    body {
+      background-size: 1920px auto; /* Ajusta o tamanho do background para resoluções FHD */
+    }
+  }
+    
+/* Media query para resoluções QHD */
+  @media (min-width: 1921px) and (max-width: 2560px) {
+/* Definindo o tamanho da fonte raiz */
+    html {
+      font-size: 12px; /* 1 rem = 16px */
+    }
+      
+    body {
+      background-size: 2560px auto; /* Ajusta o tamanho do background para resoluções QHD */
+    }
+  }
 
 /*===========================================================================================================*/
 /*====================================== Espaço reservado ao header. ========================================*/
 
 /* Elementos do header. */
-.header__element {
+  .header__element {
     justify-items: center;
     display: flex;
     height: 6rem;
