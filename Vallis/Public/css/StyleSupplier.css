@@ -188,7 +188,7 @@
     display: block;
     flex-direction: column;
     justify-content: center;
-    height: 41.6rem;
+    height: 43.2rem;
     overflow-y: auto;
     width: 100rem;
   }
@@ -354,7 +354,7 @@
 
 /* Botão de adicionar fornecedor. */
   .add__supplier {
-    background: #7f5539;
+    background: #9c6644;
     border-radius: 1.2rem;
     border: none;
     display: inline-block;
@@ -463,11 +463,11 @@
   @keyframes animation__modal__add__supplier {
     0% {
       opacity: 0;
-        transform: translateY(-150px);
+        transform: translateY(-9.4rem);
     }
     50% {
       opacity: 1;
-      transform: translateY(40px);
+      transform: translateY(2.5rem);
     }
     100% {
       opacity: 2;
@@ -600,9 +600,8 @@
   .X {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 22%;
-    width: 2em;
+  
+    width: 2rem;
     height: 0.2rem;
     background-color: #fff;
     transform: rotate(45deg);
@@ -612,9 +611,8 @@
   .Y {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 22%;
-    width: 2em;
+ 
+    width: 2rem;
     height: 0.2rem;
     background-color: #fff;
     transform: rotate(-45deg);
@@ -626,11 +624,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: -40%;
-    left: 70%;
-    width: 3em;
-    height: 1.7em;
-    font-size: 16px;
+    width: 3rem;
+    height: 1.7rem;
+    font-size: 1rem;
     background-color: rgb(254, 255, 225);
     color: #000;
     border: 1px solid #000;
@@ -838,11 +834,11 @@
     margin-left: 2rem;
   }
 
-  .X {
+  .X1 {
     content: '';
     position: absolute;
     top: 50%;
-    left: 22%;
+    left: 15%;
     width: 2em;
     height: 0.2rem;
     background-color: #fff;
@@ -850,11 +846,11 @@
     border-radius: 0.2rem;
   }
 
-  .Y {
+  .Y1 {
     content: '';
     position: absolute;
     top: 50%;
-    left: 22%;
+    left: 15%;
     width: 2em;
     height: 0.2rem;
     background-color: #fff;

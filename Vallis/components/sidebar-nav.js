@@ -1,6 +1,4 @@
 
-//
-
 //Este componete define a classe em JavaScript `SideBarNav`, que herda a funcionalidade de `HTMLElement`.
 class SideBarNav extends HTMLElement {
 //Esse construtor está chamando a classe pai.
@@ -37,7 +35,7 @@ button {
   align-items: center;
   background:  #e6ccb2;
   border-radius: 50%;
-  border: 2px  solid #ede0d4;
+  border: 0.1rem  solid #ede0d4;
   display: flex;
   height: 3rem;
   justify-content: center;
@@ -80,7 +78,7 @@ button {
 
 .menu__icon:hover span {
   background-color: ede0d4;
-  transform: translateX(-10px);
+  transform: translateX(-0.65rem);
   width: 0.5rem;
 }
 
