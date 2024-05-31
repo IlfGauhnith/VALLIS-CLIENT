@@ -361,10 +361,10 @@ async function populateLojaSelect(lojasSelect) {
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
-    document.getElementById('add_autorizacao').addEventListener('click', addAutorizacaoOnClick);
-    document.getElementById('add_autorizacao_chave').addEventListener('click', addAutorizacaoChaveOnClick);
-    document.getElementById('add_autorizacao_xml').addEventListener('click', addAutorizacaoXMLOnClick);
-    document.getElementById('add_autorizacao_manual').addEventListener('click', addAutorizacaoManualOnClick);
+//    document.getElementById('add_autorizacao').addEventListener('click', addAutorizacaoOnClick);
+//    document.getElementById('add_autorizacao_chave').addEventListener('click', addAutorizacaoChaveOnClick);
+//    document.getElementById('add_autorizacao_xml').addEventListener('click', addAutorizacaoXMLOnClick);
+    document.getElementById('card__manual').addEventListener('click', addAutorizacaoManualOnClick);
 
     window.fornecedores = await getFornecedores();
     window.lojas = await getLojas();
