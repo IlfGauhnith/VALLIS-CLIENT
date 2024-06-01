@@ -600,7 +600,6 @@
   .X {
     content: '';
     position: absolute;
-  
     width: 2rem;
     height: 0.2rem;
     background-color: #fff;
@@ -611,7 +610,6 @@
   .Y {
     content: '';
     position: absolute;
- 
     width: 2rem;
     height: 0.2rem;
     background-color: #fff;
@@ -837,9 +835,7 @@
   .X1 {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 15%;
-    width: 2em;
+    width: 2rem;
     height: 0.2rem;
     background-color: #fff;
     transform: rotate(45deg);
@@ -849,9 +845,7 @@
   .Y1 {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 15%;
-    width: 2em;
+    width: 2rem;
     height: 0.2rem;
     background-color: #fff;
     transform: rotate(-45deg);

@@ -214,6 +214,7 @@ function createAutorizacaoTitleElement(autorizacaoBlock) {
     deleteIcon.style.cursor = 'pointer';
     deleteIcon.addEventListener('click', function () {
         autorizacaoBlock.remove();
+        window.location.reload();
     });
     autorizacaoTitleDiv.append(deleteIcon);
 
@@ -309,8 +310,11 @@ async function uploadButtonOnClick(event) {
     console.log(data);
 }
 async function addAutorizacaoManualOnClick(event) {
+    const autorizacaoElement = document.createElement('div'); 
     const autorizacaoBlock = document.createElement('div');
+    autorizacaoElement.classList.add('autorizacao__element')
     autorizacaoBlock.classList.add('autorizacao__block__div');
+    autorizacaoElement.appendChild(autorizacaoBlock);
 
     const autorizacaoTitleDiv = createAutorizacaoTitleElement(autorizacaoBlock);
 
@@ -330,7 +334,7 @@ async function addAutorizacaoManualOnClick(event) {
         createBreakFlexRow(),
         createUploadButtonDiv());
 
-    document.getElementById("main").appendChild(autorizacaoBlock);
+    document.getElementById("main").appendChild(autorizacaoElement);
 }
 
 async function populateFornecedoresSelect(fornecedoresSelect) {
