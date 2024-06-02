@@ -361,34 +361,6 @@ body {
     height: 4rem;
   }
 
-  .header__title {
-    color: #ede0d4;
-    font-size: 1.5rem;
-    margin-left: 29rem;
-  }
-
-  .element__title{
-    display: flex;
-    width: 100%;
-    height: 2rem;
-    align-items: center;
-
-  }
-
-  .store__title {
-    font-size: 1.5rem;
-    color: #7f5539;
-    margin: 0rem 0rem 0rem 3rem;
-  }
-
-  .supplier__title {
-    font-size: 1.5rem;
-    color: #7f5539;
-    margin: 0rem 0rem 0rem 22rem;
-  }
-
-
-
   .close__modal__manual {
     display: flex;
     justify-content: center;
@@ -445,6 +417,72 @@ body {
     transition: 0.4s;
   }
 
+  .header__title {
+    color: #ede0d4;
+    font-size: 1.5rem;
+    margin-left: 29rem;
+  }
+
+  .element__title{
+    display: flex;
+    width: 100%;
+    height: 2rem;
+    align-items: center;
+
+  }
+
+  .store__title {
+    font-size: 1.5rem;
+    color: #7f5539;
+    margin: 0rem 0rem 0rem 3rem;
+  }
+
+  .supplier__title {
+    font-size: 1.5rem;
+    color: #7f5539;
+    margin: 0rem 0rem 0rem 24rem;
+  }
+
+  .element__store__supplier {
+    align-items: center;
+    border: none;
+    display: flex;
+    font-size: 1.2rem;
+    height: 2.9rem;
+    justify-content: space-around;
+    outline: none;
+    width: 80rem;
+    flex-direction: row;
+  }
+
+  .store__select {
+    align-items: center;
+    background-color: #7f5539;
+    border: none;
+    display: flex;
+    font-size: 1.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    outline: none;
+    width: 28.25rem;
+    border-radius: 1.2rem;
+    margin-left: -2%;
+  }
+
+  .supplier__select {
+    align-items: center;
+    background-color: #7f5539;
+    border: none;
+    display: flex;
+    font-size: 1.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    outline: none;
+    width: 45rem;
+    margin-right: -2%;
+    border-radius: 1.2rem;
+  }
+
 /* ====================================== Final dos Stulos dos Cards ======================================= */ 
 
 
@@ -465,99 +503,6 @@ body {
 /*============================================= Final do footer =============================================*/
 /* ========================================================================================================= */
   
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     .duplicata__container {
         display: flex;
         width: 100%;
