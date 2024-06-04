@@ -1,3 +1,9 @@
+/**
+ *------------------------------------------------------------------------------------------------------------
+ **************************** Inicio da regra de negócio de Autorização Manual. ******************************
+ *------------------------------------------------------------------------------------------------------------ 
+ */
+
 // Botão que abre o modal do 'card__manul'
   function OpenModalManual() {
     const modalManual = document.querySelector('.modal__manual');
@@ -18,10 +24,38 @@
           card.style.display = 'flex';
       });
   }
+// Medoto Get para pegar a lista de loja cadastradas.
+  async function getStore() {
+    try {
+        const token = sessionStorage.getItem('token');
+        const headers = { 
+          authorizationToken:token,
+          'content-type': 'application/json'
+        };
+        const response = await axios.get('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/loja',  {headers: headers });
+        return response.data;
+    } catch (error) {
+      if (error.response)
+        console.error(error.response.data.message);
+      else
+        cosole.error('Erro:', error);
+      alert('Erro ao retornar fornecedor');
+      throw error;
+    }
+  }
+// Preenche um elemento '<select__store>' gerando um dropdown com a lista de lojas.
+  async function storeListSelect(storesSelect) {
 
+    Array.from(window.Store)
+      .forEach(function (loja) {
+        const option = document.createElement('option');
+        option.value = loja.id_loja;
+        option.textContent = `${loja.sigla} - ${loja.descricao}`;
 
-
-
+        storesSelect.appendChild(option);
+      })
+        return storesSelect;
+  }
 
 // Medoto GET para pegar a lista de fornecedores
   async function getSupplier() {
@@ -43,27 +77,44 @@
       throw error; 
     }
   }
-//
-async function supplierListSelect(supplierSelect) {
+// Preenche um elemento '<select__supplier>' gerando um dropdown com a lista de fornecedores.
+  async function supplierListSelect(suppliersSelect) {
 
-  Array.from(window.Supplier)
+    Array.from(window.Supplier)
       .forEach(function (fornecedor) {
-          const option = document.createElement('option');
-          option.value = fornecedor.id_fornecedor;
-          option.textContent = fornecedor.razao_social;
+        const option = document.createElement('option');
+        option.value = fornecedor.id_fornecedor;
+        option.textContent = fornecedor.razao_social;
 
-          
-          supplierSelect.appendChild(option);
-        });
-        
-        return supplierSelect
-        
-      }
-      
-      
-      document.addEventListener("DOMContentLoaded", async function () {
-        document.querySelector('.card__manual').addEventListener('click', OpenModalManual);
-        document.querySelector('.close__modal__manual').addEventListener('click', CloseModalManual);
-        
-        window.Supplier = await getSupplier();
+        suppliersSelect.appendChild(option);
+      });
+    return suppliersSelect
+
+  }
+// Ao carregar o DOM abre e fecha o modal manual e Armazena a lista de fornecedores e lojas. 
+    document.addEventListener("DOMContentLoaded", async function () {
+    document.querySelector('.card__manual').addEventListener('click', OpenModalManual);
+    document.querySelector('.close__modal__manual').addEventListener('click', CloseModalManual);
+    
+    window.Supplier = await getSupplier();
+    window.Store = await getStore();
+    
+    // Preenche o dropdown com os fornecedores.
+    const storesSelect = document.querySelector('.select__store');
+    if (storesSelect) {
+      await storeListSelect(storesSelect);
+    }
+    // Preenche o dropdown com os fornecedores.
+    const suppliersSelect = document.querySelector('.select__supplier');
+    if (suppliersSelect) {
+      await supplierListSelect(suppliersSelect);
+    }
+    
+
 });
+
+/**
+*------------------------------------------------------------------------------------------------------------
+************************** Conclusão da regra de negócio de Autorização Manual. *****************************
+*------------------------------------------------------------------------------------------------------------ 
+*/
