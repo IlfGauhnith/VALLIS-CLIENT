@@ -91,11 +91,31 @@
     return suppliersSelect
 
   }
+//DATA DE EMISSÃO 
+
+// Input do campo valor R$ da Autorização de Pagamento.
+  function applyCurrencyMask() {
+    const reaisInputs = document.querySelectorAll('.value__coin');
+
+    reaisInputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            let value = this.value.replace(/\D/g, '');
+            value = (value/100).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+
+            this.value = value;
+        });
+    });
+  }
+
+
+
+
 // Ao carregar o DOM abre e fecha o modal manual e Armazena a lista de fornecedores e lojas. 
-    document.addEventListener("DOMContentLoaded", async function () {
-    document.querySelector('.card__manual').addEventListener('click', OpenModalManual);
-    document.querySelector('.close__modal__manual').addEventListener('click', CloseModalManual);
-    
+  document.addEventListener("DOMContentLoaded", async function () {
+  document.querySelector('.card__manual').addEventListener('click', OpenModalManual);
+  document.querySelector('.close__modal__manual').addEventListener('click', CloseModalManual);
+  //data
+  
     window.Supplier = await getSupplier();
     window.Store = await getStore();
     
@@ -109,9 +129,10 @@
     if (suppliersSelect) {
       await supplierListSelect(suppliersSelect);
     }
-    
 
-});
+    applyCurrencyMask();
+  });
+
 
 /**
 *------------------------------------------------------------------------------------------------------------
