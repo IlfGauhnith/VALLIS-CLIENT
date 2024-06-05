@@ -95,7 +95,7 @@
 
 // Input do campo valor R$ da Autorização de Pagamento.
   function applyCurrencyMask() {
-    const reaisInputs = document.querySelectorAll('.value__coin');
+    const reaisInputs = document.querySelectorAll('.value__input');
 
     reaisInputs.forEach(function(input) {
         input.addEventListener('input', function() {
@@ -129,10 +129,10 @@
     if (suppliersSelect) {
       await supplierListSelect(suppliersSelect);
     }
-
+    
     applyCurrencyMask();
   });
-
+  
 
 /**
 *------------------------------------------------------------------------------------------------------------

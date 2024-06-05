@@ -59,37 +59,45 @@
                 <span class="Y3"></span>
               </button>
             </div>
-            <div class="element__title">
-              <div class="store__title">Escolha a Loja</div>
-              <div class="supplier__title">Escolha o Fornecedor</div>
-            </div>
-            <div class="element__store__supplier">
-              <div class="store__selector">
-                <select class="select__store"></select>
+            <div class="element__store__supplier__number__data">
+              <div class="element__store">
+                <div class="store__title">Escolha a Loja</div>
+                <div class="store__selector">
+                  <select class="select__store"></select>
+                </div>
               </div>
-              <div class="supplier__selector">
-                <select class="select__supplier"></select>
+              <div class="element__supplier">
+                <div class="supplier__title">Escolha o Fornecedor</div>
+                <div class="supplier__selector">
+                  <select class="select__supplier"></select>
+                </div>
               </div>
-            </div>
-            <div class="element__title1">
-              <div class="number__title">Digite o número da nota fiscal</div>
-              <div class="data__title">Data de Emissão</div>
-            </div>
-            <div class="element__number__data">
-              <div class="number__nf"></div>
-              <div class="data__doc">
-                <input class="data__NF" type="date">
+              <div class="element__numberNf">
+                <div class="number__title">Número da NF</div>
+                <div class="number__nf">
+                  <input class="numberNF__input" type="text" placeholder="000.000.000">
+                </div>
               </div>
-            </div>
-            <div class="element__title2">
-              <div class="value__title">Valor da nota fiscal</div>
-              <div class="file__title">Exportar arquivo</div>
+              <div class="element__data">
+                <div class="data__title">Vencimento</div>
+                <div class="data__doc">
+                  <input class="data__input" type="date">
+                </div>  
+              </div>
             </div>
             <div class="element__value__file">
-              <div class="value__nf">
-                <input class="value__coin" type="text" placeholder="R$ 0,00">
+              <div class="element__value">
+                <div class="value__title">Valor da NF</div>
+                <div class="value__nf">
+                  <input class="value__input" type="text" placeholder="R$ 0,00">
+                </div>
               </div>
-              <div class="export__file"></div>
+              <div class="element__file">
+                <div class="file__title">Exportar arquivo</div>
+                  <div class="export__file">
+                    <button class="explort__button">Arquivo</button>
+                  </div>
+              </div>
             </div>
           </div>
         </div>

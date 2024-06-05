@@ -343,7 +343,6 @@ body {
     display: flex;
     background-color: #ddb892;
     border-radius: 1.2rem;
-    row-gap: 0.5rem;
     height: 30rem;
     width: 80rem;
     flex-direction: column;
@@ -359,6 +358,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 4rem;
+  }
+  
+  .header__title {
+    color: #ede0d4;
+    font-size: 1.5rem;
+    margin-left: 29rem;
   }
 
   .close__modal__manual {
@@ -416,48 +421,36 @@ body {
     transition-delay: 0.2s;
     transition: 0.4s;
   }
+/* ************************************************************************************************************************* */
 
 
 
-/**/
-  .header__title {
-    color: #ede0d4;
-    font-size: 1.5rem;
-    margin-left: 29rem;
-  }
-
-  .element__title{
-    display: flex;
-    width: 100%;
-    height: 2rem;
-    align-items: center;
-
-  }
-
-  .store__title {
-    font-size: 1.5rem;
-    color: #7f5539;
-    margin: 0rem 0rem 0rem 3rem;
-  }
-
-  .supplier__title {
-    font-size: 1.5rem;
-    color: #7f5539;
-    margin: 0rem 0rem 0rem 24rem;
-  }
-
-  .element__store__supplier {
+/****************************************************************************************************************************/
+  .element__store__supplier__number__data {
     align-items: center;
     border: none;
     display: flex;
     font-size: 1.2rem;
-    height: 2.9rem;
-    justify-content: space-around;
+    height: 6rem;
+    justify-content: space-evenly;
     outline: none;
     width: 80rem;
     flex-direction: row;
   }
-
+/***************************************************************************************************************************/  
+  .element__store {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin: 0.5rem;
+  }
+  
+  .store__title {
+    font-size: 1.5rem;
+    color: #7f5539;
+    margin-left: 1rem;
+  }
+  
   .store__selector {
     align-items: center;
     background-color: #ede0d4;
@@ -467,16 +460,16 @@ body {
     height: 2.5rem;
     justify-content: center;
     outline: none;
-    width: 28.25rem;
+    width: 15rem;
     border-radius: 1.2rem;
-    margin-left: -1.5rem;
+    
   }
-
+  
   .select__store {
     display: flex;
     outline: none;
     background-color: #ede0d4;
-    width: 96%;
+    width: 92%;
     height: 2.5rem;
     border: none;
     border-radius: 1.2rem;
@@ -488,10 +481,22 @@ body {
     font-weight: 400;
     font-style: normal;
   }
+  
+  /**************************************************************************************************************************/
+  
+  .element__supplier {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin: 0.5rem;
+  }
 
-
-
-/**/
+  .supplier__title {
+    font-size: 1.5rem;
+    color: #7f5539;
+    margin-left: 1rem;
+  }
+  
   .supplier__selector {
     align-items: center;
     background-color: #ede0d4;
@@ -502,8 +507,7 @@ body {
     display: flex;
     justify-content: center;
     outline: none;
-    width: 45rem;
-    margin-right: -2%;
+    width: 30rem;
     border-radius: 1.2rem;
   }
   
@@ -511,7 +515,7 @@ body {
     display: flex;
     outline: none;
     background-color: #ede0d4;
-    width: 98%;
+    width: 95%;
     height: 2.5rem;
     border: none;
     border-radius: 1.2rem;
@@ -524,42 +528,25 @@ body {
     font-style: normal;
     
   }
-/**/
+
+
+/*****************************************************************************************************************************/
 
 
 
-  .element__title1{
+.element__numberNf {
     display: flex;
-    width: 100%;
-    height: 2rem;
-    align-items: center;
-    
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin: 0.5rem;
   }
-
+  
   .number__title {
     font-size: 1.5rem;
     color: #7f5539;
-    margin: 0rem 0rem 0rem 3rem;
+    margin-left: 1rem;
   }
-
-  .data__title {
-    font-size: 1.5rem;
-    color: #7f5539;
-    margin: 0rem 0rem 0rem 39rem;
-  }
-
-  .element__number__data {
-    align-items: center;
-    border: none;
-    display: flex;
-    font-size: 1.2rem;
-    height: 2.9rem;
-    justify-content: space-around;
-    outline: none;
-    width: 80rem;
-    flex-direction: row;
-  }
-
+  
   .number__nf {
     align-items: center;
     background-color: #ede0d4;
@@ -569,11 +556,50 @@ body {
     height: 2.5rem;
     justify-content: center;
     outline: none;
-    width: 50rem;
+    width: 15rem;
     border-radius: 1.2rem;
-    margin-left: -3.8rem;
+  }
+  
+  .numberNF__input {
+    border: none;
+    outline: none;
+    background-color: #ede0d4;
+    width: 85%;
+    color: #7f5539;
+    
+    font-size: 1.2rem;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
 
+  .numberNF__input::placeholder {
+    color: #7f5539;
+    
+    font-size: 1.2rem;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /**********************************************************************************************************************/
+  
+  
+  .element__data {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin: 0.5rem;
+  }
+  
+  .data__title {
+    font-size: 1.5rem;
+    color: #7f5539;
+    margin-left: 1rem;
+  }
+  
   .data__doc {
     align-items: center;
     background-color: #ede0d4;
@@ -583,15 +609,14 @@ body {
     height: 2.5rem;
     justify-content: center;
     outline: none;
-    width: 15rem;
-    margin-right: 0%;
+    width: 13rem;
     border-radius: 1.2rem;
   }
 
-  .data__NF {
+  .data__input {
     border: none;
     background-color: #ede0d4;
-    width: 92%;
+    width: 88%;
     outline: none;
     color: #7f5539;
 
@@ -602,31 +627,35 @@ body {
     font-style: normal;
   }
 
-
-
-
-
-/**/ 
-  .element__title2{
-    display: flex;
-    width: 100%;
-    height: 2rem;
-    align-items: center;
-
-  }
+/************************************************************************************************************************/
 
   .element__value__file {
     align-items: center;
     border: none;
     display: flex;
     font-size: 1.2rem;
-    height: 2.9rem;
-    justify-content: space-around;
+    height: 6rem;
+    justify-content: flex-start;
     outline: none;
     width: 80rem;
     flex-direction: row;
   }
   
+/******************************************************************************************************************************/
+  
+  .element__value {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin-left: 1.4rem;
+  }
+
+  .value__title {
+    font-size: 1.5rem;
+    color: #7f5539;
+    margin-left: 1rem;
+  }
+
   .value__nf {
     align-items: center;
     background-color: #ede0d4;
@@ -636,38 +665,49 @@ body {
     height: 2.5rem;
     justify-content: center;
     outline: none;
-    width: 20rem;
+    width: 10rem;
     border-radius: 1.2rem;
-    margin-left: -13.2rem;
-  }
-  .value__title {
-    font-size: 1.5rem;
-    color: #7f5539;
-    margin: 0rem 0rem 0rem 3rem;
+  
   }
 
-  .value__coin {
-    font-size: 1.2rem;
-    width: 90%;
+  .value__input {
+    width: 85%;
     color: #7f5539;
     border: none;
     background-color: #ede0d4;
     outline: none;
     
+    font-size: 1.2rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
   }
-  .value__coin::placeholder {
+  .value__input::placeholder {
     color: #7f5539;
-  }
     
-  .file__title {
-    font-size: 1.5rem;
-    color: #7f5539;
-    margin: 0rem 0rem 0rem 39rem;
+    font-size: 1.2rem;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
+  
+/**********************************************************************************************************************/
+  
+  .element__file {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin-left: 2rem;
+  }
+
+  .file__title {
+       font-size: 1.5rem;
+    color: #7f5539;
+    margin-left: 1rem;
+  }
+
   .export__file {
     align-items: center;
     background-color: #ede0d4;
@@ -675,11 +715,24 @@ body {
     display: flex;
     font-size: 1.5rem;
     height: 2.5rem;
-    justify-content: center;
+    justify-content: flex-start;
     outline: none;
-    width: 30rem;
-    margin-right: -13.2rem;
+    width: 20rem;
     border-radius: 1.2rem;
+  }
+
+  .explort__button {
+    background-color: #9c6644;
+    color: #ede0d4;
+    width: 6rem;
+    height: 100%;
+    border-radius: 1.2rem 0rem 0rem 1.2rem;
+
+    font-size: 1.2rem;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
   
   /* ====================================== Final dos Stulos dos Cards ======================================= */ 
