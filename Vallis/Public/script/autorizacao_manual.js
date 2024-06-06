@@ -107,14 +107,41 @@
     });
   }
 
+// Botão que abre o Explorador de Arquivos do OS
+  function fileUpload() {
+    document.querySelector('.export__button').addEventListener('click', function() {
+      const input = document.createElement('input');
+      input.type = 'file';
 
+ 
+      input.addEventListener('change', function() {
+        const file = input.files[0]; 
+        const fileName = file.name; 
 
+        
+        if (fileName.endsWith('.pdf')) {
+         
+          document.querySelector('.file__name').textContent = fileName;
+        } else {
+          alert('Por favor, selecione um arquivo com a extensão .pdf.');
+        }
+      });
+
+      input.click();
+    });
+  }
+
+  
 
 // Ao carregar o DOM abre e fecha o modal manual e Armazena a lista de fornecedores e lojas. 
   document.addEventListener("DOMContentLoaded", async function () {
   document.querySelector('.card__manual').addEventListener('click', OpenModalManual);
   document.querySelector('.close__modal__manual').addEventListener('click', CloseModalManual);
-  //data
+//data
+//Mascara valor 
+  applyCurrencyMask();
+//Upload de PDF
+  fileUpload();
   
     window.Supplier = await getSupplier();
     window.Store = await getStore();
@@ -130,7 +157,6 @@
       await supplierListSelect(suppliersSelect);
     }
     
-    applyCurrencyMask();
   });
   
 

@@ -627,6 +627,10 @@ body {
     font-style: normal;
   }
 
+  .data__input::-webkit-calendar-picker-indicator {
+    filter: invert(40%);
+  }
+
 /************************************************************************************************************************/
 
   .element__value__file {
@@ -721,18 +725,57 @@ body {
     border-radius: 1.2rem;
   }
 
-  .explort__button {
+  .export__button {
     background-color: #9c6644;
     color: #ede0d4;
     width: 6rem;
     height: 100%;
     border-radius: 1.2rem 0rem 0rem 1.2rem;
+    outline: none;
 
     font-size: 1.2rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+  }
+
+  .export__button:hover {
+    font-size: 1.3rem;
+    background-color: #7a5237;
+    transition: 0.4s;
+    transition-delay: 0.2s ;
+  }
+
+  .file__container {
+    width: 13.5rem; 
+    height: 100%; 
+    overflow: hidden; 
+    position: relative; 
+    display: flex;
+    align-items: center;
+    margin-left: 0.2rem;
+  }
+  
+  .file__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    position: absolute; 
+    color: #7f5539;
+    } 
+    
+  .file__name:hover {
+      animation: slideText 10s linear infinite;    
+  }
+  
+  @keyframes slideText {
+    0% {
+      transform: translateX(0); 
+    }
+    100% {
+      transform: translateX(-100%); 
+    }
   }
   
   /* ====================================== Final dos Stulos dos Cards ======================================= */ 
