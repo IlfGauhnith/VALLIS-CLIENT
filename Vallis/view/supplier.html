@@ -88,6 +88,20 @@
         </div>
       </div>
 <!-- FINAL DO MODAL ADICIONAR FORNECEDOR. -->
+    
+<!-- MODAL EXCLUIR FORNECEDOR. -->
+    <div id="modal__excluir" class="modal__excluir" style="display: none;">
+      <div class="modal__elementExcluir">
+          <span>Tem certeza que deseja excluir o fornecedor <span id="nome__fornecedor__excluir"></span>?</span>
+          <input type="hidden" id="id__fornecedor__excluir">
+          <button id="confirmar__excluir" onclick="confirmarExcluirOnClick()">Confirmar</button>
+          <button class="close__excluir" onclick="javascript: document.getElementById('modal__excluir').style.display = 'none'">
+            <span class="X2"></span>
+            <span class="Y2"></span>
+          </button>
+      </div>
+    </div>
+<!-- FINAL DO MODAL EXCLUIR FORNECEDOR. -->
 
 <!-- MODAL EDITAR FORNECEDOR. -->
       <div id="modal__edit" class="modal__edit">

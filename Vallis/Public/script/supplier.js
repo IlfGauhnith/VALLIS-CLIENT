@@ -210,6 +210,7 @@
     razao.textContent = fornecedor.razao_social;
     razao.classList.add("show__razao");
     razaoTd.classList.add("td__razao");
+    razaoTd.setAttribute("id", "td__razao__" + fornecedor.id_fornecedor);
     razaoTd.appendChild(razao);
     row.appendChild(razaoTd);
 
@@ -255,10 +256,19 @@
     table.appendChild(row);
   }
 
-  // Função para executar a exclusão de um fornecedor ao clicar no botão "Excluir"
   async function deletOnClick(event) {
-    // Obtém o ID do fornecedor a partir do elemento clicado
     const id_fornecedor = event.target.parentElement.parentElement.parentElement.id;
+    const razao_social = document.getElementById("td__razao__" + id_fornecedor).innerText;
+    
+    document.getElementById("id__fornecedor__excluir").value = id_fornecedor;
+    document.getElementById("nome__fornecedor__excluir").innerText = razao_social;
+    document.getElementById("modal__excluir").style.display = 'block';
+  }
+
+  // Função para executar a exclusão de um fornecedor ao clicar no botão "Excluir"
+  async function confirmarExcluirOnClick(event) {
+    // Obtém o ID do fornecedor a partir do elemento clicado
+    const id_fornecedor =  document.getElementById("id__fornecedor__excluir").value;
 
     // Realiza a exclusão do fornecedor
     await deletFornecedor(id_fornecedor);

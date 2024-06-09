@@ -917,3 +917,85 @@
   
 /*============================================= Final do footer =============================================*/
 /* ========================================================================================================= */
+
+
+
+
+
+
+
+
+
+
+.modal__excluir {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  height: 100%; 
+  left: 0; 
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
+}
+/* Elemento modal editar fornecedor. */
+.modal__elementExcluir {
+  align-items: center;
+  animation: animation__modal__excluir__supplier 1s ease-out;
+  background: linear-gradient(to bottom, #7f5539, #9c6644, #b08968);
+  border-radius: 1.2rem;
+  border: 1px solid #7f5539;
+  display: flex;
+  flex-direction: row;
+  height: 15rem;
+  justify-content: center;
+  margin: 25% auto; 
+  padding: 1.5;
+  width: 82rem;
+}
+/* Animação  exibida ao abrir o modal editar fornecedor. */
+@keyframes animation__modal__excluir__supplier {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 2;
+    transform: translateY(0);
+  }
+}
+
+.X2 {
+  content: '';
+  position: absolute;
+  width: 2rem;
+  height: 0.2rem;
+  background-color: #fff;
+  transform: rotate(45deg);
+  border-radius: 0.2rem;
+}
+
+.Y2 {
+  content: '';
+  position: absolute;
+  width: 2rem;
+  height: 0.2rem;
+  background-color: #fff;
+  transform: rotate(-45deg);
+  border-radius: 0.2rem;
+}
+
+.close__excluir {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 2.95rem;
+  height: 2.95rem;
+  border: none;
+  background-color: #b22525;
+  border-radius: 50%;
+  margin-left: 2rem;
+}
