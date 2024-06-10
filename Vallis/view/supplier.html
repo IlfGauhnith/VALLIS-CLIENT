@@ -90,15 +90,17 @@
 <!-- FINAL DO MODAL ADICIONAR FORNECEDOR. -->
     
 <!-- MODAL EXCLUIR FORNECEDOR. -->
-    <div id="modal__excluir" class="modal__excluir" style="display: none;">
-      <div class="modal__elementExcluir">
-          <span>Tem certeza que deseja excluir o fornecedor <span id="nome__fornecedor__excluir"></span>?</span>
-          <input type="hidden" id="id__fornecedor__excluir">
-          <button id="confirmar__excluir" onclick="confirmarExcluirOnClick()">Confirmar</button>
-          <button class="close__excluir" onclick="javascript: document.getElementById('modal__excluir').style.display = 'none'">
-            <span class="X2"></span>
-            <span class="Y2"></span>
-          </button>
+    <div id="modal__delet" class="modal__delet">
+      <div class="modal__elementDelet">
+        <div class="element__warningDelet">Aviso</div>
+        <div class="element__questInf">
+          <span>Excluir fornecedor <span id="name__supplierDelet"></span>?</span>
+        </div>
+        <div class="element__buttons">
+          <input type="hidden" id="id__supplierDelet">
+          <button class="confirm__delet" onclick="confirmarExcluirOnClick()">Excluir</button>
+          <button class="close__delet" onclick="javascript: document.getElementById('modal__delet').style.display = 'none'">Cancelar</button>
+        </div>
       </div>
     </div>
 <!-- FINAL DO MODAL EXCLUIR FORNECEDOR. -->

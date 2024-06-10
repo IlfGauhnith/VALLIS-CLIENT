@@ -43,18 +43,18 @@
  */
 
 /* Media query para resoluções HD */
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
 /* Definindo o tamanho da fonte raiz */
     html {
       font-size: 9px; /* 1 rem = 9px */
     }
     body {
-      background-size: 1280px auto; /* Ajusta o tamanho do background para resoluções HD */
+      background-size: 1366px auto; /* Ajusta o tamanho do background para resoluções HD */
     }
   }
     
 /* Media query para resoluções FHD */
-  @media (min-width: 1281px) and (max-width: 1920px) {
+  @media (min-width: 1367px) and (max-width: 1920px) {
 /* Definindo o tamanho da fonte raiz */
     html {
       font-size: 12px; /* 1 rem = 12px */
@@ -926,76 +926,116 @@
 
 
 
+/**/
+  .modal__delet {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    height: 100%; 
+    left: 0; 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+  }
 
-.modal__excluir {
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  height: 100%; 
-  left: 0; 
-  position: fixed; 
-  top: 0; 
-  width: 100%; 
-}
 /* Elemento modal editar fornecedor. */
-.modal__elementExcluir {
-  align-items: center;
-  animation: animation__modal__excluir__supplier 1s ease-out;
-  background: linear-gradient(to bottom, #7f5539, #9c6644, #b08968);
-  border-radius: 1.2rem;
-  border: 1px solid #7f5539;
-  display: flex;
-  flex-direction: row;
-  height: 15rem;
-  justify-content: center;
-  margin: 25% auto; 
-  padding: 1.5;
-  width: 82rem;
-}
+  .modal__elementDelet {
+    align-items: center;
+    animation: animation__modal__excluir__supplier 1s ease-out;
+    background-color: #ddb892;
+    border-radius: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    margin: 25% auto; 
+    padding: 1.5;
+    width: 33rem;
+
+    font-size: 1.2rem;
+    color: #7f5539;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/**/
+  .element__warningDelet {
+    background-color: #7f5539;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4rem;
+    border-radius: 1.2rem 1.2rem 0 0;
+    font-size: 1.5rem;
+    color: #ddb892;
+  }
+
+/**/
+  .element__questInf {
+    width: 90%;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
 /* Animação  exibida ao abrir o modal editar fornecedor. */
-@keyframes animation__modal__excluir__supplier {
-  0% {
-    opacity: 0;
-    transform: translateY(-150px);
+  @keyframes animation__modal__excluir__supplier {
+    0% {
+      opacity: 0;
+      transform: translateY(-150px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 2;
+      transform: translateY(0);
+    }
   }
-  50% {
-    opacity: 1;
-    transform: translateY(40px);
+
+/**/
+  .element__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    width: 100%;
+    height: 3rem;
+
   }
-  100% {
-    opacity: 2;
-    transform: translateY(0);
+
+/**/
+  .confirm__delet {
+    width: 7rem;
+    height: 2.8rem;
+    background-color: #b22525;
+    border-radius: 1.2rem;
+
+    font-size: 1.2rem;
+    color: #ede0d4;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
-}
 
-.X2 {
-  content: '';
-  position: absolute;
-  width: 2rem;
-  height: 0.2rem;
-  background-color: #fff;
-  transform: rotate(45deg);
-  border-radius: 0.2rem;
-}
+/**/
+  .close__delet {
+    width: 7rem;
+    height: 2.8rem;
+    background-color: #7f5539;
+    border-radius: 1.2rem;
 
-.Y2 {
-  content: '';
-  position: absolute;
-  width: 2rem;
-  height: 0.2rem;
-  background-color: #fff;
-  transform: rotate(-45deg);
-  border-radius: 0.2rem;
-}
+    font-size: 1.2rem;
+    color: #ede0d4;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
 
-.close__excluir {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 2.95rem;
-  height: 2.95rem;
-  border: none;
-  background-color: #b22525;
-  border-radius: 50%;
-  margin-left: 2rem;
-}
+ 

@@ -42,18 +42,18 @@
  */
 
 /* Media query para resoluções HD */
-  @media (max-width: 1280px) {
+  @media (max-width: 1366px) {
 /* Definindo o tamanho da fonte raiz */
     html {
       font-size: 9px; /* 1 rem = 9px */
     }
     body {
-        background-size: 1280px auto; /* Ajusta o tamanho do background para resoluções HD */
+        background-size: 1366px auto; /* Ajusta o tamanho do background para resoluções HD */
     }
   }
   
 /* Media query para resoluções FHD */
-  @media (min-width: 1281px) and (max-width: 1920px) {
+  @media (min-width: 1367px) and (max-width: 1920px) {
 /* Definindo o tamanho da fonte raiz */
     html {
     font-size: 12px; /* 1 rem = 12px */
