@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<!--    <script src="../Public/script/cadastrar_autorizacao_pagamento.js"></script> -->
     <script src="../Public/script/autorizacao_manual.js"></script>
     <script src="../components/sidebar-nav.js"></script>
   </head>
@@ -33,6 +32,7 @@
 
 <!-- INICIO DA MAIN. -->
     <div id="main">
+<!-- CARDS COM A OPÇOES DE AUTORIZAÇÃO DE PAGAMENTO -->
       <div class="conteiner__option">
         <div class="card__NFE">
           <div class="autorizacao__NFE">Chave de Acesso NF-e</div>
@@ -50,7 +50,17 @@
           <span class="txt__manual">Nesse card você pode fazer o preenchimento dos campos manualmente.</span>
         </div>
       </div>
+<!-- FINAL DOS CARDS COM AS OPÇÕES DE AUTORIZAÇÃO DE PAGAMENTO -->
+
+<!-- TELAS DE MODAL QUANDO CLICADO EM ALGUM DOS CARDS OPCÕES -->
       <div class="modal__option">
+<!-- MODAL CHAVE DE ACESSO NF-e -->
+<!-- FINAL DO MODAL CHEVE DE ACESSO NF-e -->
+
+<!-- MODAL XML -->
+<!-- FINAL DO MODAL XML -->
+    
+<!-- MODAL AUTORIZAÇÃO MANUAL  -->
         <div class="modal__manual">
           <div class="manual__element">
             <div class="header__manual">
@@ -86,7 +96,7 @@
                 </div>  
               </div>
             </div>
-            <div class="element__value__file">
+            <div class="element__value__file__payment">
               <div class="element__value">
                 <div class="value__title">Valor da NF</div>
                 <div class="value__nf">
@@ -99,14 +109,36 @@
                     <button class="export__button" type="file" accept="application/pdf">Arquivo</button>
                     <div class="file__container">
                       <div class="file__name"></div>
-
                     </div>
+                  </div>
+              </div>
+              <div class="element__payment">
+                <div class="payment__title">Parcelas:</div>
+                  <div class="number__payment">
+                    <select name="quantidade" class="payment__input">
+                        <option value="1">1x</option>
+                        <option value="2">2x</option>
+                        <option value="3">3x</option>
+                        <option value="4">4x</option>
+                        <option value="5">5x</option>
+                        <option value="6">6x</option>
+                        <option value="7">7x</option>
+                        <option value="8">8x</option>
+                        <option value="9">9x</option>
+                        <option value="10">10x</option>
+                        <option value="11">11x</option>
+                        <option value="12">12x</option>
+                    </select>
                   </div>
               </div>
             </div>
           </div>
         </div>
+<!-- FINAL DO MODAL AUTORIZAÇÃO MANUAL -->
+
       </div>
+<!-- FINAL DOS MODAIS OPÇÕES -->
+
     </div>
 <!-- FINAL DA MAIN. -->
 

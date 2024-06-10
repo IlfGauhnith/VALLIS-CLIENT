@@ -91,9 +91,31 @@
     return suppliersSelect
 
   }
+
+// Mascara do input número da nota fiscal numberNF__input.
+  function applyNFMask() {
+    const numberNF = document.querySelectorAll('.numberNF__input');
+      numberNF.forEach(input => {
+        input.addEventListener('input', function (e) {
+          let value = input.value.replace(/\D/g, ''); // Remove all non-digit characters
+          value = value.substring(0, 9); // Ensure the value is at most 9 digits long
+
+          if (value.length > 3) {
+              value = value.replace(/^(\d{3})(\d)/, '$1.$2');
+          }
+          if (value.length > 6) {
+              value = value.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+          }
+
+          input.value = value;
+        });
+      });
+  }
+
+
 //DATA DE EMISSÃO 
 
-// Input do campo valor R$ da Autorização de Pagamento.
+// Mascara do input valor do nota fiscal value__input.
   function applyCurrencyMask() {
     const reaisInputs = document.querySelectorAll('.value__input');
 
@@ -130,15 +152,16 @@
       input.click();
     });
   }
-
   
-
 // Ao carregar o DOM abre e fecha o modal manual e Armazena a lista de fornecedores e lojas. 
   document.addEventListener("DOMContentLoaded", async function () {
   document.querySelector('.card__manual').addEventListener('click', OpenModalManual);
   document.querySelector('.close__modal__manual').addEventListener('click', CloseModalManual);
-//data
-//Mascara valor 
+
+// Mascara número da nota fiscal
+  applyNFMask();
+// Data
+// Mascara valor 
   applyCurrencyMask();
 //Upload de PDF
   fileUpload();
@@ -146,20 +169,19 @@
     window.Supplier = await getSupplier();
     window.Store = await getStore();
     
-    // Preenche o dropdown com os fornecedores.
-    const storesSelect = document.querySelector('.select__store');
-    if (storesSelect) {
-      await storeListSelect(storesSelect);
-    }
-    // Preenche o dropdown com os fornecedores.
-    const suppliersSelect = document.querySelector('.select__supplier');
-    if (suppliersSelect) {
-      await supplierListSelect(suppliersSelect);
-    }
+// Preenche o dropdown com os fornecedores.
+  const storesSelect = document.querySelector('.select__store');
+  if (storesSelect) {
+    await storeListSelect(storesSelect);
+  }
+// Preenche o dropdown com os fornecedores.
+  const suppliersSelect = document.querySelector('.select__supplier');
+  if (suppliersSelect) {
+    await supplierListSelect(suppliersSelect);
+  }
     
   });
   
-
 /**
 *------------------------------------------------------------------------------------------------------------
 ************************** Conclusão da regra de negócio de Autorização Manual. *****************************
