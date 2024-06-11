@@ -152,6 +152,15 @@
       input.click();
     });
   }
+// Botão que seleciona o números de parcelas
+  function populateSelect(selectElement, numberOfOptions) {
+      for (let i = 1; i <= numberOfOptions; i++) {
+          const option = document.createElement('option');
+          option.value = i;
+          option.textContent = `${i}x`;
+          selectElement.appendChild(option);
+      }
+  }
   
 // Ao carregar o DOM abre e fecha o modal manual e Armazena a lista de fornecedores e lojas. 
   document.addEventListener("DOMContentLoaded", async function () {
@@ -165,6 +174,8 @@
   applyCurrencyMask();
 //Upload de PDF
   fileUpload();
+//Números de parcelas
+ 
   
     window.Supplier = await getSupplier();
     window.Store = await getStore();
@@ -179,7 +190,12 @@
   if (suppliersSelect) {
     await supplierListSelect(suppliersSelect);
   }
-    
+// Quantidade de parcelas.
+  const selectElements = document.getElementsByClassName('payment__input');
+  Array.prototype.forEach.call(selectElements, function(selectElement) {
+      populateSelect(selectElement, 12);
+  });
+
   });
   
 /**
@@ -187,3 +203,7 @@
 ************************** Conclusão da regra de negócio de Autorização Manual. *****************************
 *------------------------------------------------------------------------------------------------------------ 
 */
+
+
+
+

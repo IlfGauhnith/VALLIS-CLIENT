@@ -343,7 +343,7 @@ body {
     display: flex;
     background-color: #ddb892;
     border-radius: 1.2rem;
-    height: 18rem;
+    height: 104rem;
     width: 80rem;
     flex-direction: column;
   }
@@ -711,7 +711,7 @@ body {
   }
 
   .file__title {
-       font-size: 1.5rem;
+    font-size: 1.5rem;
     color: #7f5539;
     margin-left: 1rem;
   }
@@ -825,12 +825,36 @@ body {
     font-style: normal;
   }
 
-  /* ====================================== Final dos Stulos dos Cards ======================================= */ 
-  
-  
-  /*============================================== Final do main ==============================================*/
-  /* ========================================================================================================= */
-  /*============================================= Inicio do footer ============================================*/
+/**/
+  .element__confirm {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 2.5rem;
+    margin: 0.5rem 1rem 0 0 ;
+    background-color: #9c6644;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    color: #ede0d4;
+
+    font-size: 1.2rem;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .button__confirm {
+
+  }
+/* ====================================== Final dos Stulos dos Cards ======================================= */ 
+
+
+/*============================================== Final do main ==============================================*/
+/* ========================================================================================================= */
+/*============================================= Inicio do footer ============================================*/
 
 /* Elementos do footer */
   .footer__element{
@@ -845,3 +869,13 @@ body {
 /*============================================= Final do footer =============================================*/
 /* ========================================================================================================= */
   
+  .component__paymentLine {
+    width: 79rem;
+    height: 6rem;
+    background-color: #ddb892;
+    margin: 0.5rem;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
