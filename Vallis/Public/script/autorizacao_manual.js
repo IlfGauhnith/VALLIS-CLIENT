@@ -161,7 +161,7 @@
           selectElement.appendChild(option);
       }
   }
-  
+
 // Ao carregar o DOM abre e fecha o modal manual e Armazena a lista de fornecedores e lojas. 
   document.addEventListener("DOMContentLoaded", async function () {
   document.querySelector('.card__manual').addEventListener('click', OpenModalManual);
@@ -196,14 +196,49 @@
       populateSelect(selectElement, 12);
   });
 
-  });
-  
+// Logica da duplicata para adicionar linha pra valores parcelados.
+// Seleciona os elementos HTML pelas classes
+    const select = document.querySelector('.payment__input');
+    const container = document.querySelector('.element__duplicate');
+    const paymentComponent = document.querySelector('.manual__element');
+
+// Verifica se os elementos existem
+      if (select && container && paymentComponent) {
+// Define a altura original do elemento paymentComponent
+  const originalHeight = parseFloat(window.getComputedStyle(paymentComponent).height) / 10; // Convertendo para rem
+
+// Adiciona um ouvinte de evento 'change' ao select
+        select.addEventListener('change', () => {
+    const count = parseInt(select.value); // Obtém o valor selecionado
+      container.innerHTML = ''; // Limpa os componentes anteriores
+
+// Se count for maior que 1, adiciona os componentes adicionais
+      if (count > 1) {
+        let additionalHeight = 0; // Inicializa a altura adicional como 0
+        for (let i = 2; i <= count; i++) {
+          const component = document.createElement('duplicate-payment');
+          container.appendChild(component);
+          additionalHeight += 6.5; // Adiciona +7rem para cada componente adicional
+        }
+
+// Define a altura do elemento paymentComponent somando a altura original com a altura adicional
+          paymentComponent.style.height = originalHeight + additionalHeight + 'rem';
+        }else {
+// Se count for 1 ou menor, mantém a altura original
+          paymentComponent.style.height = originalHeight + 'rem';
+        }
+      });
+
+// Dispara o evento 'change' quando a página carrega para definir o estado inicial
+      select.dispatchEvent(new Event('change'));
+    } else {
+      console.error('Elementos select, container ou paymentComponent não foram encontrados.');
+    }
+});  
 /**
 *------------------------------------------------------------------------------------------------------------
 ************************** Conclusão da regra de negócio de Autorização Manual. *****************************
 *------------------------------------------------------------------------------------------------------------ 
 */
-
-
 
 
