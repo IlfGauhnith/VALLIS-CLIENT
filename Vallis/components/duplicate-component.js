@@ -1,10 +1,8 @@
-     class DuplicatePayment extends HTMLElement {
-            constructor() {
-                super();
-            }
-
-            connectedCallback() {
-                this.innerHTML = 
+class DuplicatePayment extends HTMLElement {
+  constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      this.shadowRoot.innerHTML =
                 `<style>
 /* Esse CSS pertece a um componente.
  * O componente ele é responsavel pelas linhas geradas pelo select de parcelas
@@ -58,7 +56,7 @@
   border: none;
   background-color: #ede0d4;
   outline: none;
-  
+
   font-size: 1.2rem;
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
@@ -109,6 +107,7 @@
   height: 100%;
   border-radius: 1.2rem 0rem 0rem 1.2rem;
   outline: none;
+  border: none;
 
   font-size: 1.2rem;
   font-family: "Fredoka", sans-serif;
@@ -273,7 +272,13 @@
                         </div>
                     </div>
                 </div>`;
-            }
-        }
+              }
 
-        customElements.define('duplicate-payment', DuplicatePayment);
+              connectedCallback() {
+                  // Emitindo um evento customizado quando o componente é conectado
+                  const event = new CustomEvent('componentLoaded');
+                  this.dispatchEvent(event);
+              }
+          }
+          
+          customElements.define('duplicate-payment', DuplicatePayment);

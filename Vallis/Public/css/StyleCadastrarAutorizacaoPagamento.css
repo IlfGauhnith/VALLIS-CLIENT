@@ -886,6 +886,16 @@ body {
     font-style: normal;
   }
 
+/**/
+  .element__line {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 98%;
+    height: 0.2rem;
+    border-radius: 1.2rem;
+    background-color: #7f5539;
+  }
 
 /* ====================================== Final dos Stulos dos Cards ======================================= */ 
 
