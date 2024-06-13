@@ -1,9 +1,8 @@
 class DuplicatePayment extends HTMLElement {
   constructor() {
-      super();
-      this.attachShadow({ mode: 'open' });
-      this.shadowRoot.innerHTML =
-                `<style>
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.innerHTML = `<style>
 /* Esse CSS pertece a um componente.
  * O componente ele é responsavel pelas linhas geradas pelo select de parcelas
  * a quantidade de parcelas será igual a quantidade de componentes renderizados
@@ -274,11 +273,50 @@ class DuplicatePayment extends HTMLElement {
                 </div>`;
               }
 
-              connectedCallback() {
-                  // Emitindo um evento customizado quando o componente é conectado
-                  const event = new CustomEvent('componentLoaded');
-                  this.dispatchEvent(event);
-              }
+  connectedCallback() {
+    const event = new CustomEvent('componentLoaded');
+    this.dispatchEvent(event);
+    this.applyCurrencyMask();
+    this.fileUpload();
+  }
+
+  applyCurrencyMask() {
+    const reaisInput = this.shadowRoot.querySelector('.value__inputComponent');
+    reaisInput.addEventListener('input', function() {
+      let value = this.value.replace(/\D/g, '');
+      value = (value / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      this.value = value;
+    });
+  }
+
+  logValue() {
+    const reaisInput = this.shadowRoot.querySelector('.value__inputComponent');
+    console.log(`Valor inserido: ${reaisInput.value}`);
+  }
+
+  fileUpload() {
+    const button = this.shadowRoot.querySelector('.export__buttonComponent');
+    const fileNameContainer = this.shadowRoot.querySelector('.file__nameComponent');
+
+    button.addEventListener('click', () => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'application/pdf';
+      
+      input.addEventListener('change', () => {
+        const file = input.files[0];
+        if (file) {
+          const fileName = file.name;
+          if (fileName.endsWith('.pdf')) {
+            fileNameContainer.textContent = fileName;
+          } else {
+            alert('Por favor, selecione um arquivo com a extensão .pdf.');
           }
-          
-          customElements.define('duplicate-payment', DuplicatePayment);
+        }
+      });
+      input.click();
+    });
+  }
+}
+
+customElements.define('duplicate-payment', DuplicatePayment);

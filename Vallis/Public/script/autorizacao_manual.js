@@ -203,65 +203,52 @@ const container = document.querySelector('.element__duplicate');
 const paymentComponent = document.querySelector('.manual__element');
 
 // Verifica se os elementos existem
-if (select && container && paymentComponent) {
-  // Define a altura original do elemento paymentComponent
-  const originalHeight = parseFloat(window.getComputedStyle(paymentComponent).height) / 10; // Convertendo para rem
+  if (select && container && paymentComponent) {
+// Define a altura original do elemento paymentComponent
+    const originalHeight = parseFloat(window.getComputedStyle(paymentComponent).height) / 10; // Convertendo para rem
 
-  // Adiciona um ouvinte de evento 'change' ao select
-  select.addEventListener('change', () => {
+// Adiciona um ouvinte de evento 'change' ao select
+    select.addEventListener('change', () => {
     const count = parseInt(select.value); // Obtém o valor selecionado
     container.innerHTML = ''; // Limpa os componentes anteriores
 
     let additionalHeight = 0; // Inicializa a altura adicional como 0
 
-    // Se count for maior ou igual a 1, adiciona os componentes adicionais
+// Se count for maior ou igual a 1, adiciona os componentes adicionais
     for (let i = 1; i <= count; i++) {
       const component = document.createElement('duplicate-payment');
       container.appendChild(component);
       additionalHeight += 6.5; // Adiciona +6.5rem para cada componente adicional
     }
 
-    // Define a altura do elemento paymentComponent somando a altura original com a altura adicional
+// Define a altura do elemento paymentComponent somando a altura original com a altura adicional
     paymentComponent.style.height = originalHeight + additionalHeight + 'rem';
   });
 
-  // Dispara o evento 'change' quando a página carrega para definir o estado inicial
-  select.dispatchEvent(new Event('change'));
-} else {
-  console.error('Elementos select, container ou paymentComponent não foram encontrados.');
-}
+// Dispara o evento 'change' quando a página carrega para definir o estado inicial
+    select.dispatchEvent(new Event('change'));
+  } else {
+    console.error('Elementos select, container ou paymentComponent não foram encontrados.');
+  }
+  
+// Essa sessão faz o chamada do valuer__inputComponent do componente duplicate-component.js
+  const buttonConfirm = document.querySelector('.button__confirm');
 
-
+  buttonConfirm.addEventListener('click', function() {
+// Selecionar todas as instâncias do componente `duplicate-payment`
+    const duplicatePayments = document.querySelectorAll('duplicate-payment');
     
-});  
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Escuta o evento customizado 'componentLoaded' emitido pelo componente DuplicatePayment
-  document.addEventListener('componentLoaded', () => {
-      console.log('Componente DuplicatePayment carregado.');
-
-      // Adiciona um event listener para o botão de confirmação
-      const buttonConfirm = document.querySelector('.button__confirm');
-      if (buttonConfirm) {
-          buttonConfirm.addEventListener('click', () => {
-              // Obtém o valor do input value__inputComponent
-              const valueInput = document.querySelector('.value__input');
-              if (valueInput) {
-                  console.log('Valor do input value__input:', valueInput.value);
-              } else {
-                  console.error('Input value__input não encontrado.');
-              }
-          });
-      } else {
-          console.error('Botão button__confirm não encontrado.');
-      }
+// Iterar sobre cada instância e chamar o método logValue
+    duplicatePayments.forEach(component => {
+      component.logValue();
+    });
   });
-});
+
+// Final do DOMContentLoaded
+});  
 
 /**
 *------------------------------------------------------------------------------------------------------------
 ************************** Conclusão da regra de negócio de Autorização Manual. *****************************
 *------------------------------------------------------------------------------------------------------------ 
 */
-
-
