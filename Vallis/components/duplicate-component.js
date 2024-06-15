@@ -339,7 +339,7 @@ display: none;
       paymentOutput: this.shadowRoot.querySelector('.payment__outputComponent').textContent,
       valueInput: this.shadowRoot.querySelector('.value__inputComponent').value,
       dueDate: this.shadowRoot.querySelector('.data__inputComponent').value,
-      base64FileContent: this.base64FileContent || ''  // Inclui o Base64 aqui
+      base64FileContent: this.base64FileContent || ''  
     };
   }
 }
