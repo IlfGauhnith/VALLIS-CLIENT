@@ -2,7 +2,7 @@ class DuplicatePayment extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = `<style>
+    this.shadowRoot.innerHTML =  `<style>
 /* Esse CSS pertece a um componente.
  * O componente ele é responsavel pelas linhas geradas pelo select de parcelas
  * a quantidade de parcelas será igual a quantidade de componentes renderizados
@@ -122,6 +122,10 @@ class DuplicatePayment extends HTMLElement {
   transition-delay: 0.2s ;
 }
 
+.file__inputComponent {
+display: none;
+}
+
 .file__containerComponent {
   width: 13.5rem; 
   height: 100%; 
@@ -225,14 +229,16 @@ class DuplicatePayment extends HTMLElement {
   border-radius: 1.2rem;
 }
 
-.payment__inputComponent {
+.payment__outputComponent {
+  display: flex;
+  justify-content: center;
+  align: center;
   width: 80%;
   color: #7f5539;
   border: none;
   background-color: #ede0d4;
   outline: none;
   border-radius: 1.2rem 0 0 1.2rem;
-  margin-left: 0.5rem;
 
   font-size: 1.2rem;
   font-family: "Fredoka", sans-serif;
@@ -241,37 +247,38 @@ class DuplicatePayment extends HTMLElement {
   font-style: normal;
 }
 /* Final do CSS do componente para a duplicata */
-                </style>
-                <div class="component__paymentComponent">
-                    <div class="element__valueComponent">
-                        <div class="value__titleComponent">Valor da NF</div>
-                        <div class="value__nfComponent">
-                            <input class="value__inputComponent" type="text" placeholder="R$ 0,00">
-                        </div>
-                    </div>
-                    <div class="element__fileComponent">
-                        <div class="file__titleComponent">Exportar arquivo</div>
-                        <div class="export__fileComponent">
-                            <button class="export__buttonComponent" type="file" accept="application/pdf">Arquivo</button>
-                            <div class="file__containerComponent">
-                                <div class="file__nameComponent"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element__dataComponent">
-                        <div class="data__titleComponent">Vencimento</div>
-                        <div class="data__docComponent">
-                            <input class="data__inputComponent" type="date">
-                        </div>  
-                    </div>
-                    <div class="element__paymentComponent">
-                        <div class="payment__titleComponent">Parcela:</div>
-                        <div class="number__paymentComponent">
-                            <div class="payment__inputComponent"></div>
-                        </div>
-                    </div>
-                </div>`;
-              }
+  </style>
+    <div class="component__paymentComponent">
+      <div class="element__paymentComponent">
+        <div class="payment__titleComponent">Parcela:</div>
+        <div class="number__paymentComponent">
+        <div class="payment__outputComponent"></div>
+      </div>
+      </div>
+      <div class="element__valueComponent">
+          <div class="value__titleComponent">Valor da NF</div>
+          <div class="value__nfComponent">
+              <input class="value__inputComponent" type="text" placeholder="R$ 0,00">
+          </div>
+      </div>
+      <div class="element__fileComponent">
+          <div class="file__titleComponent">Exportar arquivo</div>
+          <div class="export__fileComponent">
+              <button class="export__buttonComponent" type="file" accept="application/pdf">Arquivo</button>
+              <input type="file" accept=".pdf" class="file__inputComponent">
+              <div class="file__containerComponent">
+                  <div class="file__nameComponent"></div>
+              </div>
+          </div>
+      </div>
+      <div class="element__dataComponent">
+          <div class="data__titleComponent">Vencimento</div>
+          <div class="data__docComponent">
+              <input class="data__inputComponent" type="date">
+          </div>  
+      </div>
+    </div>`;
+  }
 
   connectedCallback() {
     const event = new CustomEvent('componentLoaded');
@@ -289,33 +296,51 @@ class DuplicatePayment extends HTMLElement {
     });
   }
 
-  logValue() {
-    const reaisInput = this.shadowRoot.querySelector('.value__inputComponent');
-    console.log(`Valor inserido: ${reaisInput.value}`);
-  }
-
   fileUpload() {
     const button = this.shadowRoot.querySelector('.export__buttonComponent');
     const fileNameContainer = this.shadowRoot.querySelector('.file__nameComponent');
-
+    const fileInput = this.shadowRoot.querySelector('.file__inputComponent');
+    
     button.addEventListener('click', () => {
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'application/pdf';
-      
-      input.addEventListener('change', () => {
-        const file = input.files[0];
-        if (file) {
-          const fileName = file.name;
-          if (fileName.endsWith('.pdf')) {
-            fileNameContainer.textContent = fileName;
-          } else {
-            alert('Por favor, selecione um arquivo com a extensão .pdf.');
-          }
-        }
-      });
-      input.click();
+      fileInput.click();
     });
+
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files[0];
+      if (file) {
+        const fileName = file.name;
+        if (fileName.endsWith('.pdf')) {
+          fileNameContainer.textContent = fileName;
+          const base64String = await this.readFileAsBase64(file);
+          this.base64FileContent = base64String;  // Armazena o Base64 no componente
+        } else {
+          alert('Por favor, selecione um arquivo com a extensão .pdf.');
+        }
+      }
+    });
+  }
+
+  async readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = error => reject(error);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  setPaymentNumber(number, total) {
+    const paymentOutput = this.shadowRoot.querySelector('.payment__outputComponent');
+    paymentOutput.textContent = `${number}/${total}`;
+  }
+
+  getPaymentDetails() {
+    return {
+      paymentOutput: this.shadowRoot.querySelector('.payment__outputComponent').textContent,
+      valueInput: this.shadowRoot.querySelector('.value__inputComponent').value,
+      dueDate: this.shadowRoot.querySelector('.data__inputComponent').value,
+      base64FileContent: this.base64FileContent || ''  // Inclui o Base64 aqui
+    };
   }
 }
 

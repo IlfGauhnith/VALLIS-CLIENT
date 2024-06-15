@@ -747,6 +747,10 @@ body {
     transition-delay: 0.2s ;
   }
 
+  .file__input{
+    display: none;
+  }
+
   .file__container {
     width: 13.5rem; 
     height: 100%; 
