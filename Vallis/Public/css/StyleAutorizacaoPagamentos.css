@@ -328,13 +328,11 @@ body {
 /* ============================================ Stylo dos Cards ============================================ */
 
   .modal__manual{
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     display: none;
-    align-items: center;
-    justify-content: center ;
     height: 100%; 
     left: 0; 
-    position: fixed; 
+    position: relative; 
     top: 0; 
     width: 100%; 
   }
@@ -343,9 +341,10 @@ body {
     display: flex;
     background-color: #ddb892;
     border-radius: 1.2rem;
-    height: 17rem;
+    height: 23rem;
     width: 80rem;
     flex-direction: column;
+    margin-bottom: 5rem;
   }
 
   .header__manual {

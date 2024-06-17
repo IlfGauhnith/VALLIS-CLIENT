@@ -7,7 +7,7 @@
 // Botão que abre o modal do 'card__manul'
   function OpenModalManual() {
     const modalManual = document.querySelector('.modal__manual');
-    const noneCards = document.querySelectorAll('.card__NFE , .card__XML , .card__manual');
+    const noneCards = document.querySelectorAll('.conteiner__option');
 
     modalManual.style.display = 'flex';
     noneCards.forEach(card => {
