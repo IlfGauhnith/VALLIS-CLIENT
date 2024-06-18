@@ -18,7 +18,7 @@
 // Botão que fecha o modal do 'card__manual'
   function CloseModalManual() {
     const closeManual = document.querySelector('.modal__manual');
-    const noneCards = document.querySelectorAll('.card__NFE , .card__XML , .card__manual');
+    const noneCards = document.querySelectorAll('.conteiner__option');
 
     closeManual.style.display = 'none';
     noneCards.forEach(card => {
