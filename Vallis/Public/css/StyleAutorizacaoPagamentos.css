@@ -170,7 +170,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 18rem;
-    height: 25rem;
+    height: 16rem;
     background-color: #ddb892;
     border-radius: 1.2rem;
   }
@@ -182,7 +182,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 4rem;
-    background-color: #7f5539;
+    background-color: #9c6644;
     border-radius: 1.2rem 1.2rem 0 0 ;
     color: #ede0d4;
     font-size: 1.5rem;
@@ -196,7 +196,7 @@ body {
 
 /* Icone da NFE. */
   .icon__NFE {
-    margin-top: 3rem;
+    margin-top: 0.2rem;
     width: 8rem;
     height: 8rem;
     display: flex;
@@ -207,9 +207,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #7f5539;
+    color: #9c6644;
     font-size: 1.2rem;
-    margin: 3rem 0.5rem 0rem;
+    margin: 0.5rem;
 
   }
 
@@ -219,7 +219,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 18rem;
-    height: 25rem;
+    height: 16rem;
     background-color: #ddb892;
     border-radius: 1.2rem;
   }
@@ -231,7 +231,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 4rem;
-    background-color: #7f5539;
+    background-color: #9c6644;
     border-radius: 1.2rem 1.2rem 0 0 ;
     color: #ede0d4;
     font-size: 1.5rem;
@@ -245,7 +245,7 @@ body {
 
 /* Icone da XML. */
   .icon__XML {
-    margin-top: 3rem;
+    margin-top: 0.2rem;
     width: 8rem;
     height: 8rem;
     display: flex;
@@ -256,9 +256,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #7f5539;
+    color: #9c6644;
     font-size: 1.2rem;
-    margin: 3rem 0.5rem 0rem;
+    margin: 0.5rem;
 }
 
 /* Elemento que define o card manual. */ 
@@ -267,7 +267,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 18rem;
-    height: 25rem;
+    height: 16rem;
     background-color: #ddb892;
     border-radius: 1.2rem;
   }
@@ -279,7 +279,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 4rem;
-    background-color: #7f5539;
+    background-color: #9c6644;
     border-radius: 1.2rem 1.2rem 0 0 ;
     color: #ede0d4;
     font-size: 1.5rem;
@@ -293,7 +293,7 @@ body {
 
   /* Icone da manual. */
   .icon__manual {
-    margin-top: 3rem;
+    margin-top: 0.2rem;
     width: 8rem;
     height: 8rem;
     display: flex;
@@ -304,9 +304,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #7f5539;
+    color: #9c6644;
     font-size: 1.2rem;
-    margin: 3rem 0.5rem 0rem;
+    margin: 0.5rem;
   }
 
   .conteiner__option [class^="card"]:hover {

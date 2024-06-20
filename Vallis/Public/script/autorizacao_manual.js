@@ -223,42 +223,40 @@
     });
 
 // Lógica da duplicata para adicionar linhas para valores parcelados.
-const select = document.querySelector('.payment__input');
-const container = document.querySelector('.element__duplicate');
-const paymentComponent = document.querySelector('.manual__element');
+  const select = document.querySelector('.payment__input');
+  const container = document.querySelector('.element__duplicate');
+  const paymentComponent = document.querySelector('.manual__element');
 
-if (select && container && paymentComponent) {
-  // Define a altura base original do paymentComponent em rem
-  const baseHeight = 21; // 21rem
+  if (select && container && paymentComponent) {
+    // Define a altura base original do paymentComponent em rem
+    const baseHeight = 21; // 21rem
 
-  select.addEventListener('change', () => {
-    const count = parseInt(select.value);
+    select.addEventListener('change', () => {
+      const count = parseInt(select.value);
 
-    container.innerHTML = '';
+      container.innerHTML = '';
 
-    for (let i = 1; i <= count; i++) {
-      const component = document.createElement('duplicate-payment');
-      container.appendChild(component);
+      for (let i = 1; i <= count; i++) {
+        const component = document.createElement('duplicate-payment');
+        container.appendChild(component);
 
-      component.setPaymentNumber(i, count);
-    }
+        component.setPaymentNumber(i, count);
+      }
 
-    // Calcula a nova altura total em rem
-    const additionalHeight = count * 6.5; // Altura adicional total em rem
-    const newHeight = baseHeight + additionalHeight;
+      // Calcula a nova altura total em rem
+      const additionalHeight = count * 6.5; // Altura adicional total em rem
+      const newHeight = baseHeight + additionalHeight;
 
-    // Ajusta a altura do paymentComponent em rem
-    paymentComponent.style.height = newHeight + 'rem';
-  });
+      // Ajusta a altura do paymentComponent em rem
+      paymentComponent.style.height = newHeight + 'rem';
+    });
 
-  // Dispara o evento 'change' inicialmente para configurar a interface com o valor inicial do select
-  select.dispatchEvent(new Event('change'));
-} else {
-  console.error('Elementos select, container ou paymentComponent não foram encontrados.');
-}
-
-
-
+    // Dispara o evento 'change' inicialmente para configurar a interface com o valor inicial do select
+    select.dispatchEvent(new Event('change'));
+  } else {
+    console.error('Elementos select, container ou paymentComponent não foram encontrados.');
+  }
+  
 // Adicionar event listener para button__confirm
       const logButton = document.querySelector('.button__confirm');
     if (logButton) {
