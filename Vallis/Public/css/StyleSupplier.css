@@ -497,6 +497,7 @@
   .cnpj__add, .razao__add {
     align-items: center;
     background-color: #ddb892;
+    color: #9c6644;
     border: none;
     display: flex;
     font-size: 1.5rem;
@@ -504,6 +505,11 @@
     justify-content: center;
     outline: none;
     width: 28.25rem;
+    
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
 /* Botão Confirmar ADD fornecedor */ 
   .confirm__addSupplier {

@@ -21,7 +21,7 @@ class DuplicatePayment extends HTMLElement {
     justify-content: space-evenly;
   }
 
-/* Todos os elementos que incluie Value => */
+/* Todos os elementos que incluie Value */
 .element__valueComponent {
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ class DuplicatePayment extends HTMLElement {
   background-color: #ede0d4;
   border: none;
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   height: 2.5rem;
   justify-content: center;
   outline: none;
@@ -56,7 +56,7 @@ class DuplicatePayment extends HTMLElement {
   background-color: #ede0d4;
   outline: none;
 
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -65,7 +65,7 @@ class DuplicatePayment extends HTMLElement {
 .value__inputComponent::placeholder {
   color: #7f5539;
   
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -134,14 +134,15 @@ display: none;
   display: flex;
   align-items: center;
   margin-left: 0.2rem;
-}
-
-.file__nameComponent {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; 
-  position: absolute; 
-  color: #7f5539;
+  }
+  
+  .file__nameComponent {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    position: absolute; 
+    color: #7f5539;
+    font-size: 1.5rem;
   } 
   
 .file__nameComponent:hover {
@@ -191,7 +192,7 @@ display: none;
   outline: none;
   color: #7f5539;
 
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -240,7 +241,7 @@ display: none;
   outline: none;
   border-radius: 1.2rem 0 0 1.2rem;
 
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;

@@ -429,7 +429,7 @@ body {
     align-items: center;
     border: none;
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     height: 6rem;
     justify-content: space-evenly;
     outline: none;
@@ -474,7 +474,7 @@ body {
     border-radius: 1.2rem;
     color: #7f5539;
     
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -520,7 +520,7 @@ body {
     border-radius: 1.2rem;
     color: #7f5539;
     
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -566,7 +566,7 @@ body {
     width: 85%;
     color: #7f5539;
     
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -576,7 +576,7 @@ body {
   .numberNF__input::placeholder {
     color: #7f5539;
     
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -619,7 +619,7 @@ body {
     outline: none;
     color: #7f5539;
 
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -636,7 +636,7 @@ body {
     align-items: center;
     border: none;
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     height: 6rem;
     justify-content: flex-start;
     outline: none;
@@ -664,7 +664,7 @@ body {
     background-color: #ede0d4;
     border: none;
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     height: 2.5rem;
     justify-content: center;
     outline: none;
@@ -680,7 +680,7 @@ body {
     background-color: #ede0d4;
     outline: none;
     
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -689,7 +689,7 @@ body {
   .value__input::placeholder {
     color: #7f5539;
     
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -766,6 +766,7 @@ body {
     text-overflow: ellipsis; 
     position: absolute; 
     color: #7f5539;
+    font-size: 1.5rem;
     } 
     
   .file__name:hover {
@@ -800,7 +801,7 @@ body {
     background-color: #ede0d4;
     border: none;
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     height: 2.5rem;
     justify-content: center;
     outline: none;
@@ -817,7 +818,7 @@ body {
     border-radius: 1.2rem 0 0 1.2rem;
     margin-left: 0.5rem;
 
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -852,50 +853,6 @@ body {
     justify-content: center;
     border-radius: 1.2rem;
     margin-right: 1rem;
-  }
-
-/**/
-  .element__infInstall{
-    display: none;
-    flex-direction: column;
-    row-gap: 0.5rem;
-    margin-left: 32rem;
-    
-  }
-
-  .infInstall__title{    
-    font-size: 1.5rem;
-    color: #7f5539;
-    margin-left: -0.5rem;
-  }
-
-  .number__infInstall{    
-    align-items: center;
-    background-color: #ede0d4;
-    border: none;
-    display: flex;
-    font-size: 1.2rem;
-    height: 2.5rem;
-    justify-content: center;
-    outline: none;
-    width: 4rem;
-    border-radius: 1.2rem;
-  }
-
-  .infInstall__output{    
-    width: 80%;
-    color: #7f5539;
-    border: none;
-    background-color: #ede0d4;
-    outline: none;
-    border-radius: 1.2rem 0 0 1.2rem;
-    margin-left: 0.5rem;
-
-    font-size: 1.2rem;
-    font-family: "Fredoka", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
   }
 
 /**/
