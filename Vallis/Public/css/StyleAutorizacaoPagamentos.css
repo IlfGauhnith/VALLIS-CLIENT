@@ -608,7 +608,7 @@ body {
     height: 2.5rem;
     justify-content: center;
     outline: none;
-    width: 13rem;
+    width: 13.5rem;
     border-radius: 1.2rem;
   }
 
@@ -650,7 +650,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
-    margin-left: 1.4rem;
+    margin-left: 1rem;
   }
 
   .value__title {
