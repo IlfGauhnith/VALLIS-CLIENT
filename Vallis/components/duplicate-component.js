@@ -181,7 +181,7 @@ display: none;
   height: 2.5rem;
   justify-content: center;
   outline: none;
-  width: 13rem;
+  width: 13.5rem;
   border-radius: 1.2rem;
 }
 

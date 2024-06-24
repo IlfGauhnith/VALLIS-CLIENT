@@ -229,7 +229,7 @@
 
   if (select && container && paymentComponent) {
     // Define a altura base original do paymentComponent em rem
-    const baseHeight = 21; // 21rem
+    const baseHeight = 23; // 23rem
 
     select.addEventListener('change', () => {
       const count = parseInt(select.value);
