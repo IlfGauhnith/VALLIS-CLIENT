@@ -17,16 +17,12 @@
   <body">
 <!-- INICIO DO HEADER. -->
     <header>
-        <div class="header__element">
-          <div class="logo__element">
-            <img class="logo__vallis" src="../Public/Img/VALLIS_Logo.png" alt="Logo Vallis">
-          </div>
-        </div>  
+
     </header>
 <!-- FINAL DO HEADER. -->
 
 <!-- INICIO DA MAIN. -->
-    <main>
+    <main class="main">
       <div class="container__login">
         <div class="login__font" alt="Login" aria-label="Login.">Login</div>
         <div class="login__element">
@@ -39,10 +35,8 @@
               <input class="pass__word" type="password" id="password" name="password" aria-label="Digite a senha do usuário" required placeholder="                                Senha">
             </div>
             <div class="button__element">
-              <button class="forgot__password" formnovalidate alt="botão esquecu a senha?" >Esqueceu a senha?</button>
               <button class="button__submit" onclick="submitbutton()" alt="botão entrar.">Entrar</button>
             </div>
-            <button class="new__register" formnovalidate >Não é registrado?</button>
             <div class="empty__field">Por favor, preencha todos os campos!</div>
             <div class="invalid__credentials">Nome de Usuário ou senha invalido!</div>
             <div class="loader__element">
@@ -55,7 +49,29 @@
 
 <!-- iNICIO DO FOOTER. -->
     <footer>
-      <div class="footer__element"></div>
+      <div class="footer__element">
+        <div class="element__logo">
+          <img class="vallis__logo" src="../Public/Img/VALLIS_Logo.png" alt="Vallis">
+          <h1 class="vallis__txt">Soluções e Desenvolvimento</h1>
+          <h1 class="vallis__txt1">em Tecnologia.</h1>
+        </div>
+        <div class="element__corporate">
+          <span class="suport">SUPORTE</span>
+          <ul class="footer__suport">
+            <li>
+              <a class="link1" href="">FALE CONOSCO</a>
+            </li>
+            <li>
+              <a class="link2" href="">@VALLISHELP</a>
+            </li>
+            <li>
+              <a class="link3" href="">VALLIS SERVIÇOS</a>
+            </li>
+          </ul>
+          
+        </div>
+        <div class="element__social"></div>
+      </div>
     </footer>
   <!-- FINAL DO FOOTER. -->
   </body>
