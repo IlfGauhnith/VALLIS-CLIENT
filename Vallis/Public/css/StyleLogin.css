@@ -34,6 +34,12 @@
     border-radius: 10px;
   }
 
+/* Transição suave para a rolagem */
+  html {
+    scroll-behavior: smooth;
+  }
+
+
 /*
  * A classe .fredoka__fonts define a fonte padrão da aplicação.
  * Obs: Mesmo que a classe .fredoka__fonts esteja no body do HTML, ela não será aplicada
@@ -92,17 +98,10 @@
     }
   }
 
-/* Transição suave para a rolagem */
-  html {
-    scroll-behavior: smooth;
-  }
-
-
 /*===========================================================================================================*/
 /*====================================== Espaço reservado ao header. ========================================*/
   header {
-    width: 100%;
-    height: rem;
+
   }
 
 /*============================================= Final do Header =============================================*/
@@ -310,7 +309,7 @@
   .loader__login::before {
     animation: moving__loader 1s ease-in-out infinite;
     background: var(--loader-color);
-    border-radius: 30px;
+    border-radius: 1.2rem;
     content: "";
     height: 100%;
     left: 0;
@@ -324,7 +323,6 @@
     50% {
       width: 100%;
     }
-  
     100% {
       left: unset;
       right: 0;
@@ -337,43 +335,47 @@
 /* ========================================================================================================= */
 /*============================================= Inicio do footer ============================================*/
 
-/* Elementos do footer */
-  .footer__element{
+  footer {
+    background-color: #333;
     bottom: 0;
+    font-family: sans-serif;
+    height: auto;
     left: 0;
     width: 100%;
-    background-color: #333;
+
+  }
+/* Elementos do footer */
+  .footer__element{
     color: #ede0d4;
-    height: 16rem;
     display: flex;
+    height: 16rem;
     justify-content: space-evenly;
-    font-family: sans-serif;
   }
 
 /* Tudo que fica dentro do footer logo */
   .element__logo {
-    width: 30%;
     display: flex;
     flex-direction: column;
     height: 10rem;
+    width: 30%;
   }
   
   .vallis__logo {
-    margin: 1rem 0 0 2rem;
-    width: 10rem;
     height: auto;
+    margin: 3rem 0 0 2rem;
+    width: 10rem;
   }
 
   .vallis__txt{
-    margin: 0.3rem 0 0 2rem;
-    font-size: 1rem;
     color: #999;
     font-weight: 400;
+    font-size: 1rem;
+    margin: 0.3rem 0 0 2rem;
   }
 
   .vallis__txt1 {
-    font-size: 1rem;
     color: #999;
+    font-size: 1rem;
     font-weight: 400;
     margin: 0.3rem 0 0 2rem;
   }
@@ -381,155 +383,178 @@
 /* Tudo que fica dentro do footer corporate */
   .element__corporate {
     display: flex;
-    width: 70%;
     height: 10rem;
     justify-content: space-between;
+    width: 70%;
   }
 
-/**/
+/* Texto SUPORTE */
   .suport {
-    width: 25rem;
-    height: 80%;
     font-size: 1.2rem;
     font-weight: 500;
+    height: 80%;
     letter-spacing: 0.1rem;
     margin: 1rem 0 0 2rem; 
+    width: 25rem;
   }
 
-/**/
+/* Elemento SUPORTE*/
   .footer__suport {
+    height: auto;
+    margin: 1rem 0 0 0 ;
     list-style-type: none;
     padding: 0;
-    margin: 1rem 0 0 0 ;
     width: 50%;
-    height: auto;
   }
 
-/**/
+/* Style dos links SUPORTE */
   .link1, .link2, .link3 {
-    display: flex;
-    text-decoration: none;
     color: #999;
+    display: flex;
     font-size: 1rem;
+    outline: none;
+    text-decoration: none;
   }
-/**/
+  
+/* Faz os links ficarem sublinhados com o botão TAB */
+  .link1:focus, .link2:focus, .link3:focus {
+    box-shadow: inset 0  -1px 0 0 #ede0d4;
+
+  }
+
+/*????????????????????????????????????????*/
   li {
     margin: 0 0 0.5rem 0;
   }
 
-/**/
+/* Hover dos links SUPORTE */
   .link1:hover, .link2:hover , .link3:hover {
     color: #ede0d4;
     transition-delay: 0.5s;
     transition: 0.6s;
   } 
 
-/**/
+/* Texto DESENVOLVEDORES */
   .dev {
-    width: 25rem;
-    height: 80%;
     font-size: 1.2rem;
     font-weight: 500;
+    height: 80%;
     letter-spacing: 0.1rem;
     margin: 1rem 0 0 2rem; 
+    width: 25rem;
   }
 
-/**/
+/* Elemento DESENVOLVEDORES */
   .footer__dev {
-    list-style-type: none;
-    padding: 0;
-    margin: 1rem 0 0 0 ;
-    width: 100%;
     height: auto;
+    list-style-type: none;
+    margin: 1rem 0 0 0 ;
+    padding: 0;
+    width: 100%;
   }
 
-/**/
+/* Style dos links DESENVOLVEDORES */
   .link4, .link5, .link6 {
-    display: flex;
-    text-decoration: none;
     color: #999;
+    display: flex;
     font-size: 1rem;
-  }
-/**/
-  li {
-    margin: 0 0 0.5rem 0;
+    outline: none;
+    text-decoration: none;
   }
 
-/**/
+/* Faz os links ficarem sublinhados com o botão TAB */
+  .link4:focus , .link5:focus , .link6:focus  {
+    box-shadow:  inset 0 -1px 0 0 #ede0d4;
+  }
+
+/* Hover dos links DESENVOLVEDORES */
   .link4:hover, .link5:hover , .link6:hover {
     color: #ede0d4;
     transition-delay: 0.5s;
     transition: 0.6s;
   } 
 
-/**/
+/* Texto RECURSOS */
   .resouces {
-    width: 25rem;
-    height: 80%;
     font-size: 1.2rem;
     font-weight: 500;
+    height: 80%;
     letter-spacing: 0.1rem;
     margin: 1rem 0 0 2rem; 
+    width: 25rem;
   }
 
-/**/
+/* Elemento RECURSOS */
   .footer__resouces {
-    list-style-type: none;
-    padding: 0;
-    margin: 1rem 0 0 0 ;
-    width: 100%;
     height: auto;
+    list-style-type: none;
+    margin: 1rem 0 0 0 ;
+    padding: 0;
+    width: 100%;
   }
 
-/**/
+/* Style dos links RECURSOS */
   .link7, .link8, .link9, .link10 {
-    display: flex;
-    text-decoration: none;
     color: #999;
+    display: flex;
     font-size: 1rem;
-  }
-/**/
-  li {
-    margin: 0 0 0.5rem 0;
+    outline: none;
+    text-decoration: none;
   }
 
-/**/
+/* Faz os links ficarem sublinhados com o botão TAB */
+  .link7:focus , .link8:focus , .link9:focus , .link10:focus {
+    box-shadow:  inset 0 -1px 0 0 #ede0d4;
+  }
+
+/* Hover dos links RECURSOS */
   .link7:hover, .link8:hover, .link9:hover, .link10:hover {
     color: #ede0d4;
     transition-delay: 0.5s;
     transition: 0.6s;
   } 
 
-/**/
+/* Elemento onde fica o botão up/down da pagina */
   .footer__up__down {
-    display: flex;
-    width: 10rem;
-    height: 4rem;
     align-items: center;
+    display: flex;
+    height: 4rem;
     justify-content: center;
+    width: 10rem;
   }
 
-/**/
+/* Botão que faz a ação de descer a página até o footer */
   .up__down__button {
-    display: flex;
-    margin-top: -7rem;
-    width: 2.5rem;
-    height: 3rem;
-    background-color: #333;
-    border: none;
-    border-radius: 1.2rem 1.2rem 0 0;
-    color: #ede0d4;
     align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    transition: transform 0.3s ease;
+    background-color: #333;
+    border-radius: 1.2rem 1.2rem 0 0;
+    border: none;
+    color: #ede0d4;
     cursor: pointer;
+    display: flex;
+    font-size: 2rem;
+    height: 3rem;
+    justify-content: center;
+    margin-top: -7rem;
+    outline: none;
+    transition: transform 0.3s ease;
+    width: 2.5rem;
     z-index: 1000;
   }
-
+/* Reponsavel por fazer a rotação do CrossOrigin */
   .up__down__button.up i {
-    transform: rotate(180deg); /* Girar a seta para cima */
-}
+    transform: rotate(180deg); 
+  }
+
+/**/
+  .footer__copyright {
+    color: #ede0d4;
+    display: flex;
+    font-size: 0.8rem;
+    height: 2rem;
+    justify-content: center;
+    letter-spacing: 0.06rem;
+  }
 
 
 /*============================================= Final do footer =============================================*/
