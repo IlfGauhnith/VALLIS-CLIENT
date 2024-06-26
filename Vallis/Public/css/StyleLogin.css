@@ -11,6 +11,8 @@
     background-attachment: fixed ;
     margin: 0%;
     padding: 0%;
+
+    scroll-behavior: smooth;
     
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
@@ -89,6 +91,12 @@
         background-size: auto 1440px; /* Ajusta o tamanho do background para resoluções QHD */
     }
   }
+
+/* Transição suave para a rolagem */
+  html {
+    scroll-behavior: smooth;
+  }
+
 
 /*===========================================================================================================*/
 /*====================================== Espaço reservado ao header. ========================================*/
@@ -336,10 +344,9 @@
     width: 100%;
     background-color: #333;
     color: #ede0d4;
-    height: 10rem;
+    height: 16rem;
     display: flex;
     justify-content: space-evenly;
-
     font-family: sans-serif;
   }
 
@@ -352,14 +359,13 @@
   }
   
   .vallis__logo {
-    
-    margin-top: 0.5rem;
+    margin: 1rem 0 0 2rem;
     width: 10rem;
     height: auto;
   }
 
   .vallis__txt{
-    margin: 0.3rem 0 0 0;
+    margin: 0.3rem 0 0 2rem;
     font-size: 1rem;
     color: #999;
     font-weight: 400;
@@ -369,34 +375,39 @@
     font-size: 1rem;
     color: #999;
     font-weight: 400;
-    margin: 0.3rem 0 0 0;
+    margin: 0.3rem 0 0 2rem;
   }
 
 /* Tudo que fica dentro do footer corporate */
   .element__corporate {
     display: flex;
-    width: 30%;
+    width: 70%;
     height: 10rem;
-    flex-direction: column;
+    justify-content: space-between;
   }
 
 /**/
   .suport {
+    width: 25rem;
+    height: 80%;
     font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: 0.1rem;
-    margin: 1rem 0 0.5rem 2rem; 
+    margin: 1rem 0 0 2rem; 
   }
 
 /**/
   .footer__suport {
     list-style-type: none;
     padding: 0;
-    margin: 1.2rem 0 0.5rem 2rem ;
+    margin: 1rem 0 0 0 ;
+    width: 50%;
+    height: auto;
   }
 
 /**/
   .link1, .link2, .link3 {
+    display: flex;
     text-decoration: none;
     color: #999;
     font-size: 1rem;
@@ -413,11 +424,114 @@
     transition: 0.6s;
   } 
 
-/* Tudo que fica dentro do footer social */
-  .element__social {
-    width: 30%;
-    height: 10rem;
+/**/
+  .dev {
+    width: 25rem;
+    height: 80%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    margin: 1rem 0 0 2rem; 
   }
+
+/**/
+  .footer__dev {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0 0 0 ;
+    width: 100%;
+    height: auto;
+  }
+
+/**/
+  .link4, .link5, .link6 {
+    display: flex;
+    text-decoration: none;
+    color: #999;
+    font-size: 1rem;
+  }
+/**/
+  li {
+    margin: 0 0 0.5rem 0;
+  }
+
+/**/
+  .link4:hover, .link5:hover , .link6:hover {
+    color: #ede0d4;
+    transition-delay: 0.5s;
+    transition: 0.6s;
+  } 
+
+/**/
+  .resouces {
+    width: 25rem;
+    height: 80%;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    margin: 1rem 0 0 2rem; 
+  }
+
+/**/
+  .footer__resouces {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0 0 0 ;
+    width: 100%;
+    height: auto;
+  }
+
+/**/
+  .link7, .link8, .link9, .link10 {
+    display: flex;
+    text-decoration: none;
+    color: #999;
+    font-size: 1rem;
+  }
+/**/
+  li {
+    margin: 0 0 0.5rem 0;
+  }
+
+/**/
+  .link7:hover, .link8:hover, .link9:hover, .link10:hover {
+    color: #ede0d4;
+    transition-delay: 0.5s;
+    transition: 0.6s;
+  } 
+
+/**/
+  .footer__up__down {
+    display: flex;
+    width: 10rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+/**/
+  .up__down__button {
+    display: flex;
+    margin-top: -7rem;
+    width: 2.5rem;
+    height: 3rem;
+    background-color: #333;
+    border: none;
+    border-radius: 1.2rem 1.2rem 0 0;
+    color: #ede0d4;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .up__down__button.up i {
+    transform: rotate(180deg); /* Girar a seta para cima */
+}
+
 
 /*============================================= Final do footer =============================================*/
 /* ========================================================================================================= */
+ 
