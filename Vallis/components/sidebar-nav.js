@@ -80,7 +80,7 @@
     background: #333;
     bottom: 0;
     font-family: sans-serif;
-    height: 20rem;
+    height: 15rem;
     left: 0;
     width: 100%;
     color: #999 ;
@@ -95,14 +95,18 @@
     justify-content: flex-start;
     width: 3rem;
     height: 3rem;
-    border: 0.1rem  solid #ede0d4;
+    border: none;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition-duration: .3s;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-    background-color: #ddb892;
+    transition-duration: .3s;  
+
+    fonte-size: 3rem;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     letter-spacing: 0.1rem;
   }
   
@@ -122,28 +126,29 @@
   .element__icon svg path {
     fill: #7f5539;
   }
-/* text */
+/* text do botão de sair da conta*/
   .text__logout {
     position: absolute;
     right: 0%;
     width: 0%;
     opacity: 0;
     color: #7f5539;
-    font-size: 1.2em;
-    font-weight: 600;
-    transition-duration: .3s;
+    font-size: 1.2rem;
+    transition-duration: 0.3s;
+    font-weight: 400;
   }
-/* Cria o alongamento do botão quando o cursor estiver sobre */
+/* Aumenta o tamanho do botão ao passar o mouse*/
   .button__logout:hover {
-    width: 200px;
+    width: 17rem;
     border-radius: 40px;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
   }
-  
+
+/* Ajusta o ícone ao passar o mouse */
   .button__logout:hover .element__icon {
-    width: 30%;
-    transition-duration: .3s;
-    padding-left: 20px;
+    width: 10%;
+    transition-duration: 0.3s;
+    padding-left: 1.2rem;
   }
 /* Cria o efeito do botão quando o cursor estiver sobre */
   .button__logout:hover .text__logout {
@@ -156,7 +161,7 @@
 /* Elemento para o botão logout no sidebar */
   .element__logout {
     position: absolute;
-    bottom: 21rem;
+    bottom: 16rem;
     height: 3rem;
     left: 0;
     width: 100%;
@@ -177,6 +182,7 @@
     background:  #e6ccb2;
     border-radius: 50%;
     border: 0.1rem  solid #ede0d4;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
     display: flex;
     height: 3rem;
     justify-content: center;
@@ -226,11 +232,10 @@
 /* Defini a aparência do menu lateral (sidbar). */
   .sidenav {
     background: linear-gradient(to left top, #ddb892, #ede0d4);
-    border-radius: 0rem 1.2rem 1.2rem 0rem ;
+    border-radius: 0 1.2rem 0 0 ;
     height: 100%; 
     left: 0;
-    overflow-x: auto; 
-    padding-top: 60px; 
+    overflow: hidden; 
     position: fixed; 
     top: 0; 
     transition: 0.5s; 
@@ -241,11 +246,15 @@
 /* Defini a aparência dos link do menu lateral (sidbar). */
   .sidenav a {
     color: #7f5539;
-    display: block;
+    display: flex;
     font-size: 1.5rem;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     text-decoration: none;
     letter-spacing: 0.06rem;
+  }
+
+  .sidenav a:first-of-type {
+    margin-top: 5rem;
   }
   
 /* Defini a aparência dos links ao passar o cursor sobre eles. */
@@ -254,17 +263,88 @@
     cursor: pointer; 
     transition-delay: 0.5s;
     transition: 0.6s;
+    transform: translateX( 1rem);
   }
-  
-/* Defini a aparência do botão fechar no canto superior direito da menu lateral (sidbar). */
-  .sidenav .closebtn {
-    font-size: 3rem;
+
+/* Botão para fechar o sidebar */
+  .button__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
     position: absolute;
-    right: 1rem;
-    top: 0;
-    width:1rem ;
-    margin: 0rem 1rem 0rem 0rem;
+    right: 2rem;
+    top: 20%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #7f5539;
+
+    font-size: 3rem;
+    transition-duration: 0.3s;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.1rem;
   }
+
+/* Icone do botão de fechar */
+  .closebtn {
+    width: 100%;
+    transition-duration: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+/* Texto do botão de fechar */
+  .text__close {
+    position: absolute;
+    left: 0%;
+    width: 0;
+    opacity: 0;
+    color: #7f5539;
+    font-size: 1.2rem;
+    transition-duration: 0.3s;
+    font-weight: 400;
+  }
+
+/* Aumenta o tamanho do botão ao passar o mouse */
+  .button__close:hover {
+    width: 15rem;
+    border-radius: 40px;
+    transition-duration: 0.3s;
+  }
+
+/* Ajusta o ícone ao passar o mouse */
+  .button__close:hover .closebtn {
+    width: 10%;
+    transition-duration: 0.3s;
+    padding-left: 8rem;
+  }
+
+/* Cria o efeito do botão quando o cursor estiver sobre */
+  .button__close:hover .text__close {
+    opacity: 1;
+    width: 50%;
+    transition-duration: 0.3s;
+    padding-left: 0.8rem;
+  }
+
+/* Elemento do botão de fechar no sidebar */
+  .element__close {
+    position: absolute;
+    top: 1rem;
+    width: 100%;
+    height: 3rem;
+    padding-left: 1rem;
+  }
+
+
+
   
 /* defini a aparência de movimento do conteudo que está fora do menu lateral (sibar). Usado para dar uma aparência mais suave ao conteudo da página
    quando abrir o menu lateral. Usando o ID main. */
@@ -279,23 +359,30 @@
     .sidenav a {font-size: 1.1rem;}
   }
 
-
-
 /* ******************************************************************** Final da tag style. ******************************************************************* */
 </style> 
 <html>
 <!-- ***************************************************************** Inicio das tag htlm. ******************************************************************* -->
 
-<!-- Essa div cria os elementos do menu lateral que vai ser gerado ao click no botão e referência as paginas que existe nos links do menu. -->
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+<!-- Essa div cria os elementos do menu lateral que vai ser gerado ao clique no botão e referência as páginas que existem nos links do menu. -->
+<div id="mySidenav" class="sidenav">
+    <div class="element__close">
+      <button class="button__close" onclick="closeNav()">
+        <div class="closebtn" >&times;
+        </div>
+        <div class="text__close">Fechar</div>
+      </button>  
+    </div>
+
+<!- Links da navegação das páginas Fornecedor, Cadastrara Autorização e Loja-->
     <a href="supplier.html">Fornecedor</a>
     <a href="cadastrar_autorizacao_pagamento.html">Cadastrar Autorização</a>
-    <a href=" ">Lojas</a>
+    <a href=" ">Loja</a>
 
 <!-- Esta div cria o elemento e botão para sair da conta -->
     <div class="element__logout">
-              <button class="button__logout">
+        <button class="button__logout">
           <div class="element__icon"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg>
           </div>
           <div class="text__logout">Sair da conta</div>
