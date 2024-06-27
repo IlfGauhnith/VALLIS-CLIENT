@@ -147,22 +147,26 @@ axios.interceptors.request.use(config => {
     return Promise.reject(error);
 });
 
+
+/* Carregamento do DOMContentLoaded */
   document.addEventListener('DOMContentLoaded', function() {
+
+/* Faz a ação do botão que leva a página para o footer e do footer para o topo da página */
     const button = document.querySelector('.up__down__button');
   
     button.addEventListener('click', function() {
         if (button.classList.contains('up')) {
-            // Scroll to the top of the page
+/* Leva para o top da página */ 
             window.scrollTo({ top: 0, behavior: 'smooth' });
             button.classList.remove('up');
         } else {
-            // Scroll to the footer
+/* Leva para o footer da página */
             const footer = document.querySelector('.footer');
             footer.scrollIntoView({ behavior: 'smooth' });
             button.classList.add('up');
         }
     });
-  
+/* Faz a mudança do icon do botão up/down da página */  
     window.addEventListener('scroll', function() {
         const scrolled = window.scrollY;
         const footer = document.querySelector('.footer');
