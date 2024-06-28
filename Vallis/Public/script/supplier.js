@@ -263,17 +263,22 @@
     document.getElementById("id__supplierDelet").value = id_fornecedor;
     document.getElementById("name__supplierDelet").innerText = razao_social;
     document.getElementById("modal__delet").style.display = 'block';
+    const noneListSupplier = document.querySelectorAll('.conteiner__list');
+
+    noneListSupplier.forEach(card => {
+      card.style.display = 'none';
+    });
   }
 
-  // Função para executar a exclusão de um fornecedor ao clicar no botão "Excluir"
+// Função para executar a exclusão de um fornecedor ao clicar no botão "Excluir"
   async function confirmarExcluirOnClick(event) {
-    // Obtém o ID do fornecedor a partir do elemento clicado
+// Obtém o ID do fornecedor a partir do elemento clicado
     const id_fornecedor =  document.getElementById("id__supplierDelet").value;
 
-    // Realiza a exclusão do fornecedor
+// Realiza a exclusão do fornecedor
     await deletFornecedor(id_fornecedor);
 
-    // Redireciona para a página de fornecedores após a exclusão
+// Redireciona para a página de fornecedores após a exclusão
     window.location.href = "supplier.html";
   }
 
@@ -332,7 +337,20 @@
       throw error;
     }
   }
+  
+// Ao cancelar o modal de deletar o fornecedor
+  function closeModalAndShowContainer() {
+    var modal = document.querySelector('.modal__delet');
+    var container = document.querySelector('.conteiner__list');
 
+    if (modal && container) {
+        modal.style.display = 'none';
+        container.style.display = 'flex';
+    } else {
+        console.error('Um ou ambos os elementos não foram encontrados.');
+    }
+  }
+  
 // Função executada quando o DOM é carregado
   document.addEventListener("DOMContentLoaded", async function () {
 // Adiciona os fornecedores à tabela ao carregar a página

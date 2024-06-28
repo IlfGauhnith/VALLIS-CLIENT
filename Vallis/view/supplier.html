@@ -90,14 +90,16 @@
 <!-- MODAL EXCLUIR FORNECEDOR. -->
     <div id="modal__delet" class="modal__delet">
       <div class="modal__elementDelet">
-        <div class="element__warningDelet">Aviso</div>
-        <div class="element__questInf">
-          <span>Excluir fornecedor <span id="name__supplierDelet"></span>?</span>
+        <div class="element__warningDelet">Aviso
+          <div class="element__questInf">
+            <span>Excluir fornecedor  <span id="name__supplierDelet"></span>?</span>
+          </div>
         </div>
+
         <div class="element__buttons">
           <input type="hidden" id="id__supplierDelet">
           <button class="confirm__delet" onclick="confirmarExcluirOnClick()">Excluir</button>
-          <button class="close__delet" onclick="javascript: document.getElementById('modal__delet').style.display = 'none'">Cancelar</button>
+          <button class="close__delet" onclick="closeModalAndShowContainer()">Cancelar</button>
         </div>
       </div>
     </div>

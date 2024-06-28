@@ -928,15 +928,16 @@ body {
 /* Elemento modal editar fornecedor. */
   .modal__elementDelet {
     align-items: center;
-    animation: animation__modal__excluir__supplier 1s ease-out;
-    background-color: #ddb892;
+    animation: animation__modal__excluir__supplier 2s cubic-bezier(0.645, 0.045, 0.355, 1.000) both;
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
     border-radius: 1.2rem;
+    border: 0.1rem solid #9c6644;
     display: flex;
     flex-direction: column;
     height: 15rem;
     margin: 25% auto; 
     padding: 1.5;
-    width: 33rem;
+    width: 30rem;
 
     font-size: 1.2rem;
     color: #7f5539;
@@ -945,18 +946,34 @@ body {
     font-weight: 400;
     font-style: normal;
   }
+  
+/* Animação  exibida ao abrir o modal editar fornecedor. */
+    @keyframes animation__modal__excluir__supplier {
+      0% {
+        transform: translateY(75rem);
+      }
+      50% {
+        transform: translateY(-8rem) ;
+      }
+      100% {
+        transform: translateY(0rem);
+      }
+    }
+
 
 /**/
   .element__warningDelet {
-    background-color: #7f5539;
+    background: linear-gradient(to right bottom, #795137, #9c6644);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 4rem;
-    border-radius: 1.2rem 1.2rem 0 0;
-    font-size: 1.5rem;
+    height: 10rem;
+    border-radius: 1rem 1rem 0 0;
+    font-size: 2rem;
     color: #ddb892;
+    flex-direction: column;
+    letter-spacing: 0.2rem;
   }
 
 /**/
@@ -967,63 +984,126 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    
   }
 
-/* Animação  exibida ao abrir o modal editar fornecedor. */
-  @keyframes animation__modal__excluir__supplier {
-    0% {
-      opacity: 0;
-      transform: translateY(-150px);
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 2;
-      transform: translateY(0);
-    }
-  }
 
 /**/
   .element__buttons {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 100%;
     height: 3rem;
-
   }
 
 /**/
-  .confirm__delet {
-    width: 7rem;
-    height: 2.8rem;
-    background-color: #b22525;
-    border-radius: 1.2rem;
+.confirm__delet{
+  --color: #b22525;
+  align-items: center;
+  background: transparent;
+  border-radius: 1.2rem;
+  border: 0.2rem solid #9c6644;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: 2.9rem; 
+  margin: 0.375rem 0.375rem 0 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  width: 8rem; 
+  z-index: 1;
 
-    font-size: 1.2rem;
-    color: #ede0d4;
-    font-family: "Fredoka", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
+  color: #9c6644;
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}
+
+.confirm__delet::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 11rem;
+  height: 9rem;
+  z-index: -1;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transition: 0.5s all;
+}
+
+.confirm__delet:hover {
+  color: #ddb892;
+  border: 0.2rem solid var(--color);
+  transition: 0.3s;
+  transition-delay: 0.2s;
+  background-color: #b22525;
+}
+
+.confirm__delet:hover::before {
+  top: -30px;
+  left: -30px;
+}
 
 /**/
-  .close__delet {
-    width: 7rem;
-    height: 2.8rem;
-    background-color: #7f5539;
+  .close__delet{
+    --color: #9c6644;
+    align-items: center;
+    background: tra;
     border-radius: 1.2rem;
-
-    font-size: 1.2rem;
-    color: #ede0d4;
+    border: 0.2rem solid #9c6644;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    height: 2.9rem; 
+    margin: 0.375rem 0.375rem 0 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    width: 8rem; 
+    z-index: 1;
+  
+    color: #9c6644;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
     font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
   }
-
- 
+  
+  .close__delet::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 11rem;
+    height: 9rem;
+    z-index: -1;
+    border-radius: 50%;
+    top: 100%;
+    left: 100%;
+    transition: 0.5s all;
+  }
+  
+  .close__delet:hover {
+    color: #ddb892;
+    border: 0.2rem solid var(--color);
+    transition: 0.3s;
+    transition-delay: 0.2s;
+    background-color: #9c6644;
+  }
+  
+  .close__delet:hover::before {
+    top: -30px;
+    left: -30px;
+  }
