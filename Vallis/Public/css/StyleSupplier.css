@@ -988,9 +988,6 @@ body {
     letter-spacing: 0.1rem;
   }
 
-
-
-
 /**/
   .element__buttons {
     display: flex;
@@ -999,6 +996,11 @@ body {
     margin-top: 1rem;
     width: 100%;
     height: 3rem;
+  }
+
+/**/ 
+  .delet__inform {
+    font-size: 1.2rem;
   }
 
 /**/
