@@ -120,7 +120,7 @@ async function login(nome_usuario, senha_usuario, salt) {
     sessionStorage.setItem('token', token);
     sessionStorage.setItem('tokenStorage', expirationTime); // Armazena o tempo de expiração do token
 
-// Configurar a remoção do token após 1 minuto
+// Configurar a remoção do token após 60 minuto
     setTimeout(() => {
       sessionStorage.removeItem('token');
       sessionStorage.removeItem('tokenStorage');
