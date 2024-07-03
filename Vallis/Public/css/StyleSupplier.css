@@ -1061,7 +1061,7 @@ body {
   .close__delet{
     --color: #9c6644;
     align-items: center;
-    background: tra;
+    background: transparent;
     border-radius: 1.2rem;
     border: 0.2rem solid #9c6644;
     outline: none;
