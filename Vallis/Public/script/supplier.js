@@ -306,7 +306,7 @@
       else
         console.error('Erro:', error);
 
-      alert('Erro ao retornar fornecedor');
+//      alert('Erro ao retornar fornecedor');
       throw error;
     }
   }
@@ -333,7 +333,7 @@
       else
         console.error('Erro:', error);
 
-      alert('Erro ao retornar fornecedor');
+//      alert('Erro ao retornar fornecedor');
       throw error;
     }
   }

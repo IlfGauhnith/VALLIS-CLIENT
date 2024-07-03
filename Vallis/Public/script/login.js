@@ -82,74 +82,73 @@ async function submitbutton() {
  */
 // Função assíncrona para realizar o login
 async function login(nome_usuario, senha_usuario, salt) {
-  try {
-    // Calcular o hash da senha
-    const hash_senha = CryptoJS.PBKDF2(
-      senha_usuario,
-      salt,
-      { keySize: 64, iterations: 1000, hasher: CryptoJS.algo.SHA512 }
-    ).toString(CryptoJS.enc.Hex);
+    try {
+// Calcular o hash da senha
+      const hash_senha = CryptoJS.PBKDF2(
+        senha_usuario,
+        salt,
+        { keySize: 64, iterations: 1000, hasher: CryptoJS.algo.SHA512 }
+      ).toString(CryptoJS.enc.Hex);
 
-    // Corpo da requisição de login
-    const postData = {
-      nome_usuario: nome_usuario,
-      hash_senha: hash_senha
-    };
+// Corpo da requisição de login
+      const postData = {
+        nome_usuario: nome_usuario,
+        hash_senha: hash_senha
+      };
 
-    // Requisição de login
-    const response = await axios.post('https://hzw2e5rbie.execute-api.sa-east-1.amazonaws.com/dev/logar', postData);
-    const token = response.data.token; 
+// Requisição de login
+      const response = await axios.post('https://hzw2e5rbie.execute-api.sa-east-1.amazonaws.com/dev/logar', postData);
+      const token = response.data.token; 
 
-    // Armazenar o token na sessionStorage com expiração
-    armazenarToken(token);
+// Armazenar o token na sessionStorage com expiração
+      armazenarToken(token);
 
-    // Redirecionar para a página de fornecedores
-    window.location.href = "supplier.html";
+// Redirecionar para a página de fornecedores
+      window.location.href = "supplier.html";
 
-    return token;
-  } catch (error) {
-    console.error('Erro ao fazer login:', error);
-    // Tratar o erro conforme necessário
-    return null;
-  }
-}
-
-// Função para armazenar o token na sessionStorage com expiração após 1 minuto
-function armazenarToken(token) {
-  const expirationTime = new Date().getTime() + (1 * 60 * 1000); // 1 minuto em milissegundos
-  sessionStorage.setItem('token', token);
-  sessionStorage.setItem('tokenExpiration', expirationTime); // Armazena o tempo de expiração do token
-
-  // Configurar a remoção do token após 1 minuto
-  setTimeout(() => {
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('tokenExpiration');
-    exibirModalLogout(); // Exibir modal ou mensagem de logout expirado
-  }, 1 * 60 * 1000); // 1 minuto em milissegundos
-}
-
-// Função para exibir modal ou mensagem de logout expirado
-function exibirModalLogout() {
-  const modalLogoutComponent = document.querySelector('logout-warning');
-  if (modalLogoutComponent) {
-    const modalLogout = modalLogoutComponent.shadowRoot.querySelector('.modal__logout');
-    if (modalLogout) {
-      modalLogout.style.display = 'block';
+      return token;
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+// Tratar o erro conforme necessário
+      return null;
     }
   }
 
-  const containerList = document.querySelectorAll('.conteiner__list');
-  const containerOption = document.querySelectorAll('.conteiner__option');
+// Função para armazenar o token na sessionStorage com expiração após 1 minuto
+  function armazenarToken(token) {
+    const expirationTime = new Date().getTime() + (60 * 60 * 1000); // 60 minuto em milissegundos
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('tokenStorage', expirationTime); // Armazena o tempo de expiração do token
 
-  containerList.forEach(element => {
-    element.style.display = 'none';
-  });
+// Configurar a remoção do token após 1 minuto
+    setTimeout(() => {
+      sessionStorage.removeItem('token');
+      sessionStorage.removeItem('tokenStorage');
+      exibirModalLogout(); // Exibir modal ou mensagem de logout expirado
+    }, 60 * 60 * 1000); // 60 minuto em milissegundos
+  }
 
-  containerOption.forEach(element => {
-    element.style.display = 'none';
-  });
+// Função para exibir modal ou mensagem de logout expirado
+  function exibirModalLogout() {
+    const modalLogoutComponent = document.querySelector('logout-warning');
+    if (modalLogoutComponent) {
+      const modalLogout = modalLogoutComponent.shadowRoot.querySelector('.modal__logout');
+      if (modalLogout) {
+        modalLogout.style.display = 'block';
+      }
+    }
+
+    const containerList = document.querySelectorAll('.conteiner__list');
+    const containerOption = document.querySelectorAll('.conteiner__option');
+
+    containerList.forEach(element => {
+      element.style.display = 'none';
+    });
+
+    containerOption.forEach(element => {
+      element.style.display = 'none';
+    });
 }
-
 
 /**
  * Responsável por buscar pelo salt do usuário.

@@ -39,7 +39,7 @@ async function getFornecedores() {
         else
             console.error('Erro:', error);
 
-        alert('Erro ao retornar fornecedor');
+//        alert('Erro ao retornar fornecedor');
         throw error;
     }
 }
@@ -60,7 +60,7 @@ async function getLojas() {
         else
             console.error('Erro:', error);
 
-        alert('Erro ao retornar lojas');
+//        alert('Erro ao retornar lojas');
         throw error;
     }
 }
@@ -365,9 +365,6 @@ async function populateLojaSelect(lojasSelect) {
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
-//    document.getElementById('add_autorizacao').addEventListener('click', addAutorizacaoOnClick);
-//    document.getElementById('add_autorizacao_chave').addEventListener('click', addAutorizacaoChaveOnClick);
-//    document.getElementById('add_autorizacao_xml').addEventListener('click', addAutorizacaoXMLOnClick);
     document.getElementById('card__manual').addEventListener('click', addAutorizacaoManualOnClick);
 
     window.fornecedores = await getFornecedores();

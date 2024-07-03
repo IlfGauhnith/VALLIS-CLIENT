@@ -163,6 +163,7 @@ class LogoutAlert extends HTMLElement {
 logoutSession() {
     // Executa a ação de logout
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('tokenStorage');
     this.showLogoutModal(); // Mostra o modal de logout
     window.location.href = 'login_page.html';
 }

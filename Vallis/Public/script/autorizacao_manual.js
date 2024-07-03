@@ -41,7 +41,7 @@
         console.error(error.response.data.message);
       else
         console.error('Erro:', error);
-      alert('Erro ao retornar fornecedor');
+//      alert('Erro ao retornar fornecedor');
       throw error;
     }
   }
@@ -82,7 +82,7 @@
         console.error(error.response.data.message);
       else
         console.error('Erro:', error);
-      alert('Erro ao retornar fornecedor');
+//      alert('Erro ao retornar fornecedor');
       throw error;
     }
   }
@@ -169,7 +169,7 @@
                     };
                     reader.readAsDataURL(file);
                 } else {
-                    alert('Por favor, selecione um arquivo com a extensão .pdf.');
+//                    alert('Por favor, selecione um arquivo com a extensão .pdf.');
                 }
             }
         });
