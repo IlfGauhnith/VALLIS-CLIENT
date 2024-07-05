@@ -128,65 +128,144 @@ body {
 
 /* Tudo que está dentro do pagina listado abaixo. */ 
   #main {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    
+    height: 100vh;
+    overflow-y: hidden;
   }
-
 /* Elemento princial onde fica a tabela de fornecedores. */
   .conteiner__list {
-    align-items:start;
+    align-self: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    height: 100%;
     justify-content: center;
-    margin-top: 2rem;
+    width: 100%;
+    
+    animation: slide-top 2s cubic-bezier(0.645, 0.045, 0.355, 1.000) both;
   }
-/*************************************************************************************************************/
-/* ******************************* espaço reservado a lista de fornecedores. ******************************* */
-
-/* Elemento onde fica o Header da tabela de fornecedores. */
+  /* Aplicação da animação do container__list */
+  @keyframes slide-top {
+    0% {
+      transform: translateY(85rem);
+    }
+    50% {
+      transform: translateY(-8rem) ;
+    }
+    100% {
+      transform: translateY(0rem);
+    }
+  }
+  /* Elemento onde fica o Header da tabela de fornecedores. */
   .head__table {
     align-items: center;
-    background-color: #ddb892;
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
     border-radius:  1.2rem 1.2rem 0rem 0rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.199);
     color: #7f5539;
     display: flex;
     flex-direction: row;
     height: 5rem;
     width: 100rem;
   }
-
 /* Titulo de ID da tabela fornecedor. */
   .ID__head {
     font-size: 2rem;
     margin-left: 2rem;
+    letter-spacing: 0.2rem;
+    cursor: default;
   }
 /* Titulo de razão social da tabela fornecedor. */
   .razao__head {
-    margin-left: 22rem;
+    margin-left: 19rem;
     font-size: 2rem;
+    letter-spacing: 0.2rem;
+    cursor: default;
   }
 /* Titulo de CNPJ da tabela fornecedor. */
   .cnpj__head {
     margin-left: 27rem;
     font-size: 2rem;
+    letter-spacing: 0.2rem;
+    cursor: default;
   }
-  
+/* ******************************* Botão que abre o modal adicionar fornecedor. **************************** */
+/* Botão de adicionar fornecedor. */
+  .add__supplier {
+    --color: #9c6644;
+    align-items: center;
+    background: transparent;
+    border-radius: 1.2rem;
+    border: 0.2rem solid #9c6644; 
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    height: 2.9rem; 
+    left: 19rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    width: 10rem; 
+    z-index: 1;
+
+    color: #9c6644;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  }
+
+  .add__supplier::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 15rem;
+    height: 10rem;
+    z-index: -1;
+    border-radius: 50%;
+    top: 100%;
+    left: 100%;
+    transition: 0.5s all;
+  }
+
+  .add__supplier:hover {
+    color: #ddb892;
+    border: 0.2rem solid var(--color);
+    transition: 0.3s;
+    transition-delay: 0.2s;
+    background-color: #9c6644;
+  }
+
+  .add__supplier:hover::before {
+    top: -30px;
+    left: -30px;
+  }
+/* ************************ Final do botão que abrei o modal de adicionar fornecedor. ********************** */
+/* Escaço entre a HEADER e a Tabela. */
+  .line__space {
+    background-color: transparent;
+    height: 0.5rem;
+    width: 100rem;
+    border-radius: 1.2rem;
+  }
+/*************************************************************************************************************/
+/* ******************************* espaço reservado a lista de fornecedores. ******************************* */
 /* Esse elemento ele defini o espaço onde a lista de fornecedores é gerada. */
   .list__supplier {
     align-items: center;
-    background: linear-gradient(to top,  #7f5539, #9c6644, #b08968);
+    background-color: transparent;
     border: none;
-    border-radius:  1.2rem 1.2rem 1.2rem 1.2rem;
+    border-radius: 0 0 1.2rem 1.2rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
     display: block;
     flex-direction: column;
     justify-content: center;
-    height: 43.2rem;
+    height: 42rem;
     overflow-y: auto;
     width: 100rem;
   }
-
 /* Isso retira a barra de rolagem quando vários fornecedores --webkit é suportado muitos navegadores, mas não todos. */  
   .list__supplier::-webkit-scrollbar {
     width: 0;
@@ -195,7 +274,6 @@ body {
   .list__supplier {
     scrollbar-width: none;
   }
-  
 /* Body da tabela. */
   .t__body {
     animation: overflowAnimation 2.0s ease;
@@ -206,7 +284,6 @@ body {
     outline: none;
     width: 100rem;
   }
-
 /* Responsavel por destacar as linhas da tabela com cores par e impar. */
   .t__body tr:nth-child(even) {
     background-color: #ddb892; 
@@ -241,7 +318,7 @@ body {
     align-items: center;
     display: flex;
     height: 2.95rem;
-    justify-content: center;
+    justify-content: start;
     margin: 0.1rem;
     width: 50rem;
   }
@@ -264,23 +341,18 @@ body {
     height: 2.95rem;
     width: 18rem;
   }
-
 /*  Espaço vazio para que consigo separar os elementos da tabela. Obs: pode servir para implementações futuras. */
-.modal__space {
-  
-}
-
+  .modal__space {
+  }
 /* Elemento botão editar fornecedor. */
   .td__edit {
-    color: #ede0d4;
-    font-size: 1.5rem;
     height: 2.95rem;
     width: 6rem;
   }
 /* Botão editar fonecedor. */
   .show__edit {
     align-items: center;
-    background-color: #9c6644;
+    background-color: transparent;
     border-radius: 1.2rem;
     border: none;
     cursor: pointer;
@@ -290,129 +362,38 @@ body {
     outline: none; 
     width: 4rem;
   }
-/* Fonte 'Editar' do botão editar fornecedor. */
-  .tx__edit {
-    color: #ede0d4;
-    font-size: 1.1rem;
-    /* Estolo da fonte. */
-    font-family: "Fredoka", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+/* Icone do botão editar fornecedor. */
+  .show__edit .edit-svgIcon {
+    fill: #9c6644;
+    height: auto;
+    width: 1.5rem;
   }
 /* Elemento deletar fornecedor. */
   .td__delet {
     width: 6rem;
     height: 2.95rem;
-    color: #ede0d4;
-    font-size: 1.5rem;
   }
 /* Botão deletar fornecedor. */
   .show__delet {
-    display: flex;
     align-items: center;
+    background-color: transparent;
+    border-radius: 1.2rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
     justify-content: center;
-    width: 4.2rem;
     height: 2.5rem;
-    border: none;
     outline: none;
-    border-radius: 1.2rem;
-    background-color: #df2525;
-    cursor: pointer;
+    width: 4.2rem;
   }  
-/* Fonte de botão excluir fornecedor. */
-  .tx__delet {
-    font-size: 1.1rem;
-    color: #ede0d4;
-    /* Estilo da fonte */
-    font-family: "Fredoka", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+/* Icone do botão excluir fornecedor. */
+  .show__delet .delet-svgIcon {
+    fill: #9c6644;
+    height: auto;
+    width: 1.5rem;
   }
+
 /* ************ Final dos elementos criados pelo JavaScript para criar a tabela de fornecedores. *********** */
-/*************************************************************************************************************/
-/* ******************************* Botão que abre o modal adicionar fornecedor. **************************** */
-
-/* Botão de adicionar fornecedor. */
-  .add__supplier {
-    background: #9c6644;
-    border-radius: 1.2rem;
-    border: none;
-    display: inline-block;
-    color: #ede0d4;
-    cursor: pointer;
-    font-size: 1.2rem;
-    height: 2.95rem;
-    margin-top: 1rem;
-    margin-right: 0.4rem;
-    outline: none;
-    overflow: hidden;
-    position: relative;
-    padding: 0.7em 1.7em;
-    transition: all 0.2s ease-in;
-    width: 10.8rem;
-    z-index: 0;
-    
-/* Fonte add__supplier */
-    font-family: "Fredoka", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-/* Comportamentos do botão Entrar*/
-  .add__supplier:active {
-    color: #9c6644;
-  }
-
-  .add__supplier:before {
-    background-color: #b08968;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 180%;
-    left: 50%;
-    position: absolute;
-    top: 100%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.25);
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    width: 140%;
-    z-index: -1;
-  }
-  
-  .add__supplier:after {
-    background-color: #b08968;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 190%;
-    left: 55%;
-    position: absolute;
-    top: 180%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.45);
-    transition: all 0.6s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    width: 160%;
-    z-index: -1;
-  }
-  
-  .add__supplier:hover {
-    border: 0.34rem solid #b08968;
-    color: #7f5539;
-  }
-  
-  .add__supplier:hover:before {
-    background-color: #ede0d4;
-    top: -40%;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-  
-  .add__supplier:hover:after {
-    background-color: #ddb892;
-    top: -60%;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-/* ************************ Final do botão que abrei o modal de adicionar fornecedor. ********************** */
 /*************************************************************************************************************/
 /* *************************************** Modal adicionar fornecedor ************************************** */
   
@@ -511,19 +492,16 @@ body {
     transition: all 0.2s ease-in;
     width: 10.8rem;
     z-index: 0;
-    
 /* Fonte add */
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
   }
-
 /* Comportamentos do botão confirmar add fornecedor */
   .confirm__addSupplier:active {
     color: #9c6644;
   }
-
   .confirm__addSupplier:before {
     background-color: #b08968;
     border-radius: 50%;
@@ -538,7 +516,6 @@ body {
     width: 140%;
     z-index: -1;
   }
-  
   .confirm__addSupplier:after {
     background-color: #b08968;
     border-radius: 50%;
@@ -553,24 +530,20 @@ body {
     width: 160%;
     z-index: -1;
   }
-  
   .confirm__addSupplier:hover {
     border: 0.34rem solid #b08968;
     color: #7f5539;
   }
-  
   .confirm__addSupplier:hover:before {
     background-color: #ede0d4;
     top: -40%;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
-  
   .confirm__addSupplier:hover:after {
     background-color: #ddb892;
     top: -60%;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
-  
   /* Botão que fecha o modal de adicionar fornecedor. */
   .close__add {
     display: flex;
@@ -584,7 +557,6 @@ body {
     border-radius: 50%;
     margin-left: 2rem;
   }
-  
   .X {
     content: '';
     position: absolute;
@@ -594,7 +566,6 @@ body {
     transform: rotate(45deg);
     border-radius: 0.2rem;
   }
-  
   .Y {
     content: '';
     position: absolute;
@@ -604,7 +575,6 @@ body {
     transform: rotate(-45deg);
     border-radius: 0.2rem;
   }
-  
   .close {
     position: absolute;
     display: flex;
@@ -619,14 +589,12 @@ body {
     pointer-events: none;
     opacity: 0;
   }
-  
   .close__add:hover {
     background-color: #910c0c;
     transition-delay: 0.2s;
     transition: 0.4s;
   }
 /* final do botão que fecha o modal add*/ 
-
 /* Mensagem do modal adicionar fornecedor. */
 /* Fornecedor adicionado com sucesso. */
   .add__sucesso{
@@ -655,7 +623,6 @@ body {
 /* *********************************** Final do modal Adicionar fornecedor ********************************* */
 /*************************************************************************************************************/
 /****************************************** Modal editar fornecedor **************************************** */
-
 /* Elemento modal editar fornecedor. */
   .modal__edit {
     background-color: rgba(0, 0, 0, 0.5);
@@ -714,7 +681,7 @@ body {
     margin: 0.375rem;
     outline: none;
     width: 30.5rem;
-}
+  }
 /* Input editar fornecedor. */
   .cnpj__edit, .razao__edit {
     align-items: center;
@@ -727,7 +694,6 @@ body {
     outline: none;
     width: 28.25rem;
   }
-
 /* Botão confirmar editar fornecedor */ 
   .confirm__edit {
     background: #7f5539;
@@ -753,12 +719,10 @@ body {
     font-weight: 400;
     font-style: normal;
   }
-
 /* Comportamentos do botão confirmar editar fornecedor */
   .confirm__edit:active {
     color: #9c6644;
   }
-
   .confirm__edit:before {
     background-color: #b08968;
     border-radius: 50%;
@@ -773,7 +737,6 @@ body {
     width: 140%;
     z-index: -1;
   }
-
   .confirm__edit:after {
     background-color: #b08968;
     border-radius: 50%;
@@ -788,18 +751,15 @@ body {
     width: 160%;
     z-index: -1;
   }
-
   .confirm__edit:hover {
     border: 0.34rem solid #b08968;
     color: #7f5539;
   }
-
   .confirm__edit:hover:before {
     background-color: #ede0d4;
     top: -40%;
     transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
   }
-
   .confirm__edit:hover:after {
     background-color: #ddb892;
     top: -60%;
@@ -819,7 +779,6 @@ body {
     border-radius: 50%;
     margin-left: 2rem;
   }
-
   .X1 {
     content: '';
     position: absolute;
@@ -829,7 +788,6 @@ body {
     transform: rotate(45deg);
     border-radius: 0.2rem;
   }
-
   .Y1 {
     content: '';
     position: absolute;
@@ -839,7 +797,6 @@ body {
     transform: rotate(-45deg);
     border-radius: 0.2rem;
   }
-
   .close {
     position: absolute;
     display: flex;
@@ -856,14 +813,12 @@ body {
     pointer-events: none;
     opacity: 0;
   }
-
   .close__adit:hover {
     background-color: #910c0c;
     transition-delay: 0.2s;
     transition: 0.4s;
   }
 /* Final do botão que fecha o modal edit. */
-
 /* Mensagem do modal editar fornecedor. */ 
 /* Fornecedor editado com sucesso. */
   .edit__sucesso{
@@ -892,7 +847,6 @@ body {
 /*============================================== Final do main ==============================================*/
 /* ========================================================================================================= */
 /*============================================= Inicio do footer ============================================*/
-
 /* Elementos do footer */
   .footer__element{
     background-color:#7f5539;
@@ -902,7 +856,6 @@ body {
     position: fixed;
     width: 100%;
   }
-  
 /*============================================= Final do footer =============================================*/
 /* ========================================================================================================= */
 
@@ -934,10 +887,10 @@ body {
     border: 0.1rem solid #9c6644;
     display: flex;
     flex-direction: column;
-    height: 17rem;
+    height: 15rem;
     margin: 25% auto; 
     padding: 1.5;
-    width: 34rem;
+    width: 30rem;
 
     font-size: 1.2rem;
     color: #7f5539;
@@ -997,12 +950,6 @@ body {
     width: 100%;
     height: 3rem;
   }
-
-/**/ 
-  .delet__inform {
-    font-size: 1.2rem;
-  }
-
 /**/
 .confirm__delet{
   --color: #b22525;

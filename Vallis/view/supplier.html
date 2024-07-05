@@ -15,6 +15,7 @@
       <script src="../Public/script/supplier.js"></script>
       <script src="../components/sidebar-nav.js"></script>
       <script src="../components/logout-warning.js"></script>
+      <script src="../components/sand-loader.js"></script>
       <script src="../Public/script/token_manager.js"></script>
     </head>
 
@@ -34,20 +35,21 @@
     <div id="main">
       <logout-warning></logout-warning>
       <div class="conteiner__list">
+        <thead>
+          <div class="head__table">
+            <div class="ID__head">ID</div>
+            <div class="razao__head">Razão Social</div>
+            <div class="cnpj__head">CNPJ</div>
+            <button class="add__supplier"> + Adicionar</button>
+          </div>
+          <div class="line__space"></div>
+        </thead>
         <div class="list__supplier">
           <table>
-            <thead>
-              <div class="head__table">
-                <div class="ID__head">ID</div>
-                <div class="razao__head">Razão Social</div>
-                <div class="cnpj__head">CNPJ</div>
-              </div>
-            </thead>
-            <tbody class="t__body" id="t__body">
-              </tbody>
+            <sand-loader></sand-loader>
+            <tbody class="t__body" id="t__body"></tbody>
           </table>
         </div>
-          <button class="add__supplier"> + Adicionar</button>
       </div>
 <!-- MODAL ADICIONAR FORNECEDOR. -->
       <div class="modal__supplier">
@@ -98,7 +100,6 @@
             <span>Excluir fornecedor  <span id="name__supplierDelet"></span>?</span>
           </div>
         </div>
-        <div class="delet__inform">ao deletar fornecedor a ação não poderá ser revertida</div>
         <div class="element__buttons">
           <input type="hidden" id="id__supplierDelet">
           <button class="confirm__delet" onclick="confirmarExcluirOnClick()">Excluir</button>
