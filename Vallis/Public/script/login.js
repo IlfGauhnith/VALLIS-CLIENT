@@ -27,7 +27,7 @@ async function submitbutton() {
 // Logar
         const token = await login(nome_usuario, senha_usuario, salt);
 //alert(token);
-
+        throw new Error('Invalid credentials');
     }
 /**
  * Caso o usuário não preencha todos os campos essa mensagem aparecerá 

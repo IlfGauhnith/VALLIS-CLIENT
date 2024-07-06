@@ -211,23 +211,23 @@
     width: 100%;
   }
 
-.menu__icon :nth-child(2) {
-  width: 100%;
-}
+  .menu__icon :nth-child(2) {
+    width: 100%;
+  }
 
-.menu__icon :nth-child(3) {
-  width: 100%;
-}
+  .menu__icon :nth-child(3) {
+    width: 100%;
+  }
 
-.menu__icon:hover {
-  transform: rotate(-90deg);
-}
+  .menu__icon:hover {
+    transform: rotate(-90deg);
+  }
 
-.menu__icon:hover span {
-  background-color: ede0d4;
-  transform: translateX(-0.65rem);
-  width: 0.5rem;
-}
+  .menu__icon:hover span {
+    background-color: ede0d4;
+    transform: translateX(-0.65rem);
+    width: 0.5rem;
+  }
 
 /* Defini a aparência do menu lateral (sidbar). */
   .sidenav {
