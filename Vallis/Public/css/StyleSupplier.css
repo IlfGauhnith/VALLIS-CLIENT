@@ -917,12 +917,7 @@ body {
 
 
 
-
-
-
-
-
-/**/
+/* Modal de confirmar ao deletar fornecedor. */
   .modal__delet {
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
