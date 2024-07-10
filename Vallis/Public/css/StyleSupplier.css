@@ -928,7 +928,7 @@ body {
     width: 100%; 
   }
 
-/* Elemento modal editar fornecedor. */
+/* Elemento modal deletar fornecedor. */
   .modal__elementDelet {
     align-items: center;
     animation: animation__modal__excluir__supplier 2s cubic-bezier(0.645, 0.045, 0.355, 1.000) both;
@@ -950,7 +950,7 @@ body {
     font-style: normal;
   }
   
-/* Animação  exibida ao abrir o modal editar fornecedor. */
+/* Animação  exibida ao abrir o modal deletar fornecedor. */
     @keyframes animation__modal__excluir__supplier {
       0% {
         transform: translateY(75rem);
