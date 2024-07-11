@@ -917,6 +917,8 @@ body {
 
 
 
+
+/* Transformar o modal de confirmação para deletar o fornecedor em um componente */
 /* Modal de confirmar ao deletar fornecedor. */
   .modal__delet {
     background-color: rgba(0, 0, 0, 0.5);
