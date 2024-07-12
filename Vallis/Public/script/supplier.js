@@ -72,10 +72,22 @@
 // Obtém o CNPJ e a razão social do fornecedor a partir dos elementos do formulário
     const cnpj_add = document.getElementById("CNPJ__add").value;
     const razao_social = document.getElementById("razao__add").value;
+    const add_erro = document.querySelector(".add__erro");
+    const add_sucess = document.querySelector(".add__sucess");
+    const cnpj_exists = document.querySelector(".cnpj__exists");
 
 // Realiza validações e formatação do CNPJ
     cnpj = cnpj_add.replace(/[^0-9]/g, '');
 
+// Verifica se os campos estão vazios antes de fazer o post para a API 
+    if (!cnpj || !razao_social) {
+        add_erro.style.display = 'block';
+        setTimeout(function addEmpty(){
+          add_erro.style.display = 'none';
+        }, 4000);
+        return;
+    }
+  
 // Cria um objeto com os dados do fornecedor
     const data = {
       cnpj: cnpj,
@@ -94,21 +106,33 @@
 // Envia a solicitação POST para adicionar o fornecedor
     axios.post('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', data, { headers: headers })
       .then(function (response) {
+        
+// Exibe uma mensagem de sucesso e fecha o modal após um intervalo de tempo
+        add_sucess.style.display = 'block';
+        setTimeout(function addSucess(){
+          add_erro.style.display = 'none';
+          FornecedorElement(response.data);
+          window.location.href = "supplier.html";
+        },2000);
+
+// Redireciona a página apos o tempo 
+        setTimeout(function addRefresh(){
+          FornecedorElement(response.data);
+          window.location.href = "supplier.html";
+        },2000);
+
 // Limpa os campos do formulário após o sucesso da adição do fornecedor
         document.getElementById("CNPJ__add").value = "";
         document.getElementById("razao__add").value = "";
-
-// Exibe uma mensagem de sucesso e fecha o modal após um intervalo de tempo
-        FornecedorElement(response.data);
-          window.location.href = "supplier.html";
       })
-      .catch(function (error) {
+
 // Manipula os erros de resposta da solicitação
+      .catch(function (error) {
         if (error.response) {
-          add_erro.style.display = 'block';
-          setTimeout(function () {
-            add_erro.style.display = 'none';
-          }, 5000);
+          cnpj_exists.style.display = 'block';
+          setTimeout(function erroAdd(){
+            cnpj_exists.style.display = 'none';
+          }, 4000); 
         } else {
           console.error('Erro:', error);
         }
@@ -136,7 +160,7 @@
 
 // Função para exibir o modal de edição com os dados do fornecedor
   function showEditModal(fornecedor) {
-    const modal = document.querySelector('.modal__edit');
+    const modal = document.querySelector('.modal__edit__supplier');
     document.querySelector('#CNPJ__edit').value = fornecedor.cnpj;
     document.querySelector('#razao__edit').value = fornecedor.razao_social;
     document.querySelector('#edit_idSupplier').value = fornecedor.id_fornecedor;
@@ -145,20 +169,20 @@
 
 // Função para fechar o modal de edição
   function closeEditModal() {
-    const modal = document.querySelector('.modal__edit');
+    const modal = document.querySelector('.modal__edit__supplier');
     modal.style.display = 'none';
     window.location.href = "supplier.html";
   }
 
 // Função para exibir o modal de adição de fornecedor
   function showModal() {
-    const modal = document.querySelector('.modal__supplier');
+    const modal = document.querySelector('.modal__add__supplier');
     modal.style.display = 'block';
   }
 
 // Função para fechar o modal de adição de fornecedor
   function closeModal() {
-    const modal = document.querySelector('.modal__supplier');
+    const modal = document.querySelector('.modal__add__supplier');
     modal.style.display = 'none';
   }
 
@@ -425,15 +449,14 @@
 
 // Adiciona os eventos aos elementos do formulário e da tabela
     document.querySelector(".confirm__addSupplier").addEventListener("click", addSupplier);
+    document.getElementById('confirm__editSupplier').addEventListener('click', confirmEditOnClick);
     document.querySelector('.add__supplier').addEventListener('click', showModal);
-    document.querySelector('.close__add').addEventListener('click', closeModal);
     document.getElementById('CNPJ__add').addEventListener('input', mascara_CNPJOnInput);
     document.getElementById('CNPJ__edit').addEventListener('input', mascara_CNPJOnInput);
+    document.querySelector('.close__add').addEventListener('click', closeModal);
     document.querySelector('.close__edit').addEventListener('click', closeEditModal);
-    document.getElementById('confirm__edit').addEventListener('click', confirmEditOnClick);
     limitarCaracteres();
   });
-
 /**
 *------------------------------------------------------------------------------------------------------------
 ************************** Conclusão da regra de negócio da página fornecedores. ****************************

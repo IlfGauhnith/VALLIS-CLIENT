@@ -369,8 +369,7 @@
 <div id="mySidenav" class="sidenav">
     <div class="element__close">
       <button class="button__close" onclick="closeNav()">
-        <div class="closebtn" >&times;
-        </div>
+        <div class="closebtn" >&times;</div>
         <div class="text__close">Fechar</div>
       </button>  
     </div>

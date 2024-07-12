@@ -115,7 +115,7 @@ body {
 /*============================================== Inicio do main =============================================*/
 /* Tudo que está dentro do pagina listado abaixo. */ 
   #main {
-    height: 100vh;
+    height: calc(100vh - 12rem);
     overflow-y: hidden;
   }
 /* Elemento princial onde fica a tabela de fornecedores. */
@@ -229,7 +229,7 @@ body {
     left: -30px;
   }
 /* ************************ Final do botão que abrei o modal de adicionar fornecedor. ********************** */
-/* Escaço entre a HEADER e a Tabela. */
+/* Escaço da linha entre a HEADER e a Tabela. */
   .line__space {
     background-color: transparent;
     height: 0.5rem;
@@ -252,7 +252,7 @@ body {
     overflow-y: auto;
     width: 100rem;
   }
-/* Isso retira a barra de rolagem quando vários fornecedores --webkit é suportado muitos navegadores, mas não todos. */  
+/* Isso retira a barra de rolagem da tabela fornecedores, --webkit é suportado muitos navegadores, mas não todos. */  
   .list__supplier::-webkit-scrollbar {
     width: 0;
   }
@@ -451,9 +451,8 @@ body {
 /* ************ Final dos elementos criados pelo JavaScript para criar a tabela de fornecedores. *********** */
 /*************************************************************************************************************/
 /* *************************************** Modal adicionar fornecedor ************************************** */
-  
 /* Elemento modal fornecedor. */
-  .modal__supplier {
+  .modal__add__supplier {
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
     height: 100%; 
@@ -463,21 +462,20 @@ body {
     width: 100%; 
   }
 /* Elemento modal fornecedor. */
-  .modal__element {
+  .element__add__supplier {
     align-items: center;
     animation: animation__modal__add__supplier 1s ease-out;
-    background: linear-gradient(to bottom, #7f5539, #9c6644, #b08968);
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
     border-radius: 1.2rem;
-    border: 1px solid #7f5539;
+    border: 0.2rem solid #9c6644;
     display: flex;
     flex-direction: column;
-    height: 15rem;
-    justify-content: center;
+    height: 13rem;
     margin: 25% auto; 
     padding: 1.5;
     width: 82rem;
   }
-/* Animação exibida ao abrir o modal fornecedor. */
+/* Animação exibida ao abrir o modal de adicionar fornecedor. */
   @keyframes animation__modal__add__supplier {
     0% {
       opacity: 0;
@@ -492,17 +490,94 @@ body {
       transform: translateY(0);
     }
   }
-/* Estilo da fonte da header do modal fornecedor. */
-  .th__tr {
-    color: #ddb892;
-    font-size: 1.2rem;
+/* Elemento do header do modal. */
+  .header__add__supplier {
+    width:100%;
+    height: 4rem;
+    background-color: #9c6644;
+    border-radius: 0.9rem 0.9rem 0 0 ;
+    display: flex;
+    align-items: center;
   }
-/* Elmentos dos input add . */
+/* Titulo do header do modal adicionar forncedor. */
+  .header__title__add {
+    margin-left: 32rem;
+    color: #ede0d4;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  } 
+/* Botão que fecha o modal adicionar fornecedor. */
+  .close__add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 2.95rem;
+    height: 2.95rem;
+    border: none;
+    background-color: #9c6644;
+    border-radius: 50%;
+    margin-left: 25rem;
+  }
+  .X3 {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 0.3rem;
+    background-color: #fff;
+    transform: rotate(45deg);
+    border-radius: 0.2rem;
+  }
+  .Y3 {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 0.3rem;
+    background-color: #fff;
+    transform: rotate(-45deg);
+    border-radius: 0.2rem;
+  }
+  .close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -40%;
+    left: 70%;
+    width: 3em;
+    height: 1.7em;
+    font-size: 16px;
+    background-color: rgb(254, 255, 225);
+    color: #000;
+    border: 1px solid #000;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .close__add:hover {
+    background-color: #b22525;
+    transition-delay: 0.2s;
+    transition: 0.4s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  }
+/* Elemento onde fica os input add. */
+  .element__inputs__confirm {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 6rem;
+  }
+/* Elmentos dos input add. */
   .supplier , .cnpj__element , .razao__element {
     align-items: center;
     background-color: #ddb892;
     border-radius: 1.2rem;
     border: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
     display: flex;
     font-size: 1.2rem;
     height: 2.9rem;
@@ -529,157 +604,86 @@ body {
     font-weight: 400;
     font-style: normal;
   }
-/* Botão Confirmar ADD fornecedor */ 
+/* Botão Confirmar add fornecedor. */ 
   .confirm__addSupplier {
-    background: #7f5539;
-    border-radius: 1.2rem;
-    border: none;
-    display: inline-block;
-    color: #ede0d4;
-    cursor: pointer;
-    font-size: 1.2rem;
-    height: 2.95rem;
-    margin-right: 0.4rem;
-    outline: none;
-    overflow: hidden;
-    position: relative;
-    padding: 0.7em 1.7em;
-    transition: all 0.2s ease-in;
-    width: 10.8rem;
-    z-index: 0;
-/* Fonte add */
-    font-family: "Fredoka", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  }
-/* Comportamentos do botão confirmar add fornecedor */
-  .confirm__addSupplier:active {
-    color: #9c6644;
-  }
-  .confirm__addSupplier:before {
-    background-color: #b08968;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 180%;
-    left: 50%;
-    position: absolute;
-    top: 100%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.25);
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    width: 140%;
-    z-index: -1;
-  }
-  .confirm__addSupplier:after {
-    background-color: #b08968;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 190%;
-    left: 55%;
-    position: absolute;
-    top: 180%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.45);
-    transition: all 0.6s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    width: 160%;
-    z-index: -1;
-  }
-  .confirm__addSupplier:hover {
-    border: 0.34rem solid #b08968;
-    color: #7f5539;
-  }
-  .confirm__addSupplier:hover:before {
-    background-color: #ede0d4;
-    top: -40%;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-  .confirm__addSupplier:hover:after {
-    background-color: #ddb892;
-    top: -60%;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-  /* Botão que fecha o modal de adicionar fornecedor. */
-  .close__add {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 2.95rem;
-    height: 2.95rem;
-    border: none;
-    background-color: #b22525;
-    border-radius: 50%;
-    margin-left: 2rem;
-  }
-  .X {
-    content: '';
-    position: absolute;
-    width: 2rem;
-    height: 0.2rem;
-    background-color: #fff;
-    transform: rotate(45deg);
-    border-radius: 0.2rem;
-  }
-  .Y {
-    content: '';
-    position: absolute;
-    width: 2rem;
-    height: 0.2rem;
-    background-color: #fff;
-    transform: rotate(-45deg);
-    border-radius: 0.2rem;
-  }
-  .close {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 1.7rem;
-    font-size: 1rem;
-    background-color: rgb(254, 255, 225);
-    color: #000;
-    border: 1px solid #000;
-    pointer-events: none;
-    opacity: 0;
-  }
-  .close__add:hover {
-    background-color: #910c0c;
-    transition-delay: 0.2s;
-    transition: 0.4s;
-  }
-/* final do botão que fecha o modal add*/ 
+      --color: #9c6644;
+      align-items: center;
+      background: transparent;
+      border-radius: 1.2rem;
+      border: 0.2rem solid #9c6644;
+      outline: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      height: 2.9rem; 
+      margin: 0.375rem 0.375rem 0 0;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+      width: 10rem; 
+      z-index: 1;
+    
+      color: #9c6644;
+      font-family: "Fredoka", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.1rem;
+    }
+    .confirm__addSupplier::before {
+      position: absolute;
+      content: "";
+      background: var(--color);
+      width: 15rem;
+      height: 11rem;
+      z-index: -1;
+      border-radius: 50%;
+      top: 100%;
+      left: 100%;
+      transition: 0.5s all;
+    }
+    .confirm__addSupplier:hover {
+      color: #ddb892;
+      border: 0.2rem solid var(--color);
+      transition: 0.3s;
+      transition-delay: 0.2s;
+      background-color: #9c6644;
+    }
+    .confirm__addSupplier:hover::before {
+      top: -30px;
+      left: -30px;
+    }
 /* Mensagem do modal adicionar fornecedor. */
 /* Fornecedor adicionado com sucesso. */
-  .add__sucesso{
+  .add__sucess{
     align-self: center;
-    color: #ede0d4;
+    color: #9c6644;
     display: none;
     font-size: 1.2rem;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
   }
 /* Campo vazio. */
   .add__erro{
     align-self: center;
-    color: #ede0d4;
+    color: #9c6644;
     display: none;
     font-size: 1.2rem;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
   }
 /* CNPJ já existe mensagem erro. */
   .cnpj__exists {
     align-self: center;
-    color: #ede0d4;
+    color: #9c6644;
     display: none;
     font-size: 1.2rem;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
   }
 /* *********************************** Final do modal Adicionar fornecedor ********************************* */
 /*************************************************************************************************************/
 /****************************************** Modal editar fornecedor **************************************** */
 /* Elemento modal editar fornecedor. */
-  .modal__edit {
+  .modal__edit__supplier {
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
     height: 100%; 
@@ -689,16 +693,15 @@ body {
     width: 100%; 
   }
 /* Elemento modal editar fornecedor. */
-  .modal__elementEdit {
+  .element__edit__supplier {
     align-items: center;
     animation: animation__modal__edit__supplier 1s ease-out;
-    background: linear-gradient(to bottom, #7f5539, #9c6644, #b08968);
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
     border-radius: 1.2rem;
-    border: 1px solid #7f5539;
+    border: 0.2rem solid #9c6644;
     display: flex;
     flex-direction: column;
-    height: 15rem;
-    justify-content: center;
+    height: 13rem;
     margin: 25% auto; 
     padding: 1.5;
     width: 82rem;
@@ -707,120 +710,37 @@ body {
   @keyframes animation__modal__edit__supplier {
     0% {
       opacity: 0;
-      transform: translateY(-150px);
+      transform: translateY(-9.4rem);
     }
     50% {
       opacity: 1;
-      transform: translateY(40px);
+      transform: translateY(2.5rem);
     }
     100% {
       opacity: 2;
       transform: translateY(0);
     }
   }
-/* Estilo da fonte da header do modal editar fornecedor. */
-  .th__edit {
-    color: #ddb892;
-    font-size: 1.2rem;
-  }
-/* Elementos do input edit. */
-  .supplier , .cnpj__elementEdit , .razao__elementEdit {
-    align-items: center;
-    background-color: #ddb892;
-    border-radius: 1.2rem;
-    border: none;
+/* Elemento do header do modal. */
+  .header__edit__supplier {
+    width:100%;
+    height: 4rem;
+    background-color: #9c6644;
+    border-radius: 0.9rem 0.9rem 0 0 ;
     display: flex;
-    font-size: 1.2rem;
-    height: 2.9rem;
-    justify-content: center;
-    margin: 0.375rem;
-    outline: none;
-    width: 30.5rem;
-  }
-/* Input editar fornecedor. */
-  .cnpj__edit, .razao__edit {
     align-items: center;
-    background-color: #ddb892;
-    border: none;
-    display: flex;
-    font-size: 1.5rem;
-    height: 2.5rem;
-    justify-content: center;
-    outline: none;
-    width: 28.25rem;
   }
-/* Botão confirmar editar fornecedor */ 
-  .confirm__edit {
-    background: #7f5539;
-    border-radius: 1.2rem;
-    border: none;
-    display: inline-block;
+/* Titulo do header do modal adicionar forncedor. */
+  .header__title__edit {
+    margin-left: 33rem;
     color: #ede0d4;
-    cursor: pointer;
-    font-size: 1.2rem;
-    height: 2.95rem;
-    margin-right: 0.4rem;
-    outline: none;
-    overflow: hidden;
-    position: relative;
-    padding: 0.7em 1.7em;
-    transition: all 0.2s ease-in;
-    width: 10.8rem;
-    z-index: 0;
-
-/* Fonte edit */
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
     font-style: normal;
-  }
-/* Comportamentos do botão confirmar editar fornecedor */
-  .confirm__edit:active {
-    color: #9c6644;
-  }
-  .confirm__edit:before {
-    background-color: #b08968;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 180%;
-    left: 50%;
-    position: absolute;
-    top: 100%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.25);
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    width: 140%;
-    z-index: -1;
-  }
-  .confirm__edit:after {
-    background-color: #b08968;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 190%;
-    left: 55%;
-    position: absolute;
-    top: 180%;
-    transform: translateX(-50%) scaleY(1) scaleX(1.45);
-    transition: all 0.6s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    width: 160%;
-    z-index: -1;
-  }
-  .confirm__edit:hover {
-    border: 0.34rem solid #b08968;
-    color: #7f5539;
-  }
-  .confirm__edit:hover:before {
-    background-color: #ede0d4;
-    top: -40%;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-  .confirm__edit:hover:after {
-    background-color: #ddb892;
-    top: -60%;
-    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
-  }
-/* Final do botão que confirma editar fornecedor. */
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  } 
 /* Botão de fechar o modal editar fornecedor. */
   .close__edit {
     display: flex;
@@ -830,9 +750,9 @@ body {
     width: 2.95rem;
     height: 2.95rem;
     border: none;
-    background-color: #b22525;
+    background-color: #9c6644;
     border-radius: 50%;
-    margin-left: 2rem;
+    margin-left: 27rem;
   }
   .X1 {
     content: '';
@@ -868,12 +788,130 @@ body {
     pointer-events: none;
     opacity: 0;
   }
-  .close__adit:hover {
-    background-color: #910c0c;
+  .close__edit:hover {
+    background-color: #b22525;
     transition-delay: 0.2s;
     transition: 0.4s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
   }
-/* Final do botão que fecha o modal edit. */
+/* Elemento onde fica os input add. */
+  .element__inputs__confirm {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 6rem;
+  }
+/* Elementos do input edit. */
+  .supplier , .cnpj__elementEdit , .razao__elementEdit {
+    align-items: center;
+    background-color: #ddb892;
+    border-radius: 1.2rem;
+    border: none;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    display: flex;
+    font-size: 1.2rem;
+    height: 2.9rem;
+    justify-content: center;
+    margin: 0.375rem;
+    outline: none;
+    width: 30.5rem;
+  }
+/* Input editar fornecedor. */
+  .cnpj__edit, .razao__edit {
+    align-items: center;
+    background-color: #ddb892;
+    border: none;
+    display: flex;
+    font-size: 1.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    outline: none;
+    width: 28.25rem;
+
+    color: #9c6644;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+/* Botão confirmar editar fornecedor */ 
+  .confirm__edit {
+    --color: #9c6644;
+    align-items: center;
+    background: transparent;
+    border-radius: 1.2rem;
+    border: 0.2rem solid #9c6644;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    height: 2.9rem; 
+    margin: 0.375rem 0.375rem 0 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    width: 10rem; 
+    z-index: 1;
+  
+    color: #9c6644;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  }
+/* Comportamentos do botão confirmar editar fornecedor */
+  .confirm__editSupplier {
+    --color: #9c6644;
+    align-items: center;
+    background: transparent;
+    border-radius: 1.2rem;
+    border: 0.2rem solid #9c6644;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    height: 2.9rem; 
+    margin: 0.375rem 0.375rem 0 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    width: 10rem; 
+    z-index: 1;
+
+    color: #9c6644;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  }
+  .confirm__editSupplier::before {
+    position: absolute;
+    content: "";
+    background: var(--color);
+    width: 15rem;
+    height: 11rem;
+    z-index: -1;
+    border-radius: 50%;
+    top: 100%;
+    left: 100%;
+    transition: 0.5s all;
+  }
+  .confirm__editSupplier:hover {
+    color: #ddb892;
+    border: 0.2rem solid var(--color);
+    transition: 0.3s;
+    transition-delay: 0.2s;
+    background-color: #9c6644;
+  }
+  .confirm__editSupplier:hover::before {
+    top: -30px;
+    left: -30px;
+  }
 /* Mensagem do modal editar fornecedor. */ 
 /* Fornecedor editado com sucesso. */
   .edit__sucesso{

@@ -52,40 +52,25 @@
         </div>
       </div>
 <!-- MODAL ADICIONAR FORNECEDOR. -->
-      <div class="modal__supplier">
-        <div class="modal__element">
-          <table>
-            <thead>
-              <tr class="th__tr">
-                <th>CNPJ</th>
-                <th>Razão Social</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="cnpj__element">
-                    <input class="cnpj__add" id="CNPJ__add" type="text" name="cnpj" autocomplete="off" placeholder="                        Insira o CNPJ">
-                  </div>
-                </td>
-                <td>
-                  <div class="razao__element">
-                    <input class="razao__add" id="razao__add" type="text" name="razao_social" autocomplete="off" placeholder="                   Insira a razão social">
-                  </div>
-                </td>
-                <td>
-                  <button class="confirm__addSupplier">Confirmar</button>
-                </td>
-                <td>
-                  <button class="close__add">
-                    <span class="X"></span>
-                    <span class="Y"></span>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="add__sucesso"> Fornecedor adicioando a lista.</div>
+      <div class="modal__add__supplier">
+        <div class="element__add__supplier">
+          <div class="header__add__supplier">
+            <span class="header__title__add">Adicionar fornecedor</span>
+            <button class="close__add">
+              <span class="X3"></span>
+              <span class="Y3"></span>
+            </button>
+          </div>   
+          <div class="element__inputs__confirm">
+            <div class="cnpj__element">
+              <input class="cnpj__add" id="CNPJ__add" type="text" name="cnpj" autocomplete="off" placeholder="                        Insira o CNPJ">
+            </div>
+            <div class="razao__element">
+              <input class="razao__add" id="razao__add" type="text" name="razao_social" autocomplete="off" placeholder="                   Insira a razão social">
+            </div>
+            <button class="confirm__addSupplier">Confirmar</button>
+          </div>
+          <div class="add__sucess"> Fornecedor adicioando a lista.</div>
           <div class="add__erro">Por favor, preencha todos os campos!</div>
           <div class="cnpj__exists"> O CNPJ já existe.</div>
         </div>
@@ -110,40 +95,25 @@
 <!-- FINAL DO MODAL EXCLUIR FORNECEDOR. -->
 
 <!-- MODAL EDITAR FORNECEDOR. -->
-      <div id="modal__edit" class="modal__edit">
-        <div class="modal__elementEdit">
-          <input type="hidden" id="edit_idSupplier">
-            <table>
-              <thead>
-                <tr class="th__edit">
-                  <th>CNPJ</th>
-                  <th>Razão Social</th>
-                </tr>
-              </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="cnpj__elementEdit">
-                        <input class="cnpj__edit" id="CNPJ__edit" type="text" name="cnpj">
-                      </div>
-                    </td>
-                    <td>
-                      <div class="razao__elementEdit">
-                        <input class="razao__edit" id="razao__edit" type="text" name="razao_social">
-                      </div>
-                    </td>
-                    <td>
-                      <button class="confirm__edit" id="confirm__edit">Confirmar</button>
-                    </td>
-                    <td>
-                      <button class="close__edit">
-                        <span class="X1"></span>
-                        <span class="Y1"></span>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-            </table>
+      <div id="modal__edit__supplier" class="modal__edit__supplier">
+        <div class="element__edit__supplier">
+          <div class="header__edit__supplier">
+            <span class="header__title__edit">Editar Fornecedor</span>
+            <button class="close__edit">
+              <span class="X1"></span>
+              <span class="Y1"></span>
+            </button>
+          </div>
+          <div class="element__inputs__confirm">
+            <input type="hidden" id="edit_idSupplier">
+            <div class="cnpj__elementEdit">
+              <input class="cnpj__edit" id="CNPJ__edit" type="text" name="cnpj">
+            </div>
+            <div class="razao__elementEdit">
+              <input class="razao__edit" id="razao__edit" type="text" name="razao_social">
+            </div>
+            <button class="confirm__editSupplier" id="confirm__editSupplier">Confirmar</button> 
+          </div>
           <div class="edit__sucesso"> Fornecedor editado com sucesso</div>
           <div class="edit__erro"> Erro ao editar fornecedor</div>
           <div class="edit__exists"> O CNPJ já existe.</div>
