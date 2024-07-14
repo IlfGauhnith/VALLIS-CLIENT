@@ -318,75 +318,106 @@
 
   }
 
-// Função que abre o modal de confirmaçõa e deleta o fornecedor 
-  async function deletOnClick(event) {
-// Navegue para encontrar o ID do fornecedor
-    const id_fornecedor = event.target.closest('tr').id;
+// Função que abre o modal de confirmação e deleta o fornecedor
+async function deletOnClick(event) {
+  // Navegue para encontrar o ID do fornecedor
+  const id_fornecedor = event.target.closest('tr').id;
 
-// Tente encontrar o elemento com o ID esperado
-    const razao_social_element = document.getElementById("td__razao__" + id_fornecedor);
+  // Tente encontrar o elemento com o ID esperado
+  const razao_social_element = document.getElementById("td__razao__" + id_fornecedor);
 
-// Verifique se o elemento foi encontrado
-    if (!razao_social_element) {
-        console.error(`Elemento com ID "td__razao__${id_fornecedor}" não encontrado.`);
-        return; // Saia da função se o elemento não for encontrado
-    }
+  // Verifique se o elemento foi encontrado
+  if (!razao_social_element) {
+      console.error(`Elemento com ID "td__razao__${id_fornecedor}" não encontrado.`);
+      return; // Saia da função se o elemento não for encontrado
+  }
 
-// Obtenha o texto do elemento encontrado
-    const razao_social = razao_social_element.innerText;
+  // Obtenha o texto do elemento encontrado
+  const razao_social = razao_social_element.innerText;
 
-// Preencha o modal com os valores encontrados
-    document.getElementById("id__supplierDelet").value = id_fornecedor;
-    document.getElementById("name__supplierDelet").innerText = razao_social;
-    document.getElementById("modal__delet").style.display = 'block';
+  // Preencha o modal com os valores encontrados
+  const modal = document.querySelector('confirmation-delete-supplier'); // Seleciona o modal
 
-// Oculte todos os elementos com da classe 'conteiner__list'
-    const noneListSupplier = document.querySelectorAll('.conteiner__list');
-    noneListSupplier.forEach(card => {
-        card.style.display = 'none';
-    });
+  if (modal) {
+      modal.shadowRoot.getElementById("id__supplierDelet").value = id_fornecedor;
+      modal.shadowRoot.getElementById("name__supplierDelet").innerText = razao_social;
+      modal.shadowRoot.getElementById("modal__delet").style.display = 'block';
+
+      // Event listener para fechar o modal ao clicar no botão "Cancelar"
+      modal.shadowRoot.querySelector('.close__delet').addEventListener('click', function() {
+          modal.shadowRoot.getElementById("modal__delet").style.display = 'none'; // Fecha o modal
+          // Exibe novamente todos os elementos com a classe 'conteiner__list'
+          const noneListSupplier = document.querySelectorAll('.conteiner__list');
+          noneListSupplier.forEach(card => {
+              card.style.display = 'block';
+          });
+      });
+
+      // Event listener para confirmar a exclusão ao clicar no botão "Excluir"
+      modal.shadowRoot.querySelector('.confirm__delet').addEventListener('click', function() {
+          confirmarExcluirOnClick(modal); // Passa o modal como parâmetro
+      });
+  } else {
+      console.error('Componente confirmation-delete-supplier não encontrado.');
+  }
+
+  // Oculte todos os elementos com a classe 'conteiner__list'
+  const noneListSupplier = document.querySelectorAll('.conteiner__list');
+  noneListSupplier.forEach(card => {
+      card.style.display = 'none';
+  });
 }
 
 // Função para executar a exclusão de um fornecedor ao clicar no botão "Excluir"
-  async function confirmarExcluirOnClick(event) {
-// Obtém o ID do fornecedor a partir do elemento clicado
-    const id_fornecedor =  document.getElementById("id__supplierDelet").value;
-
-// Realiza a exclusão do fornecedor
-    await deletFornecedor(id_fornecedor);
-
-// Redireciona para a página de fornecedores após a exclusão
-    window.location.href = "supplier.html";
+async function confirmarExcluirOnClick(modal) {
+  // Obtém o ID do fornecedor a partir do elemento no modal
+  const idElement = modal.shadowRoot.getElementById("id__supplierDelet");
+  if (!idElement) {
+      console.error('Elemento com ID "id__supplierDelet" não encontrado.');
+      return;
   }
+  const id_fornecedor = idElement.value;
+
+  if (!id_fornecedor) {
+//   console.error('ID do fornecedor não encontrado.');
+      return;
+  }
+
+  // Realiza a exclusão do fornecedor
+  await deletFornecedor(id_fornecedor);
+
+  // Redireciona para a página de fornecedores após a exclusão
+  window.location.href = "supplier.html";
+}
 
 // Função para enviar uma solicitação DELETE para excluir um fornecedor
-  async function deletFornecedor(id_fornecedor) {
-    try {
-// Obtém o token de autorização armazenado na sessão
+async function deletFornecedor(id_fornecedor) {
+  try {
+      // Obtém o token de autorização armazenado na sessão
       const token = sessionStorage.getItem('token');
 
-// Define os cabeçalhos da solicitação e os parâmetros da URL
+      // Define os cabeçalhos da solicitação e os parâmetros da URL
       const headers = {
-        authorizationToken: token
+          authorizationToken: token
       };
       const params = {
-        id: id_fornecedor
+          id: id_fornecedor
       };
 
-// Envia a solicitação DELETE para a API com o ID do fornecedor a ser excluído
+      // Envia a solicitação DELETE para a API com o ID do fornecedor a ser excluído
       const response = await axios.delete('https://53zy5jvqw2.execute-api.sa-east-1.amazonaws.com/dev/fornecedor', { headers: headers, params: params });
-      alert(response.data.message);
-    } catch (error) {
-// Manipula os erros de resposta da solicitação
+  // alert(response.data.message);
+  } catch (error) {
+      // Manipula os erros de resposta da solicitação
       if (error.response)
-        console.error(error.response.data.message);
+          console.error(error.response.data.message);
       else
-        console.error('Erro:', error);
+          console.error('Erro:', error);
 
-//      alert('Erro ao retornar fornecedor');
+      // alert('Erro ao retornar fornecedor');
       throw error;
-    }
   }
+}
 
 // Função para obter a lista de fornecedores da API
   async function getFornecedores() {

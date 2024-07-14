@@ -16,6 +16,7 @@
       <script src="../components/sidebar-nav.js"></script>
       <script src="../components/logout-warning.js"></script>
       <script src="../components/sand-loader.js"></script>
+      <script src="../components/confirmation-modal-delete-supplier.js"></script>
       <script src="../Public/script/token_manager.js"></script>
     </head>
 
@@ -33,7 +34,11 @@
 
 <!-- INICIO DA MAIN. -->
     <div id="main">
+<!-- MODAL DE CONFRIMAÇÃO PARA FAZER O LOGOUT. -->
       <logout-warning></logout-warning>
+<!-- MODAL DE CONFIRMAÇÃO PARA DELETAR O FORNECEDOR. -->
+      <confirmation-delete-supplier></confirmation-delete-supplier>
+<!-- ELEMENTO DA LISTA DE FORNECEDORES. -->
       <div class="conteiner__list">
         <thead>
           <div class="head__table">
@@ -75,25 +80,6 @@
           <div class="cnpj__exists"> O CNPJ já existe.</div>
         </div>
       </div>
-<!-- FINAL DO MODAL ADICIONAR FORNECEDOR. -->
-    
-<!-- MODAL EXCLUIR FORNECEDOR. -->
-    <div id="modal__delet" class="modal__delet">
-      <div class="modal__elementDelet">
-        <div class="element__warningDelet">Aviso
-          <div class="element__questInf">
-            <span>Excluir fornecedor  <span id="name__supplierDelet"></span>?</span>
-          </div>
-        </div>
-        <div class="element__buttons">
-          <input type="hidden" id="id__supplierDelet">
-          <button class="confirm__delet" onclick="confirmarExcluirOnClick()">Excluir</button>
-          <button class="close__delet" onclick="closeModalAndShowContainer()">Cancelar</button>
-        </div>
-      </div>
-    </div>
-<!-- FINAL DO MODAL EXCLUIR FORNECEDOR. -->
-
 <!-- MODAL EDITAR FORNECEDOR. -->
       <div id="modal__edit__supplier" class="modal__edit__supplier">
         <div class="element__edit__supplier">
@@ -119,9 +105,8 @@
           <div class="edit__exists"> O CNPJ já existe.</div>
         </div>
       </div>
-<!-- FINAL DO MODAL EDITAR FORNECEDOR. -->
+<!-- FINAL DA DIV MAIN. -->
     </div>
-<!-- FINAL DA MAIN. -->
 
 <!-- iNICIO DO FOOTER. -->
     <footer>
