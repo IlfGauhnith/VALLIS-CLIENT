@@ -347,7 +347,7 @@
 // Exibe novamente todos os elementos com a classe 'conteiner__list'
           const noneListSupplier = document.querySelectorAll('.conteiner__list');
           noneListSupplier.forEach(card => {
-              card.style.display = 'block';
+              card.style.display = 'flex';
           });
       });
 
