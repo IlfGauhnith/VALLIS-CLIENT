@@ -18,7 +18,6 @@
       }
     }
   }
-
 // Função para exibir modal ou mensagem de logout expirado
   function exibirModalLogout() {
     const modalLogoutComponent = document.querySelector('logout-warning');
@@ -40,9 +39,7 @@
       element.style.display = 'none';
     });
   }
-
 // Verificar o token ao carregar a página
   document.addEventListener('DOMContentLoaded', verificarToken);
-
 // Verificar o token em intervalos regulares (opcional para garantir verificação contínua)
   setInterval(verificarToken, 10000); // Verificar a cada 10 segundos
