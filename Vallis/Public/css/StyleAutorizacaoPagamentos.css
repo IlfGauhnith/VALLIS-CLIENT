@@ -113,201 +113,190 @@ body {
 /*============================================= Final do Header =============================================*/
 /* ========================================================================================================= */
 /*============================================== Inicio do main =============================================*/
-
 /* Tudo que está dentro do pagina listado abaixo. */ 
   #main {
     align-items: center;
     display: flex;
+    height: calc(100vh - 12rem);
     justify-content: center;
+    overflow-y: auto;
   }
-
-/* Elemento princial onde fica a tabela de fornecedores. */
+/* Elemento princial onde fica as opoçoes de autorização de pagamento. */
   .conteiner__option {
+    animation: slide-top 2s cubic-bezier(0.645, 0.045, 0.355, 1.000) both;
     align-items:center;
     display: flex;
+    height: 25rem;
     justify-content: space-between;
     margin-top: 5rem;
-    width: 80rem;
-    height: 25rem;
-    animation:overflowAnimation 2.0s ease;
+    width: 100rem;
   }
-
 /* Responsavel pela animação da tabela ao carregar a página. */
-    @keyframes overflowAnimation {
+    @keyframes slide-top {
       0% {
-        transform: translateY(-2rem);
+        transform: translateY(85rem);
       }
       50% {
-        transform: translateY(2rem);
+        transform: translateY(-8rem) ;
       }
       100% {
-        transform: translateY(0);
+        transform: translateY(0rem);
       }
     }
-
 /* Elemento que define o card NF-E. */
   .card__NFE {
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    width: 18rem;
-    height: 16rem;
-    background-color: #ddb892;
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
+    border: 0.2rem solid #9c6644;
     border-radius: 1.2rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    display: flex;
+    flex-direction: column;
+    height: 16rem;
+    width: 24rem;
   }
-
 /* Header card NF-e */
   .autorizacao__NFE {
-    width: 18rem;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    height: 4rem;
-    background-color: #9c6644;
-    border-radius: 1.2rem 1.2rem 0 0 ;
+    background: linear-gradient(to right bottom, #795137, #9c6644);
+    border-radius: 0.9rem 0.9rem 0 0 ;
     color: #ede0d4;
-    font-size: 1.5rem;
-    
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    width: 24rem;
 /* Fonte.*/    
+    font-size: 2rem; 
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    letter-spacing: 0.1rem;
   }
-
 /* Icone da NFE. */
   .icon__NFE {
+    display: flex;
+    height: 8rem;
     margin-top: 0.2rem;
     width: 8rem;
-    height: 8rem;
-    display: flex;
   }
-
 /* Texto do card NFE */
   .txt__NFE {
-    display: flex;
     align-items: center;
-    justify-content: center;
     color: #9c6644;
+    display: flex;
     font-size: 1.2rem;
+    justify-content: center;
     margin: 0.5rem;
 
   }
-
 /* Elemento que define o card XML. */ 
   .card__XML {
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    width: 18rem;
-    height: 16rem;
-    background-color: #ddb892;
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
+    border: 0.2rem solid #9c6644;
     border-radius: 1.2rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    display: flex;
+    flex-direction: column;
+    height: 16rem;
+    width: 24rem;
   }
-
 /* Header card XML. */
   .autorizacao__XML {
-    width: 18rem;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    height: 4rem;
-    background-color: #9c6644;
-    border-radius: 1.2rem 1.2rem 0 0 ;
+    background: linear-gradient(to right bottom, #795137, #9c6644);
+    border-radius: 0.9rem 0.9rem 0 0 ;
+    display: flex;
     color: #ede0d4;
-    font-size: 1.5rem;
-
+    height: 4rem;
+    justify-content: center;
+    width: 24rem;
 /* Fonte.*/    
+    font-size: 2rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    letter-spacing: 0.1rem;
   }
-
 /* Icone da XML. */
   .icon__XML {
+    display: flex;
+    height: 8rem;
     margin-top: 0.2rem;
     width: 8rem;
-    height: 8rem;
-    display: flex;
   }
-
 /* Texto do card XML */
   .txt__XML {
-    display: flex;
     align-items: center;
-    justify-content: center;
     color: #9c6644;
+    display: flex;
     font-size: 1.2rem;
+    justify-content: center;
     margin: 0.5rem;
 }
-
 /* Elemento que define o card manual. */ 
   .card__manual {
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    width: 18rem;
-    height: 16rem;
-    background-color: #ddb892;
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
     border-radius: 1.2rem;
+    border: 0.2rem solid #9c6644;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    display: flex;
+    flex-direction: column;
+    height: 16rem;
+    width: 24rem;
   }
-
 /* Header card manual. */
   .autorizacao__manual {
-    width: 18rem;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    height: 4rem;
-    background-color: #9c6644;
-    border-radius: 1.2rem 1.2rem 0 0 ;
+    background: linear-gradient(to right bottom, #795137, #9c6644);
+    border-radius: 0.9rem 0.9rem 0 0 ;
+    display: flex;
     color: #ede0d4;
-    font-size: 1.5rem;
-
-  /* Fonte.*/    
+    height: 4rem;
+    justify-content: center;
+    width: 24rem;
+/* Fonte.*/    
+    font-size: 2rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    letter-spacing: 0.1rem;
   }
-
-  /* Icone da manual. */
+/* Icone da manual. */
   .icon__manual {
+    display: flex;
+    height: 8rem;
     margin-top: 0.2rem;
     width: 8rem;
-    height: 8rem;
-    display: flex;
   }
-
-  /* Texto do card XML */
+/* Texto do card XML */
   .txt__manual {
-    display: flex;
     align-items: center;
-    justify-content: center;
     color: #9c6644;
     font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
     margin: 0.5rem;
   }
-
+/* faz com que o card que estiver com o corsor em cima fique em destaque e os outros fique com desfoquel. */
   .conteiner__option [class^="card"]:hover {
+    cursor: pointer;
     transition: 500ms;
     transition-delay: 4ms;
-    cursor: pointer;
   }
-
   .conteiner__option [class^="card"]:hover {
     transform: scale(1.2, 1.2);
   }
-
   .conteiner__option:hover > [class^="card"]:not(:hover) {
     filter: blur(0.04rem);
     transform: scale(1);
   }
-
 /* ========================================================================================================= */
 /* ============================================ Stylo dos Cards ============================================ */
-
   .modal__manual{
     background-color: transparent;
     display: none;
@@ -315,38 +304,38 @@ body {
     left: 0; 
     position: relative; 
     top: 0; 
-    width: 100%; 
+    width: 100%;
+    margin-top: 26rem;
   }
-
   .manual__element{
     display: flex;
-    background-color: #ddb892;
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
     border-radius: 1.2rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    border: 0.2rem solid #9c6644;
     height: 23rem;
     width: 80rem;
     flex-direction: column;
     margin: 5rem;
     gap: 0.5rem;
   }
-
   .header__manual {
     display: flex;
     width: 100%;
     color: #ede0d4;
     font-size: 1.5rem;
-    border-radius: 1.2rem 1.2rem 0rem 0rem;
-    background-color: #9c6644;
+    border-radius: 0.9rem 0.9rem 0rem 0rem;
+    background: linear-gradient(to right bottom, #795137, #9c6644);
     justify-content: center;
     align-items: center;
     height: 4rem;
   }
-  
   .header__title {
     color: #ede0d4;
     font-size: 2rem;
-    margin-left: 23rem;
+    margin-left: 21rem;
+    letter-spacing: 0.1rem;
   }
-
   .close__modal__manual {
     display: flex;
     justify-content: center;
@@ -355,31 +344,28 @@ body {
     width: 2.95rem;
     height: 2.95rem;
     border: none;
-    background-color: #9c6644;
+    background-color: transparent;
     border-radius: 50%;
-    margin-left: 21rem;
+    margin-left: 20rem;
   }
-
   .X3 {
     content: '';
     position: absolute;
     width: 2rem;
-    height: 0.2rem;
+    height: 0.3rem;
     background-color: #fff;
     transform: rotate(45deg);
     border-radius: 0.2rem;
   }
-
   .Y3 {
     content: '';
     position: absolute;
     width: 2rem;
-    height: 0.2rem;
+    height: 0.3rem;
     background-color: #fff;
     transform: rotate(-45deg);
     border-radius: 0.2rem;
   }
-
   .close {
     position: absolute;
     display: flex;
@@ -396,17 +382,15 @@ body {
     pointer-events: none;
     opacity: 0;
   }
-
   .close__modal__manual:hover {
     background-color: #910c0c;
     transition-delay: 0.2s;
     transition: 0.4s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
   }
 /* ************************************************************************************************************************* */
 
-
-
-/****************************************************************************************************************************/
+/* ************************************************************************************************************************* */
   .element__store__supplier__number__data {
     align-items: center;
     border: none;
@@ -418,7 +402,7 @@ body {
     width: 80rem;
     flex-direction: row;
   }
-/***************************************************************************************************************************/  
+/* ************************************************************************************************************************ */  
   .element__store {
     display: flex;
     flex-direction: column;
@@ -463,7 +447,7 @@ body {
     font-style: normal;
   }
   
-  /**************************************************************************************************************************/
+  /* ********************************************************************************************************************** */
   
   .element__supplier {
     display: flex;
@@ -847,8 +831,7 @@ body {
     border-radius: 1.2rem;
     background-color: #7f5539;
   }
-/* ====================================== Final dos Stulos dos Cards ======================================= */ 
-
+/* ====================================== Final dos Style dos Cards ======================================= */ 
 
 /*============================================== Final do main ==============================================*/
 /* ========================================================================================================= */

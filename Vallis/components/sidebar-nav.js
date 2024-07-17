@@ -21,7 +21,6 @@
 
 /* ******************************************************************* Inicio da tag style. ******************************************************************* */
 ` <style>
-
   .footer__copyright {
     color: #ede0d4;
     display: flex;
@@ -32,17 +31,14 @@
     margin: 0 0.3rem 0 0.3rem;
     text-align: center;
   }
-
   .suport:focus, .developer:focus, .resouces:focus {
     box-shadow: inset 0  -1px 0 0 #ede0d4;
   }
-
   .suport:hover, .developer:hover, .resouces:hover {
     color: #ede0d4;
     transition-delay: 0.5s;
     transition: 0.6s;
   }
-
   .suport, .developer, .resouces {
     color: #999;
     display: flex;
@@ -53,7 +49,6 @@
     cursor: pointer;
     letter-spacing: 0.1rem;
   }
-
   .footer__info {
     display: flex; 
     align-items: center;
@@ -62,7 +57,6 @@
     height: 8rem;
     flex-direction: column;
   }
-
 /**/
   .vallis__logo {
     height: auto;
@@ -72,8 +66,7 @@
   .mini__footer {
     display: flex;
     justify-content: center;
-  }
-    
+  } 
 /* Todos os elementos que estão no mini__footer */
   .element__mini__footer {
     position: absolute;
@@ -86,7 +79,6 @@
     color: #999 ;
     flex-direction: column; 
   }
-
 /* Para sair da conta */
   .button__logout {
     margin-left: 1.2rem ;
@@ -109,7 +101,6 @@
     font-style: normal;
     letter-spacing: 0.1rem;
   }
-  
 /* Icon seta do botão */
   .element__icon {
     width: 100%;
@@ -143,7 +134,6 @@
     border-radius: 40px;
     transition-duration: 0.3s;
   }
-
 /* Ajusta o ícone ao passar o mouse */
   .button__logout:hover .element__icon {
     width: 10%;
@@ -157,7 +147,6 @@
     transition-duration: .3s;
     padding-right: 0.8rem;
   }
-
 /* Elemento para o botão logout no sidebar */
   .element__logout {
     position: absolute;
@@ -166,7 +155,6 @@
     left: 0;
     width: 100%;
   }
-
 /* Reseta o estilo. */
   button {
     background: none;
@@ -175,11 +163,10 @@
     padding: 0;
     margin: 0;
   }
-
 /* estilo do botão. */
   .button__sidebar {
     align-items: center;
-    background:  #e6ccb2;
+    background: linear-gradient(to left top, #ddb892, #ede0d4);
     border-radius: 50%;
     border: 0.1rem  solid #ede0d4;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
@@ -188,7 +175,6 @@
     justify-content: center;
     width: 3rem;
   }
-
 /* defini o estilo dos linhas do menu. */
   .menu__icon {
     align-items: end;
@@ -200,7 +186,6 @@
     transition: transform .4s;
     width: 2.2rem;
   }
-
 /* Defini animação das linhas do menu. */
   .menu__icon span {
     background-color: #7f5539;
@@ -210,25 +195,20 @@
     transition: width .4s, transform .4s, background-color .4s;
     width: 100%;
   }
-
   .menu__icon :nth-child(2) {
     width: 100%;
   }
-
   .menu__icon :nth-child(3) {
     width: 100%;
   }
-
   .menu__icon:hover {
     transform: rotate(-90deg);
   }
-
   .menu__icon:hover span {
     background-color: ede0d4;
     transform: translateX(-0.65rem);
     width: 0.5rem;
   }
-
 /* Defini a aparência do menu lateral (sidbar). */
   .sidenav {
     background: linear-gradient(to left top, #ddb892, #ede0d4);
@@ -242,7 +222,6 @@
     width: 0;
     z-index: 1; 
   }
-  
 /* Defini a aparência dos link do menu lateral (sidbar). */
   .sidenav a {
     color: #7f5539;
@@ -252,11 +231,9 @@
     text-decoration: none;
     letter-spacing: 0.06rem;
   }
-
   .sidenav a:first-of-type {
     margin-top: 5rem;
   }
-  
 /* Defini a aparência dos links ao passar o cursor sobre eles. */
   .sidenav a:hover {
     color: #c96644;
@@ -265,7 +242,6 @@
     transition: 0.6s;
     transform: translateX( 1rem);
   }
-
 /* Botão para fechar o sidebar */
   .button__close {
     display: flex;
@@ -290,7 +266,6 @@
     font-style: normal;
     letter-spacing: 0.1rem;
   }
-
 /* Icone do botão de fechar */
   .closebtn {
     width: 100%;
@@ -299,7 +274,6 @@
     align-items: center;
     justify-content: center;
   }
-
 /* Texto do botão de fechar */
   .text__close {
     position: absolute;
@@ -311,21 +285,18 @@
     transition-duration: 0.3s;
     font-weight: 400;
   }
-
 /* Aumenta o tamanho do botão ao passar o mouse */
   .button__close:hover {
     width: 15rem;
     border-radius: 40px;
     transition-duration: 0.3s;
   }
-
 /* Ajusta o ícone ao passar o mouse */
   .button__close:hover .closebtn {
     width: 10%;
     transition-duration: 0.3s;
     padding-left: 8rem;
   }
-
 /* Cria o efeito do botão quando o cursor estiver sobre */
   .button__close:hover .text__close {
     opacity: 1;
@@ -333,7 +304,6 @@
     transition-duration: 0.3s;
     padding-left: 0.8rem;
   }
-
 /* Elemento do botão de fechar no sidebar */
   .element__close {
     position: absolute;
@@ -342,23 +312,16 @@
     height: 3rem;
     padding-left: 1rem;
   }
-
-
-
-  
 /* defini a aparência de movimento do conteudo que está fora do menu lateral (sibar). Usado para dar uma aparência mais suave ao conteudo da página
    quando abrir o menu lateral. Usando o ID main. */
   #main {
     transition: margin-left 0.8s;
-    padding: 1rem;
-  
-       
+    padding: 1rem;  
 /* Em telas menores, onde a altura é menor que 450px, altere o estilo do sidenav (menos preenchimento e tamanho de fonte menor) */
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 1rem;}
     .sidenav a {font-size: 1.1rem;}
   }
-
 /* ******************************************************************** Final da tag style. ******************************************************************* */
 </style> 
 <html>
@@ -377,7 +340,7 @@
 <!- Links da navegação das páginas Fornecedor, Cadastrara Autorização e Loja-->
     <a href="supplier.html">Fornecedor</a>
     <a href="cadastrar_autorizacao_pagamento.html">Cadastrar Autorização</a>
-    <a href=" ">Loja</a>
+    <a href="store.html">Loja</a>
 
 <!-- Esta div cria o elemento e botão para sair da conta -->
     <div class="element__logout">

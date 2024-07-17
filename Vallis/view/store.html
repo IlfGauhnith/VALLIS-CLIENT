@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Public/Img/VALLIS_Icon_Aba_Navegador_.png" type="image/x-icon">
+    <title>Vallis - Lojas</title>
+    <link rel="stylesheet" href="../Public/css/StyleStore.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <script src="../Public/script/store.js"></script>      
+    <script src="../components/sidebar-nav.js"></script>      
+    <script src="../components/logout-warning.js"></script>
+    <script src="../components/sand-loader.js"></script>
+    <script src="../Public/script/token_manager.js"></script>
+</head>
+
+<body>
+<!-- INICIO DO HEADER. -->
+    <header>
+      <div class="header__element">
+        <div class="sidebar__element">
+          <side-bar-nav></side-bar-nav>
+        </div>
+    	
+      </div>
+    </header>
+<!-- FINAL DO HEADER. -->
+
+<!-- INICIO DA MAIN. -->
+      <div id="main">
+<!-- MODAL DE CONFRIMAÇÃO PARA FAZER O LOGOUT. -->
+        <logout-warning></logout-warning>
+<!-- TELA DE LOAD DA PAGINA. -->
+        <div class="conteiner__loader">
+          <sand-loader></sand-loader>
+          <span class="aviso__desenvolvimento">Em desenvolvimento</span>
+        </div>
+      </div>
+<!-- FINAL DA DIV MAIN. -->
+
+</body>
+
+</html>
