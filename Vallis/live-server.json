@@ -1,0 +1,8 @@
+{
+  "root": "./view", 
+  "mount": [
+    ["/css", "./public/css"],
+    ["/script&module", "./public/script&module"],
+    ["/img", "./public/img"]
+  ]
+}
