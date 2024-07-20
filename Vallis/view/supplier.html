@@ -11,14 +11,7 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-      <script src="../Public/script/supplier.js"></script>
-      <script src="../components/sidebar-nav.js"></script>
-      <script src="../components/logout-warning.js"></script>
-      <script src="../components/sand-loader.js"></script>
-      <script src="../components/confirmation-modal-delete-supplier.js"></script>
-      <script src="../Public/script/token_manager.js"></script>
-    </head>
+  </head>
 
   <body>
 <!-- INICIO DO HEADER. -->
@@ -33,7 +26,7 @@
 <!-- FINAL DO HEADER. -->
 
 <!-- INICIO DA MAIN. -->
-    <div id="main">
+    <main id="main">
 <!-- MODAL DE CONFRIMAÇÃO PARA FAZER O LOGOUT. -->
       <logout-warning></logout-warning>
 <!-- MODAL DE CONFIRMAÇÃO PARA DELETAR O FORNECEDOR. -->
@@ -56,6 +49,7 @@
           </table>
         </div>
       </div>
+
 <!-- MODAL ADICIONAR FORNECEDOR. -->
       <div class="modal__add__supplier">
         <div class="element__add__supplier">
@@ -80,6 +74,7 @@
           <div class="cnpj__exists"> O CNPJ já existe.</div>
         </div>
       </div>
+
 <!-- MODAL EDITAR FORNECEDOR. -->
       <div id="modal__edit__supplier" class="modal__edit__supplier">
         <div class="element__edit__supplier">
@@ -105,13 +100,23 @@
           <div class="edit__exists"> O CNPJ já existe.</div>
         </div>
       </div>
+    </main>
 <!-- FINAL DA DIV MAIN. -->
-    </div>
 
 <!-- iNICIO DO FOOTER. -->
     <footer>
       <div class="footer__element"></div>
     </footer>
 <!-- FINAL DO FOOTER. -->
+
+<!-- CDM -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../Public/script&module/supplier.js"></script>
+    <script src="../Public/script&module/components/sidebar-nav.js"></script>
+    <script src="../Public/script&module/components/logout-warning.js"></script>
+    <script src="../Public/script&module/components/sand-loader.js"></script>
+    <script src="../Public/script&module/components/confirmation-modal-delete-supplier.js"></script>
+    <script src="../Public/script&module/token_manager.js"></script>
+  
   </body>
 </html>
