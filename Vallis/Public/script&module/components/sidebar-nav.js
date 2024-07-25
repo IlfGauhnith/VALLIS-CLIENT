@@ -321,17 +321,23 @@
     .sidenav {padding-top: 1rem;}
     .sidenav a {font-size: 1.1rem;}
   }
-
-  </style> 
-  <html>
+/* ******************************************************************** Final da tag style. ******************************************************************* */
+</style> 
+<html>
+<!-- ***************************************************************** Inicio das tag htlm. ******************************************************************* -->
+<!-- Essa div cria os elementos do menu lateral que vai ser gerado ao clique no botão e referência as páginas que existem nos links do menu. -->
+<div id="mySidenav" class="sidenav">
+    <div class="element__close">
       <button class="button__close" onclick="closeNav()">
         <div class="closebtn" >&times;</div>
         <div class="text__close">Fechar</div>
       </button>  
     </div>
+<!- Links da navegação das páginas Fornecedor, Cadastrara Autorização e Loja-->
     <a href="supplier.html">Fornecedor</a>
     <a href="cadastrar_autorizacao_pagamento.html">Cadastrar Autorização</a>
     <a href="store.html">Loja</a>
+<!-- Esta div cria o elemento e botão para sair da conta -->
     <div class="element__logout">
         <button class="button__logout" onclick="logoutSession()">
           <div class="element__icon"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg>
@@ -339,20 +345,17 @@
           <div class="text__logout">Sair da conta</div>
         </button>  
     </div>
+<!-- Esta div cria os elementos do footer da sidebar  -->
     <div class="element__mini__footer">
       <div class="mini__footer">
         <img class="vallis__logo" src="../Public/Img/VALLIS_Logo.png" alt="Vallis">
-      </div>
-      <div class="footer__info">
-        <div class="suport">SUPORTE</div>
-        <div class="developer">DESENVOLVEDORES</div>
-        <div class="resouces">RECURSOS</div>
-      </div>
-      <div class="footer__copyright">
         <div class="copyright">Copyright © 2024 Vallis Developer | All rights reserved </div>
       </div>
     </div>
-  </div>  
+    
+  </div>
+      
+<!-- Elemento que abre o menu lateral (sidbar). -->
       <div class="button__sidebar">
         <span onclick="openNav()">
           <button class="menu__icon">
@@ -362,34 +365,37 @@
           </button>
         </span>
       </div>
-  </html>`
-    ;}
-  }
+</html>`;
+/* ********************************************************************* Final das tag html. ******************************************************************** */
+
+/* ************************************************************************************************************************************************************** */
+/* ***************************************** NÃO ESQUEÇA DO ACENTO GRAVE ANTES DA TAG <style> E DEPOIS DA TAG </html> ******************************************* */
+/* ************************************************************************************************************************************************************** */
+}
+}
+/* ************************************************************  Definição do elemento pelo JavaScrip.  ********************************************************  */
+
 /* Elemento do HTML <side-bar-nav>. Class = SideBarNav. */
-  customElements.define('side-bar-nav', SideBarNav);
-  
+customElements.define('side-bar-nav', SideBarNav);
+
 /* Defina a largura da navegação lateral para 22rem e a margem esquerda do conteúdo da página para 1rem */
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "22.5rem";
-    document.getElementById("main").style.marginLeft = "8rem";
-  }
-  
+function openNav() {
+  document.getElementById("mySidenav").style.width = "22.5rem";
+  document.getElementById("main").style.marginLeft = "8rem";
+}
+
 /* Define a largura da navegação lateral como 0 e a margem esquerda do conteúdo da página como 0 */
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-  }
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
 
 /* Dispara o evento de logout do botão button__logout*/
-  function logoutSession() {
-    const logoutEvent = new CustomEvent('logoutClicked');
-    document.dispatchEvent(logoutEvent);
-  }
+function logoutSession() {
+  const logoutEvent = new CustomEvent('logoutClicked');
+  document.dispatchEvent(logoutEvent);
+}
 
-
-
-
-
-
+/* ******************************************************* Final do componente da barra lateral da apliacação. ************************************************** */
 
 
