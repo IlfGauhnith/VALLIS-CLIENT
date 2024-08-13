@@ -94,7 +94,7 @@
     overflow: hidden;
     transition-duration: .3s;  
 
-    fonte-size: 3rem;
+    font-size: 3rem;
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -313,11 +313,11 @@
     padding-left: 1rem;
   }
 
-   quando abrir o menu lateral. Usando o ID main. */
+/* Quando abrir o menu lateral. Usando o ID main. */
   #main {
     transition: margin-left 0.8s;
     padding: 1rem;  
-
+  
     .sidenav {padding-top: 1rem;}
     .sidenav a {font-size: 1.1rem;}
   }
@@ -326,14 +326,14 @@
 <html>
 <!-- ***************************************************************** Inicio das tag htlm. ******************************************************************* -->
 <!-- Essa div cria os elementos do menu lateral que vai ser gerado ao clique no botão e referência as páginas que existem nos links do menu. -->
-<div id="mySidenav" class="sidenav">
+  <div id="mySidenav" class="sidenav">
     <div class="element__close">
       <button class="button__close" onclick="closeNav()">
         <div class="closebtn" >&times;</div>
         <div class="text__close">Fechar</div>
       </button>  
     </div>
-<!- Links da navegação das páginas Fornecedor, Cadastrara Autorização e Loja-->
+<!-- Links da navegação das páginas Fornecedor, Cadastrara Autorização e Loja-->
     <a href="supplier.html">Fornecedor</a>
     <a href="cadastrar_autorizacao_pagamento.html">Cadastrar Autorização</a>
     <a href="store.html">Loja</a>
@@ -349,10 +349,16 @@
     <div class="element__mini__footer">
       <div class="mini__footer">
         <img class="vallis__logo" src="../Public/Img/VALLIS_Logo.png" alt="Vallis">
+      </div>
+      <div class="footer__info">
+        <div class="suport">SUPORTE</div>
+        <div class="developer">DESENVOLVEDORES</div>
+        <div class="resouces">RECURSOS</div>
+      </div>
+      <div class="footer__copyright">
         <div class="copyright">Copyright © 2024 Vallis Developer | All rights reserved </div>
       </div>
     </div>
-    
   </div>
       
 <!-- Elemento que abre o menu lateral (sidbar). -->
